@@ -16,7 +16,7 @@
 .nav{
     position: fixed;
     top: 0;
-    width: 23%;
+    width: 22%;
     height: 100%;
     float: left;
     padding: 40px;
@@ -29,33 +29,60 @@
     list-style: none;
 }
 
+.aside ul li a{
+    font-size: 23px;
+    text-decoration: none;
+    color: ;
+}
+
 .main{
+    position: relative;
     float:right;
     width: 100%;
-    height: 2000px;
     background-color: #e6e6e6;
 }
 
 section{
+    width: 100%;
+    padding-left: 22%;
+    z-index: 999;
+}
+
+section .inner{
+    position: relative;
+    padding: 50px;
     border: 1px solid #000;
-    padding-left: 23%;
+    width: 100%;
+    height: 100%;
 }
 
 .profile{
     height: 100vh;
-   
 }
+
+.profileImg{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, 0);
+    border-radius: 50%;
+    background: url('img/profileImg.png') no-repeat;
+    background-size: 200px;
+    box-shadow: 2px 2px 3px gray;
+}
+
+
 .myskills{
     background-color: #dddddd;
-    z-index: 1;
 }
 
 .portfolio{
     background-color: #222831;
-    z-index: 1;
+
 }
 
 .contact{
     background-color: #c9cbff;
-    z-index: 1;
 }
