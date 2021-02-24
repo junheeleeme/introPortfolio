@@ -1,0 +1,142 @@
+@charset "utf-8";
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+#kkusaeng{
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.nav{
+    position: fixed;
+    top: 0;
+    width: 21.5%;
+    height: 100%;
+    float: left;
+    padding: 5% 3%;
+    background-color: #312450;
+    z-index: 1;
+}
+
+.aside .nav_main, .nav_sub{
+    list-style: none;
+    text-align: right;
+}
+
+.nav_sub{
+
+}
+
+.nav_main li{
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.nav_main li>a{
+    position: relative;
+    font-size: 1.7em;
+    text-decoration: none;
+    padding: 0px 15px 0px 0;
+    color: #fff;
+}
+
+.nav_sub li{
+    margin: 10px 0;
+}
+
+.nav_sub li>a{
+    position: relative;
+    font-size: 1.25em;
+}
+
+.nav_main>li>a:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 500px;
+    width: 70px;
+    height: 50%;
+    background: #fff;
+    transition: 0.47s ease;
+}
+
+.nav_main>li>a:hover:after{
+    right: -63px;
+}
+
+.nav_main>li>a::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 500px;
+    width: 70px;
+    height: 50%;
+    background: #fff;
+    transition: 0.55s ease;
+}
+
+.nav_main>li>a:hover::before{
+    right: -63px;
+}
+
+
+.main{
+    position: relative;
+    float:right;
+    width: 100%;
+    background-color: #e6e6e6;
+}
+
+section{
+    width: 100%;
+    padding-left: 21.5%;
+    z-index: 999;
+}
+
+section .inner{
+    position: relative;
+    padding: 50px;
+    border: 1px solid #000;
+    width: 100%;
+    height: 100%;
+}
+
+.profile{
+    height: 100vh;
+}
+
+.profileImg{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, 0);
+    border-radius: 50%;
+    background: url('img/profileImg.png') no-repeat;
+    background-size: 200px;
+    box-shadow: 2px 2px 3px gray;
+}
+
+
+.myskills{
+    background-color: #dddddd;
+}
+
+.portfolio{
+    background-color: #222831;
+
+}
+
+.contact{
+    background-color: #c9cbff;
+}
