@@ -72,7 +72,6 @@ a{
 .nav_main>li>a:hover:after{
     right: -63px;
 }
-
 .nav_main>li>a::before{
     content: '';
     position: absolute;
@@ -87,7 +86,6 @@ a{
 .nav_main>li>a:hover::before{
     right: -63px;
 }
-
 
 .main{
     position: relative;
