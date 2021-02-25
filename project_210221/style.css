@@ -33,7 +33,7 @@ a{
 }
 
 .nav_sub{
-
+    display: none;
 }
 
 .nav_main li{
@@ -51,11 +51,27 @@ a{
 
 .nav_sub li{
     margin: 10px 0;
+    padding: 3px 0;
 }
 
 .nav_sub li>a{
     position: relative;
     font-size: 1.25em;
+}
+
+.nav_sub li>a::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #fff;
+    transition: 0.3s ease;
+}
+
+.nav_sub li>a:hover::after{
+    width: 88%;
 }
 
 .nav_main>li>a:after{
@@ -108,7 +124,7 @@ section .inner{
     height: 100%;
 }
 
-.profile{
+section.profile{
     height: 100vh;
 }
 
@@ -125,16 +141,19 @@ section .inner{
     box-shadow: 2px 2px 3px gray;
 }
 
-
-.myskills{
-    background-color: #dddddd;
+section.myskills{
+    background-color: #854242;
+    height: 800px;
 }
 
-.portfolio{
+section.portfolio{
     background-color: #222831;
+    height: 800px;
 
 }
 
-.contact{
+section.contactme{
     background-color: #c9cbff;
+    height: 400px;
 }
+
