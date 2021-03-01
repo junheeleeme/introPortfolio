@@ -1,7 +1,14 @@
+
+function test(){
+    window.scroll({top : window.innerHeight, behavior: 'smooth'});
+}
+
+test();
+
 let scrollTop;
 let isWheel_move;
 
-function checkMobile(){ //접속 환경 구분
+function checkDevice(){ //접속 환경 구분
     var varUA = navigator.userAgent.toLowerCase(); //userAgent 값 얻기
  
     if ( varUA.indexOf('android') > -1) {
@@ -30,7 +37,7 @@ window.addEventListener('mousewheel', (e) => {
 });
 
 function isWheel(wDelta){
-    if(wDelta > 0 ){
+    if(wDelta >= 120){
         move_up();
     }
     else{
@@ -66,7 +73,7 @@ function move_nav(target_id){
     const target_nav = document.querySelector('.'+target_id);
     const targetTop = window.pageYOffset + target_nav.getBoundingClientRect().top;
     
-    if (checkMobile() === 'ios'){ //접속 환경 구분
+    if (checkDevice() === 'ios'){ //접속 환경 구분
         $('html').animate({scrollTop: targetTop.toFixed(4)}, 200);
     }else{
         window.scroll({top : targetTop.toFixed(4), behavior: 'smooth'});
