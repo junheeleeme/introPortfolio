@@ -13,32 +13,41 @@
         <nav class="nav">
             <aside class="aside">
                 <ul class="nav_main">
-                    <li>
-                        <a id="profile" href="#" onclick="return false">Profile</a>
+                    <li id="intro">
+                        <a href="#" onclick="return false">Intro</a>
+                        <span class="upBlock"></span>
+                        <span class="downBlock"></span>
                     </li>
-                    <li class="nav_slide">
-                        <a id="myskills" href="#" onclick="return false">My Skills</a>
+                    <li id="profile">
+                        <a href="#" onclick="return false">Profile</a>
+                        <span class="upBlock"></span>
+                        <span class="downBlock"></span>
                     </li>
-                    <li class="nav_slide">
-                        <a id="portfolio" href="#" onclick="return false;">Portfolio</a>
+                    <li id="myskills">
+                        <a  href="#" onclick="return false">My Skills</a>
+                        <span class="upBlock"></span>
+                        <span class="downBlock"></span>
                     </li>
-                    <li>
-                        <a id="contactme" href="#" onclick="return false;">Contact me</a>
+                    <li id="portfolio">
+                        <a  href="#" onclick="return false;">Portfolio</a>
+                        <span class="upBlock"></span>
+                        <span class="downBlock"></span>
+                    </li>
+                    <li id="contactme" >
+                        <a href="#" onclick="return false;">Contact me</a>
+                        <span class="upBlock"></span>
+                        <span class="downBlock"></span>
                     </li>
                 </ul>
             </aside>  
-            <div class="move_btn">
-                <div id="up">
-                    <span class="up_left"></span>
-                    <span class="up_right"></span>
-                </div>
-                <div id="down">
-                    <span class="down_left"></span>
-                    <span class="down_right"></span>
-                </div>
-            </div>
         </nav>
         <main class="main">
+            <section class="intro">
+                <div class="inner">
+                    <div class="profileImg"></div>
+                    <div class="introduce"></div>
+                </div>
+            </section>
             <section class="profile">
                 <div class="inner">
                     <div class="profileImg"></div>
@@ -66,6 +75,16 @@
                     <h2 class="Nav_title">Contact Me</h2>
                 </div>
             </section>
+            <div class="move_btn">
+                <div id="up">
+                    <span class="up_left"></span>
+                    <span class="up_right"></span>
+                </div>
+                <div id="down">
+                    <span class="down_left"></span>
+                    <span class="down_right"></span>
+                </div>
+            </div>
         </main>
     </div>
     <footer class="footer">

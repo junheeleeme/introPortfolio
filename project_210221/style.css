@@ -9,7 +9,7 @@
 html{
     -ms-overflow-style: none;
     overflow: hidden;
-    scroll-behavior: smooth;
+    
 }
 
 body{
@@ -45,78 +45,10 @@ html::-webkit-scrollbar{
     height: calc(100vh - 60px);
     width: 21.5%;
     float: left;
-    padding: 5% 3%;
-    background-color: rgba(49, 36, 80, 0.7);
+    padding: 5% 3% 5% 0;
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 9999;
 }
-.nav .move_btn{
-    float: right;  
-}
-
-.move_btn #up{
-    position: relative;
-    width: 50px;
-    height: 50px;
-    margin: 5px;
-    background: #fff;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.move_btn #down{
-    position: relative;
-    width: 50px;
-    height: 50px;
-    margin: 5px;
-    background: #fff;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-#up .up_left{
-    position: absolute;
-    background-color: #b088f9;
-    top: 45%;
-    left: 35%;
-    transform: translate(-50%, -50%) rotate(135deg);
-    border-radius: 10px;
-    height: 7px;
-    width: 27px;
-}
-
-#up .up_right{
-    position: absolute;
-    background-color: #b088f9;
-    top: 45%;
-    left: 65%;
-    transform: translate(-50%, -50%) rotate(45deg);
-    border-radius: 10px;
-    height: 7px;
-    width: 27px;
-}
-
-#down .down_left{
-    position: absolute;
-    background-color: #b088f9;
-    top: 55%;
-    left: 35%;
-    transform: translate(-50%, -50%) rotate(-135deg);
-    border-radius: 10px;
-    height: 7px;
-    width: 27px;
-}
-
-#down .down_right{
-    position: absolute;
-    background-color: #b088f9;
-    top: 55%;
-    left: 65%;
-    transform: translate(-50%, -50%) rotate(-45deg);
-    border-radius: 10px;
-    height: 7px;
-    width: 27px;
-}
-
 
 .aside .nav_main, .nav_sub{
     list-style: none;
@@ -124,6 +56,7 @@ html::-webkit-scrollbar{
 }
 
 .nav_main li{
+    position: relative;
     margin: 20px 0;
     overflow: hidden;
 }
@@ -131,37 +64,40 @@ html::-webkit-scrollbar{
 .nav_main li>a{
     position: relative;
     font-size: 1.7em;
-    text-decoration: none;
     padding: 0px 15px 0px 0;
-    color: #fff;
+    color: #000;
+    transition: color 0.4s ease;
 }
 
-.nav_main>li>a:after{
-    content: '';
+.upBlock{
     position: absolute;
     top: 0;
     right: 500px;
     width: 70px;
     height: 50%;
     background: #fff;
-    transition: 0.4s ease;
+    transition: 0.35s ease-out;
 }
 
-.nav_main>li>a:hover:after{
-    right: -63px;
-}
-.nav_main>li>a::before{
-    content: '';
+.downBlock{
     position: absolute;
     bottom: 0;
     right: 500px;
     width: 70px;
     height: 50%;
     background: #fff;
-    transition: 0.44s ease;
+    transition: 0.4s ease-out;
 }
 
-.nav_main>li>a:hover::before{
+.nav_main>li:hover a{
+    color: #fff;
+}
+
+.nav_main>li:hover .upBlock{
+    right: -63px;
+}
+
+.nav_main>li:hover .downBlock{
     right: -63px;
 }
 
@@ -246,10 +182,96 @@ ul#skills li:hover{
 }
 
 section.portfolio{
-    background-color: #222831;
+    background-color: #fff9b0;
 }
 
 section.contactme{
-    background-color: #c9cbff;
+    background-color: #d3e0dc;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.move_btn{
+    position: fixed;
+    bottom: 5%;
+    right: 2%;
+    z-index: 9999; 
+}
+
+.move_btn #up{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.move_btn #down{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#up .up_left{
+    position: absolute;
+    background-color: #b088f9;
+    top: 45%;
+    left: 35%;
+    transform: translate(-50%, -50%) rotate(135deg);
+    border-radius: 10px;
+    height: 7px;
+    width: 27px;
+}
+
+#up .up_right{
+    position: absolute;
+    background-color: #b088f9;
+    top: 45%;
+    left: 65%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border-radius: 10px;
+    height: 7px;
+    width: 27px;
+}
+
+#down .down_left{
+    position: absolute;
+    background-color: #b088f9;
+    top: 55%;
+    left: 35%;
+    transform: translate(-50%, -50%) rotate(-135deg);
+    border-radius: 10px;
+    height: 7px;
+    width: 27px;
+}
+
+#down .down_right{
+    position: absolute;
+    background-color: #b088f9;
+    top: 55%;
+    left: 65%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    border-radius: 10px;
+    height: 7px;
+    width: 27px;
+}

@@ -1,50 +1,31 @@
 
-function test(){
-    window.scroll({top : window.innerHeight, behavior: 'smooth'});
-}
-
-test();
-
 let scrollTop;
 let isWheel_move;
+let wDelta;
+let _select;
 
-function checkDevice(){ //접속 환경 구분
-    var varUA = navigator.userAgent.toLowerCase(); //userAgent 값 얻기
- 
-    if ( varUA.indexOf('android') > -1) {
-        //안드로이드
-        return 'android';
-    } else if ( varUA.indexOf("iphone") > -1||varUA.indexOf("ipad") > -1||varUA.indexOf("ipod") > -1 ) {
-        //IOS
-        return 'ios';
-    } else {
-        return 'other';
-    } 
-}
+$(this).on("mousewheel DOMMouseScroll", function (e) {
 
-window.addEventListener('mousewheel', (e) => {
-    /*
-    scrollTop = window.innerHeight;
-    if(e.wheelDelta === -120){
-        console.log(e);
-    } else{
-        console.log(e.wheelDelta);
-    }*/
-    console.log(e.wheelDelta);
     clearInterval(isWheel_move);
-    isWheel_move = setTimeout(() => isWheel(e.wheelDelta), 200);
+    wDelta = e.originalEvent.wheelDelta;
+    isWheel_move = setTimeout(() => isWheel(wDelta), 200);
+    console.log(e.originalEvent.wheelDelta);
 
 });
 
 function isWheel(wDelta){
-    if(wDelta >= 120){
-        move_up();
-    }
-    else{
-        move_down();
-    }
-}
 
+    if(wDelta > 10){
+        fn_moveUp();
+    }
+    else if(wDelta === 3){
+        fn_moveUp();
+    }
+    else if(wDelta < 0){
+        fn_moveDown();
+    }
+
+}
 
 /* 메뉴 이동  */
 let select_nav = 0;
@@ -54,52 +35,46 @@ let select_nav = 0;
 //2 : Portflio
 //3 : Contact me
 
-    /* nav메뉴 직접 클릭 이동 */
-const target = document.querySelectorAll(".nav_main > li > a");
+$(".nav_main>li").click(function(){
+    fnMove($(this).prop('id'));
+    select_nav = $(this).index();
+    _select= $(this);
+    nav_focus(_select);
+});
 
-for(i = 0 ; i < target.length ; i++){ //네비게이션 메뉴 전체 이벤트 등록
-    target[i].addEventListener('click', () =>{
-        move_nav(event.target.getAttribute("id")); //클릭한 타겟 id값 확인
+$("#up").click(function(){
+    fn_moveUp();
+})
 
-        for(i=0 ; i< target.length ; i++){ //직접 클릭한 메뉴 위치 저장
-            if(target[i].getAttribute('id') === event.target.getAttribute("id")){
-                select_nav = i;
-            }
-        }
-    })    
-}  
+$("#down").click(function(){
+    fn_moveDown();
+})
 
-function move_nav(target_id){
-    const target_nav = document.querySelector('.'+target_id);
-    const targetTop = window.pageYOffset + target_nav.getBoundingClientRect().top;
-    
-    if (checkDevice() === 'ios'){ //접속 환경 구분
-        $('html').animate({scrollTop: targetTop.toFixed(4)}, 200);
-    }else{
-        window.scroll({top : targetTop.toFixed(4), behavior: 'smooth'});
+function fn_moveUp(){   //화면 위로 이동
+    if( select_nav > 0){
+        select_nav-=1;
+        fnMove($('.nav_main>li').eq(select_nav).prop('id'));
     }
-    console.log((targetTop).toFixed(4));
-}    /* nav메뉴 직접 클릭 이동 */
-
-    /* 업다운 버튼 클릭 이동 */
-document.querySelector('#up').addEventListener('click',() =>{
-    move_up();
-})
-
-document.querySelector('#down').addEventListener('click',() =>{   
-    move_down();
-})
-
-function move_up(){
-    if(select_nav > 0) select_nav -= 1;
-    move_nav(target[select_nav].getAttribute('id'));
 }
 
-function move_down(){
-    if(select_nav < target.length-1) select_nav += 1;
-    move_nav(target[select_nav].getAttribute('id'));
+function fn_moveDown(){  //화면 아래로 이동
+    if( select_nav < $(".nav_main>li").length-1){
+        select_nav+=1;
+        fnMove($('.nav_main>li').eq(select_nav).prop('id'));
+    }
 }
-    /* 업다운 버튼 클릭 이동 */
+
+function fnMove(target_id){  //직접 클릭한 메뉴화면 절대위치를 계산해 이동
+    targetTop = $('.'+target_id).offset().top;
+    $("html,body").stop().animate({
+        scrollTop: targetTop.toFixed(4)}, 500, 'swing');
+        console.log((targetTop).toFixed(4));
+}
 /* 메뉴 이동  */
 
-
+function nav_focus(select){
+    select.children('a').css({'color' : '#fff'});
+    select.children('span').css({'right' : '-63px'});
+    select.siblings().children('span').removeAttr('style');
+    select.siblings().children('a').removeAttr('style');
+}
