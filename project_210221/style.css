@@ -6,44 +6,20 @@
     font-style: normal;
 }
 
-html{
-    -ms-overflow-style: none;
-    overflow: hidden;
-    
-}
 
-body{
-    scroll-behavior: smooth;
-}
-
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-a{
-    font-family: 'NEXON Lv2 Gothic';
-    font-weight: bold;
-    text-decoration: none;
-}
-
-#kkusaeng{
-    position: relative; 
-    width: 100%;
-    height: 100vh;
-}
-
-html::-webkit-scrollbar{
-    display: none;
-}
+*{ box-sizing: border-box; margin: 0; padding: 0; }
+html{ -ms-overflow-style: none; overflow: hidden;}
+html::-webkit-scrollbar{ display: none; }
+body{ scroll-behavior: smooth; }
+a{ font-family: 'NEXON Lv2 Gothic'; font-weight: bold; text-decoration: none; }
+#kkusaeng{ position: relative; width: 100%; height: 100vh;}
 
 .nav{
     position: fixed;
     top: 30px;
     left: 30px;
     height: calc(100vh - 60px);
-    width: 21.5%;
+    width: 20.5%;
     float: left;
     padding: 5% 3% 5% 0;
     background-color: rgba(0, 0, 0, 0.5);
@@ -63,10 +39,46 @@ html::-webkit-scrollbar{
 
 .nav_main li>a{
     position: relative;
-    font-size: 1.7em;
+    font-size: 1.9em;
     padding: 0px 15px 0px 0;
     color: #000;
     transition: color 0.4s ease;
+}
+
+.nav_intro_wrap{
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+
+}
+
+.nav_intro_wrap>a{
+    background-color: #fff;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 3px;
+}
+
+.git{
+    width: 35px;
+    height: 35px;
+    position: relative;
+    background-image: url('img/github_icon.png');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: 103% 103%;
+    border-radius: 50%;
+    padding: 0;
+}
+
+.blog{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-image: url('img/tistory_icon.png');
+    background-repeat: no-repeat;
+    background-size: 120% 120%;
+    background-position: center;
 }
 
 .upBlock{
@@ -122,6 +134,12 @@ section>.inner{
     height: 100%;
 }
 
+.main>.intro{
+    background: #654ea3;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #eaafc8, #654ea3);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #eaafc8, #654ea3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 section.profile{
     top: 0;
     left: 0;
@@ -130,17 +148,20 @@ section.profile{
     z-index: 0;
 }
 
-#bg_cover{
+.bg_cover{
     position: absolute;
     top: 0;
     left: 0;
-    background: rgba(0,0,0, 0.7);
+    background: rgba(0,0,0, 0.5);
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 0;
 }
 
-/*
+.intro_wrap{
+    
+}
+
 .profileImg{
     position: absolute;
     top: 10%;
@@ -152,33 +173,70 @@ section.profile{
     background: url('img/profileImg.png') no-repeat;
     background-size: 250px;
     box-shadow: 2px 2px 3px gray;
-}*/
-
-section.myskills{
-    background-color: #dddddd;
+    z-index: 10;
 }
 
-#skills>li{
+
+.myskills{
+    background: #C6FFDD;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f7797d, #FBD786, #C6FFDD);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(135deg, #f7797d, #FBD786, #C6FFDD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */   
+}
+
+.skills_wrap{
+    position: absolute;
+    width: 100%;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+}
+
+.skills_wrap>li{
     display: inline-block;
-    width: 180px;
-    height: 180px;
+    vertical-align: middle;
+    width: 150px;
+    height: 150px;
     border-radius: 20px;
-    padding: 20px;
-    font-size: 0;
-    background: #eee;
+    margin: 0 10px;
     transition: .3s ease;
+    cursor: pointer;
+    box-shadow: 3px 3px 5px 2px rgba(0,0,0,0.2);
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.js{
-    padding: 0!important;
+.item_html{
+    background-image: url('img/HTML5_logo.svg');
+    background-size: 80%;
 }
 
-ul#skills li img{
-    border-radius: 20px;
+.item_css{
+    background-image: url('img/CSS3_logo.svg');
+    background-size: 60%;
 }
 
-ul#skills li:hover{
-    box-shadow: 0px 3px 15px 0px rgba(0,0,0,0.5);
+.item_js{
+    background-image: url('img/js_logo.svg');
+    background-size: 100%;
+}
+
+.item_jquery{
+    background-image: url('img/jquery.png');
+    background-size: 80%;
+}
+
+.item_nodejs{
+    background-image: url('img/Node.js_logo.svg');
+    background-size: 80%;
+}
+
+
+
+.skills_wrap li:hover{
+    box-shadow: 3px 3px 10px 3px rgba(0,0,0,0.5);
 }
 
 section.portfolio{
@@ -186,24 +244,8 @@ section.portfolio{
 }
 
 section.contactme{
-    background-color: #d3e0dc;
+    background-color: #91c788;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .move_btn{
     position: fixed;
@@ -212,29 +254,29 @@ section.contactme{
     z-index: 9999; 
 }
 
-.move_btn #up{
+.move_btn .up{
     position: relative;
     width: 50px;
     height: 50px;
     margin: 5px;
-    background: #fff;
+    background: #f3f4ed;
     border-radius: 50%;
     cursor: pointer;
 }
 
-.move_btn #down{
+.move_btn .down{
     position: relative;
     width: 50px;
     height: 50px;
     margin: 5px;
-    background: #fff;
+    background: #f3f4ed;
     border-radius: 50%;
     cursor: pointer;
 }
 
-#up .up_left{
+.up .up_left{
     position: absolute;
-    background-color: #b088f9;
+    background-color: #000;
     top: 45%;
     left: 35%;
     transform: translate(-50%, -50%) rotate(135deg);
@@ -243,9 +285,9 @@ section.contactme{
     width: 27px;
 }
 
-#up .up_right{
+.up .up_right{
     position: absolute;
-    background-color: #b088f9;
+    background-color: #000;
     top: 45%;
     left: 65%;
     transform: translate(-50%, -50%) rotate(45deg);
@@ -254,9 +296,9 @@ section.contactme{
     width: 27px;
 }
 
-#down .down_left{
+.down .down_left{
     position: absolute;
-    background-color: #b088f9;
+    background-color: #000;
     top: 55%;
     left: 35%;
     transform: translate(-50%, -50%) rotate(-135deg);
@@ -265,9 +307,9 @@ section.contactme{
     width: 27px;
 }
 
-#down .down_right{
+.down .down_right{
     position: absolute;
-    background-color: #b088f9;
+    background-color: #000;
     top: 55%;
     left: 65%;
     transform: translate(-50%, -50%) rotate(-45deg);

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <title>꾸생</title>
 <link rel="stylesheet" href="style.css"> 
 
@@ -13,76 +15,80 @@
         <nav class="nav">
             <aside class="aside">
                 <ul class="nav_main">
-                    <li id="intro">
+                    <!--
+                    <li class="nav_intro">
                         <a href="#" onclick="return false">Intro</a>
                         <span class="upBlock"></span>
                         <span class="downBlock"></span>
                     </li>
-                    <li id="profile">
+                    -->
+                    <li class="nav_profile">
                         <a href="#" onclick="return false">Profile</a>
                         <span class="upBlock"></span>
                         <span class="downBlock"></span>
                     </li>
-                    <li id="myskills">
+                    <li class="nav_myskills">
                         <a  href="#" onclick="return false">My Skills</a>
                         <span class="upBlock"></span>
                         <span class="downBlock"></span>
                     </li>
-                    <li id="portfolio">
+                    <li class="nav_portfolio">
                         <a  href="#" onclick="return false;">Portfolio</a>
                         <span class="upBlock"></span>
                         <span class="downBlock"></span>
                     </li>
-                    <li id="contactme" >
+                    <li class="nav_contactme" >
                         <a href="#" onclick="return false;">Contact me</a>
                         <span class="upBlock"></span>
                         <span class="downBlock"></span>
                     </li>
                 </ul>
             </aside>  
+            <div class="nav_intro_wrap">
+                <a class="blog" target="_blank" href="https://juni-official.tistory.com"></a>
+                <a class="git" target="_blank" href="https://github.com/junheeleeme"></a>          </a>
+            </div>
         </nav>
-        <main class="main">
+        <main class="main"><!--
             <section class="intro">
                 <div class="inner">
-                    <div class="profileImg"></div>
-                    <div class="introduce"></div>
+
                 </div>
-            </section>
+            </section>-->
             <section class="profile">
+                <span class="bg_cover"></span>
                 <div class="inner">
                     <div class="profileImg"></div>
-                    <div class="introduce"></div>
+                    <div class="intro_wrap">Lee Jun Hee</div>
                 </div>
             </section>
             <section class="myskills">
                 <div class="inner">
-                    <h2 class="Nav_title">My Skills</h2>
-                    <ul id="skills">
-                        <li><img src="/img/html5_logo.svg" width="100%" height="100%" alt="html5"></li>
-                        <li><img src="/img/CSS3_logo.svg" width="100%" height="100%" alt="css3"></li>
-                        <li class="js"><img src="/img/js_logo.svg" width="100%" height="100%" alt="js"></li>
-                        <li><img src="/img/Node.js_logo.svg" width="100%" height="100%" alt="nodejs"></li>
+                    <ul class="skills_wrap">
+                        <li class="item_html"></li>
+                        <li class="item_css"></li>
+                        <li class="item_js"></li>
+                        <li class="item_jquery"></li>
+                        <li class="item_nodejs"></li>
                     </ul>
                 </div>
             </section>
             <section class="portfolio">
                 <div class="inner">
-                    <h2 class="Nav_title">Portfolio</h2>
                 </div>
             </section>
             <section class="contactme">
                 <div class="inner">
-                    <h2 class="Nav_title">Contact Me</h2>
                 </div>
             </section>
     
         </main>
         <div class="move_btn">
-            <div id="up">
+            <div class="up">
                 <span class="up_left"></span>
                 <span class="up_right"></span>
             </div>
-            <div id="down">
+            <div class="down">
                 <span class="down_left"></span>
                 <span class="down_right"></span>
             </div>
@@ -92,7 +98,6 @@
     </footer>   
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <script async src="js/main.js"></script>
 </body>
 </html>
