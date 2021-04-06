@@ -234,13 +234,14 @@ section.intro{
 
 .intro_wrap>h1{
     font-size: 95px;
+    user-select: none;
 }
 
 .typing{
     position: relative;
     display: inline;
     font-size: 25px;
-
+    user-select: none;
 }
 
 .cursor{
@@ -249,9 +250,8 @@ section.intro{
     width: 2px;
     height: 27px;
     background: #000;
-    animation: typing_effect .1s infinite;
-    animation-name: typing_effect;
-    animation-duration: 1s;
+    transition: 0;
+    animation: typing_effect 0.8s infinite;
     opacity: 1;
 }
 
@@ -285,9 +285,11 @@ section.intro{
 .skills_wrap{
     position: absolute;
     width: 100%;
-    top: 25%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: 0.75s ease-out;
     width: 100%;
     text-align: center;
 }
@@ -302,6 +304,7 @@ section.intro{
     transform: rotate(10deg);
     transition: .3s ease;
     cursor: pointer;
+    transition: 0.5s ease-out;
     box-shadow: 3px 3px 5px 2px rgba(0,0,0,0.2);
     background-color: #fff;
     background-repeat: no-repeat;
@@ -352,7 +355,7 @@ section.intro{
     position: absolute;
     bottom: -500px;
     left: 130px;
-    transition: .68s ease-in-out;
+    transition: .7s ease-in-out;
 }
 .my_info h3{
     font-family: 'Nanum Gothic', sans-serif;

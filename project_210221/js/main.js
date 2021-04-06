@@ -10,6 +10,10 @@ let chk_dev;
 let isWheel_move;
 let wDelta; //마우스 Delta값
 let nav_idx = 0; 
+let typ = typing.innerText.split('');
+let _typing1;
+let _typing2;
+let _typing3;
 
 // nav_idx =>
 //0 : Intro
@@ -31,8 +35,6 @@ function check_device(){
     return usr_agent; //ios = true
 }
 
-
-
 // 마우스 휠 방향 구분
 function isWheel(wDelta){ 
     if(wDelta > 10){
@@ -48,6 +50,7 @@ function isWheel(wDelta){
 
 // 화면 스크롤 이동 기능구현
 function fnMove(n_idx){  //직접 클릭한 nav메뉴 절대위치를 계산해 이동
+    allClear();
     const m_section = document.querySelectorAll('.main>section');
     const targetTop = m_section[n_idx].offsetTop;
 
@@ -57,17 +60,41 @@ function fnMove(n_idx){  //직접 클릭한 nav메뉴 절대위치를 계산해 
         $('html').stop().animate({ scrollTop : targetTop }, 350, 'swing');
     }
     console.log(nav_idx);
-    if(nav_idx === 3){
-        setTimeout(()=>{
-            my_info.style.bottom = '130px';
-            my_info.style.opacity = '1';
-        }, 100)
-    }
-    else{
-        setTimeout(()=>{
-            my_info.style.bottom = '-500px';
-            my_info.style.opacity = '0';
-        }, 100)
+
+    setTimeout(()=>{
+        my_info.style.bottom = '-500px';
+        my_info.style.opacity = '0';
+    }, 100)
+
+    switch(nav_idx){
+        case 0 : {
+            typing_Effect();
+            break;
+        }
+        case 1 : {
+            setTimeout(() => {
+                document.querySelector(".skills_wrap").style.top = '50%';
+                document.querySelector(".skills_wrap").style.opacity = '1';
+            }, 500);
+            allClear();
+            break;
+        }
+        case 2 : {
+            allClear();
+            break;
+        }
+        case 3 : {
+            setTimeout(()=>{
+                my_info.style.bottom = '130px';
+                my_info.style.opacity = '1';
+            }, 100)
+            allClear();
+            break;
+        }
+        case 4 : {
+            allClear();
+            break;
+        }
     }
 }
 
@@ -91,7 +118,6 @@ function fn_moveDown(){
     }
 }
 
-
 // 화면 스크롤 이동 기능구현
 function nav_focus(n_idx){
 
@@ -108,13 +134,66 @@ function nav_focus(n_idx){
     nav_menu[n_idx].children[2].style.right = "-63px";
 }
 
-let typing_start;
+let i = 0;
 
-function typing_Effect(){
-   
+function typing_Effect(num = 0){
+
+    if(num === 0){
+
+        setTimeout(()=>{
+            typing.innerText = '';
+            i= 0;
+        }, 0)
+        typing_Effect(1);
+
+    }
+    else if(num  === 1){ // 안녕하세요
+        setTimeout(()=>{
+        _typing1 = setInterval(()=>{
+            i++;
+            console.log(i)
+            typing.innerText += typ[i];
+            if(i === 8){
+                clearInterval(_typing1);
+                typing_Effect(2);
+            }
+        }, 100)
+        }, 1000)
+    }else if(num === 2){ // 웹 개발자
+        setTimeout(()=>{
+        _typing2 = setInterval(()=>{
+            i++;
+            console.log(i)
+            typing.innerText += typ[i];
+            if(i === 14){
+                clearInterval(_typing2);
+                typing_Effect(3);
+            }
+        }, 100)
+    }, 300)
+    }else if(num === 3){ //개인 포트폴리오 사이트입니다.
+    setTimeout(()=>{
+        _typing3 = setInterval(()=>{
+            i++;
+            typing.innerText += typ[i];
+            if(i === 31){
+                clearInterval(_typing3);
+                typing_Effect(4);
+            }
+        }, 100)
+    }, 600)
+    }else if(num === 4){
+    clearInterval(_typing3);
+    }
 }
 
-typing_Effect();
+function allClear(){
+    clearInterval(_typing1);
+    clearInterval(_typing2);
+    clearInterval(_typing3);
+    document.querySelector(".skills_wrap").style.top = '70%';
+    document.querySelector(".skills_wrap").style.opacity = '0';
+}
 
 /* Event Handling */
 
@@ -168,4 +247,3 @@ up.addEventListener('click', ()=>{
 down.addEventListener('click', ()=>{
     fn_moveDown();
 })
-
