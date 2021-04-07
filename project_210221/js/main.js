@@ -73,8 +73,12 @@ function fnMove(n_idx){  //직접 클릭한 nav메뉴 절대위치를 계산해 
         }
         case 1 : {
             setTimeout(() => {
-                document.querySelector(".skills_wrap").style.top = '50%';
-                document.querySelector(".skills_wrap").style.opacity = '1';
+                const skills_item = document.querySelectorAll('.skills_wrap>li');
+                
+                skills_item.forEach(item =>{
+                    console.log(item)
+                })
+
             }, 500);
             allClear();
             break;
@@ -151,7 +155,6 @@ function typing_Effect(num = 0){
         setTimeout(()=>{
         _typing1 = setInterval(()=>{
             i++;
-            console.log(i)
             typing.innerText += typ[i];
             if(i === 8){
                 clearInterval(_typing1);
@@ -163,7 +166,6 @@ function typing_Effect(num = 0){
         setTimeout(()=>{
         _typing2 = setInterval(()=>{
             i++;
-            console.log(i)
             typing.innerText += typ[i];
             if(i === 14){
                 clearInterval(_typing2);
@@ -191,8 +193,9 @@ function allClear(){
     clearInterval(_typing1);
     clearInterval(_typing2);
     clearInterval(_typing3);
-    document.querySelector(".skills_wrap").style.top = '70%';
-    document.querySelector(".skills_wrap").style.opacity = '0';
+    /*
+    document.querySelector(".skills_wrap").style.top = '110px';
+    document.querySelector(".skills_wrap").style.opacity = '1';*/
 }
 
 /* Event Handling */
@@ -206,6 +209,10 @@ html.addEventListener('mousewheel', (e)=>{
         isWheel_move = setTimeout(() => isWheel(wDelta), 200);
     }
 });
+
+window.onload = ()=>{
+    document.querySelector('.web_wrap').style.opacity = '1';
+}
 
 /* nav메뉴 클릭 이벤트 */
 nav_menu.forEach(nav_click =>{
@@ -230,11 +237,9 @@ nav_menu.forEach(nav_click =>{
 html.addEventListener('keydown', (e)=>{
     
     if(e.keyCode === 38){ // ArrowUp
-        console.log(e.code);
         fn_moveUp();
     }
     else if(e.keyCode === 40){ // ArrowDown
-        console.log(e.code);
         fn_moveDown();
     }
 })
