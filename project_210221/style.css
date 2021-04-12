@@ -234,6 +234,7 @@ section.intro{
     position: relative;
     display: inline;
     font-size: 25px;
+    font-weight: 300;
     user-select: none;
 }
 
@@ -262,10 +263,10 @@ section.intro{
     bottom: 30px;
     right: 30px;
     opacity: 0;
-    transition: 1s ease-out;
+    transition: 2s ease-out;
 }
 
-.web_wrap>h2{ font-size: 18px;}
+.web_wrap>h2{ font-size: 18px; font-weight: 200;}
 
 .profileImg{
     position: absolute;
@@ -342,6 +343,80 @@ section.intro{
 }
 
 .portfolio>.inner{ padding: 0;}
+
+.portfolio_item{
+    padding-left: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.55s ease;
+    height: 550px;
+}
+
+.portfolio_item>li{
+    position: relative;
+    display: inline-block;
+    width: 900px;
+    height: 550px;
+    border: 1px solid #000;
+    margin-bottom: 30px;
+}
+
+.portfolio_item>li>img{ width: 100%; height: 100%;}
+.portfolio_item>li:hover .port_show{opacity: 1;}
+
+.port_show{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    color :#fff;
+    transition: 0.3s ease-out;
+    background: rgba(0,0,0, 0.6);
+}
+
+.show_wrap{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+}
+
+.port_title{
+    font-size: 70px;
+}
+.port_sub{ 
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.port_ex{
+    font-size: 15px;   
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.show_wrap>a{
+    display: inline-block;
+    color: #fff;
+    border: 1px solid #fff;
+    font-size: 17px;
+    font-weight: 200;
+    padding: 12px 20px;
+    text-align: center;
+    width: 49%;
+    transition: 0.3s ease;;
+}
+
+.show_wrap>a:hover{
+    background-color: #fff;
+    color: #222;
+    
+}
 
 .contactme{ background-color: #91c788}
 

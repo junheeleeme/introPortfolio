@@ -160,7 +160,7 @@ function typing_Effect(num = 0){
                 clearInterval(_typing1);
                 typing_Effect(2);
             }
-        }, 100)
+        }, 80)
         }, 1000)
     }else if(num === 2){ // 웹 개발자
         setTimeout(()=>{
@@ -171,8 +171,8 @@ function typing_Effect(num = 0){
                 clearInterval(_typing2);
                 typing_Effect(3);
             }
-        }, 100)
-    }, 300)
+        }, 80)
+    }, 700)
     }else if(num === 3){ //개인 포트폴리오 사이트입니다.
     setTimeout(()=>{
         _typing3 = setInterval(()=>{
@@ -182,8 +182,8 @@ function typing_Effect(num = 0){
                 clearInterval(_typing3);
                 typing_Effect(4);
             }
-        }, 100)
-    }, 600)
+        }, 80)
+    }, 250)
     }else if(num === 4){
     clearInterval(_typing3);
     }
