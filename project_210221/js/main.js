@@ -5,11 +5,12 @@ const up = document.querySelector('.up');
 const down = document.querySelector('.down');
 const my_info = document.querySelector('.my_info');
 const typing = document.querySelector('.typing');
+const close_btn = document.querySelector('.close_btn');
 
 let chk_dev;
 let isWheel_move;
 let wDelta; //마우스 Delta값
-let nav_idx = 0; 
+let nav_idx = 2; 
 let typ = typing.innerText.split('');
 let _typing1;
 let _typing2;
@@ -251,4 +252,13 @@ up.addEventListener('click', ()=>{
     
 down.addEventListener('click', ()=>{
     fn_moveDown();
+})
+
+close_btn.addEventListener('click', ()=>{
+    const chk1 = document.querySelector("#item1");
+    const chk2 = document.querySelector("#item2");
+    const chk3 = document.querySelector("#item3");
+    chk1.checked = false;
+    chk2.checked = false;
+    chk3.checked = false;
 })

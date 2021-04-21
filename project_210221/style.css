@@ -139,6 +139,7 @@ ul{list-style: none;}
     background-color: rgba(0,0,0, 0.4);
     border-radius: 50%;
     cursor: pointer;
+    z-index: 990;
 }
 
 .move_btn .down{
@@ -149,6 +150,7 @@ ul{list-style: none;}
     background-color: rgba(0,0,0, 0.4);
     border-radius: 50%;
     cursor: pointer;
+    z-index: 990;
 }
 
 .up .up_left{
@@ -342,29 +344,97 @@ section.intro{
     background: linear-gradient(135deg, #FAFFD1, #A1FFCE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.portfolio>.inner{ padding: 0;}
+.portfolio>.inner{ padding: 30px;}
 
-.portfolio_item{
+.portfolio_items{
     padding-left: 0;
+    width: 100%;
+    transition: 0.55s ease;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.portfolio_items>li{
+    position: relative;
+    display: inline-block;
+    width: 380px;
+    height: 270px;
+    vertical-align: top;
+    margin: 20px 25px; 
+    border: 1px solid #000;
+    box-shadow: 3px 3px 3px #000;
+}
+
+.portfolio_items>li>img{ width: 100%; height: 100%;}
+.portfolio_items>li:hover .port_show{opacity: 1;}
+
+.modal_bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -999;
+    opacity: 0;
+    transition: 0.3s ease-out;
+    transition-delay: 0.35s;
+}
+
+.portfolio>input[type=checkbox] ~ .modal_bg>.modal1, 
+.portfolio>input[type=checkbox] ~ .modal_bg>.modal2,
+.portfolio>input[type=checkbox] ~ .modal_bg>.modal3{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    transition: 0.55s ease;
-    height: 550px;
+    transform: translate(-50%, -50%) scale(0.3);
+    width: 500px;
+    height: 650px;
+    background-color: #fff;
+    opacity: 0;
+    transition: 0.3s ease;
+    transition-delay: 0.1s;
 }
 
-.portfolio_item>li{
-    position: relative;
+.portfolio>input[type=checkbox]{
+    opacity: 0;
+}
+
+.portfolio>input[type=checkbox]:checked ~ .modal_bg{
+    z-index: 999;
+    opacity: 1;
+    transition-delay: 0s;
+}
+
+#item1:checked ~ .modal_bg>.modal1{
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 1000;
+    opacity: 1;
+    transition-delay: 0.4s;
+}
+#item2:checked ~ .modal_bg>.modal2{
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 1000;
+    opacity: 1;
+    transition-delay: 0.4s;
+}
+#item3:checked ~ .modal_bg>.modal3{
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 1000;
+    opacity: 1;
+    transition-delay: 0.4s;
+}
+
+.close_btn{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
     display: inline-block;
-    width: 900px;
-    height: 550px;
-    border: 1px solid #000;
-    margin-bottom: 30px;
+    background-color: #fff;
+    cursor: pointer;
 }
-
-.portfolio_item>li>img{ width: 100%; height: 100%;}
-.portfolio_item>li:hover .port_show{opacity: 1;}
 
 .port_show{
     position: absolute;
@@ -383,15 +453,15 @@ section.intro{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 40%;
+    width: 80%;
 }
 
 .port_title{
-    font-size: 70px;
+    font-size: 45px;
 }
 .port_sub{ 
-    font-size: 30px;
-    margin-bottom: 25px;
+    font-size: 22px;
+    margin-bottom: 35px;
 }
 
 .port_ex{
@@ -400,19 +470,20 @@ section.intro{
     margin-bottom: 20px;
 }
 
-.show_wrap>a{
+.show_wrap>label>span{
     display: inline-block;
     color: #fff;
     border: 1px solid #fff;
-    font-size: 17px;
-    font-weight: 200;
-    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 10px 20px;
     text-align: center;
-    width: 49%;
-    transition: 0.3s ease;;
+    width: 70%;
+    transition: 0.3s ease;
+    cursor: pointer;
 }
 
-.show_wrap>a:hover{
+.show_wrap>label>span:hover{
     background-color: #fff;
     color: #222;
     

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
@@ -81,28 +82,42 @@
                 </div>
             </section>
             <section class="portfolio">
+                <input type="checkbox" id="item1">
+                <input type="checkbox" id="item2">
+                <input type="checkbox" id="item3">
+                <div class="modal_bg">
+                    <div class="close_btn">
+                        
+                    </div>
+                    <div class="modal1">1</div>
+                    <div class="modal2">2</div>
+                    <div class="modal3">3</div>
+                </div>
+
                 <div class="inner">
-                    <ul class="portfolio_item">
+
+                    <ul class="portfolio_items">
+
                         <li class="p_item1">
-                            <img src="img/porfolio_tetris.png" alt="portfolio_tetris_img">
-                            <div class="port_show">
-                                <div class="show_wrap">
-                                    <h3 class="port_title">테트리스</h3>
-                                    <h4 class="port_sub">PC WEBSITE</h4>
-                                    <p class="port_ex">HTML/CSS/JavaScript를 사용한 테트리스 게임 웹사이트</p>
-                                    <a href="">VIEW WEBSITE</a>
-                                    <a href="">VIEW GITHUB</a>
+                                <img src="img/porfolio_tetris.png" alt="portfolio_tetris_img">
+                                <div class="port_show">
+                                    <div class="show_wrap">
+                                        <h3 class="port_title">테트리스</h3>
+                                        <h4 class="port_sub">PC WEBSITE</h4>
+                                        <label for="item1">
+                                            <span class="item1">More</span>
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
                         </li>
                         <li class="p_item2">
                             <div class="port_show">
                                 <div class="show_wrap">
-                                    <h3 class="port_title">테트리스</h3>
-                                    <h4 class="port_sub">PC WEBSITE</h4>
-                                    <p class="port_ex">HTML/CSS/JavaScript를 사용한 테트리스 게임 웹사이트</p>
-                                    <a href="">VIEW WEBSITE</a>
-                                    <a href="">VIEW GITHUB</a>
+                                    <h3 class="port_title">스타벅스 커피</h3>
+                                    <h4 class="port_sub">RESPONSIVE WEBSITE</h4>
+                                <label for="item2">
+                                        <span class="item2">More</span>
+                                </label>
                                 </div>
                             </div>
                         </li>
@@ -111,13 +126,14 @@
                                 <div class="show_wrap">
                                     <h3 class="port_title">테트리스</h3>
                                     <h4 class="port_sub">PC WEBSITE</h4>
-                                    <p class="port_ex">HTML/CSS/JavaScript를 사용한 테트리스 게임 웹사이트</p>
-                                    <a href="">VIEW WEBSITE</a>
-                                    <a href="">VIEW GITHUB</a>
+                                <label for="item3">
+                                    <span class="item3">More</span>
+                                </label>
                                 </div>
                             </div>
                         </li>
                     </ul>
+                
                 </div>
             </section>
             <section class="contactme">
@@ -148,7 +164,6 @@
     <footer class="footer">
     </footer>   
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script async src="js/main.js"></script>
 </body>
 </html>
