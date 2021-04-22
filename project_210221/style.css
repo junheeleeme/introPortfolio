@@ -381,15 +381,24 @@ section.intro{
     transition-delay: 0.35s;
 }
 
-.portfolio>input[type=checkbox] ~ .modal_bg>.modal1, 
-.portfolio>input[type=checkbox] ~ .modal_bg>.modal2,
-.portfolio>input[type=checkbox] ~ .modal_bg>.modal3{
+.modal_bg>div>h3{
+    font-size: 36px;
+}
+
+.titleNum{
+    font-size: 45px;
+}
+
+.portfolio>input[type=checkbox] ~ .modal_bg>.portfolio_modal1, 
+.portfolio>input[type=checkbox] ~ .modal_bg>.portfolio_modal2,
+.portfolio>input[type=checkbox] ~ .modal_bg>.portfolio_modal3{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.3);
     width: 500px;
     height: 650px;
+    padding: 20px;
     background-color: #fff;
     opacity: 0;
     transition: 0.3s ease;
@@ -406,19 +415,19 @@ section.intro{
     transition-delay: 0s;
 }
 
-#item1:checked ~ .modal_bg>.modal1{
+#item1:checked ~ .modal_bg>.portfolio_modal1{
     transform: translate(-50%, -50%) scale(1);
     z-index: 1000;
     opacity: 1;
     transition-delay: 0.4s;
 }
-#item2:checked ~ .modal_bg>.modal2{
+#item2:checked ~ .modal_bg>.portfolio_modal2{
     transform: translate(-50%, -50%) scale(1);
     z-index: 1000;
     opacity: 1;
     transition-delay: 0.4s;
 }
-#item3:checked ~ .modal_bg>.modal3{
+#item3:checked ~ .modal_bg>.portfolio_modal3{
     transform: translate(-50%, -50%) scale(1);
     z-index: 1000;
     opacity: 1;
