@@ -1,6 +1,6 @@
 
 const mongoose = require('mongoose');
-require('dotenv').config({path: 'mongo_url.env'});
+require('dotenv').config({path: 'mongo_url.env'});//변경
 const MONGODB_URL = process.env.MONGODB_URL;
 
 
