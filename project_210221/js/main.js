@@ -5,9 +5,11 @@ const up = document.querySelector('.up');
 const down = document.querySelector('.down');
 const my_info = document.querySelector('.my_info');
 const typing = document.querySelector('.typing');
-const close_btn = document.querySelector('.close_btn');
+const modal_open = document.querySelectorAll('.more_btn');
+const modal_close = document.querySelector('.close_btn');
 
 let chk_dev;
+let open_modal = 0;
 let isWheel_move;
 let wDelta; //마우스 Delta값
 let nav_idx = 2; 
@@ -104,22 +106,27 @@ function fnMove(n_idx){  //직접 클릭한 nav메뉴 절대위치를 계산해 
 }
 
 function fn_moveUp(){
-    const avail_nav = nav_idx > 0 ? true : false;
-    
-    if(avail_nav){
-        nav_idx-=1;
-        fnMove(nav_idx);
-        nav_focus(nav_idx);
+    if(!open_modal){
+        const avail_nav = nav_idx > 0 ? true : false;
+        
+        if(avail_nav){
+            nav_idx-=1;
+            fnMove(nav_idx);
+            nav_focus(nav_idx);
+        }
     }
 }
 
 function fn_moveDown(){
-    const avail_nav = nav_idx < nav_menu.length-1 ? true : false;
 
-    if(avail_nav){
-        nav_idx+=1;
-        fnMove(nav_idx);
-        nav_focus(nav_idx);
+    if(!open_modal){
+        const avail_nav = nav_idx < nav_menu.length-1 ? true : false;
+
+        if(avail_nav){
+            nav_idx+=1;
+            fnMove(nav_idx);
+            nav_focus(nav_idx);
+        }
     }
 }
 
@@ -203,12 +210,12 @@ function allClear(){
 
 // 마우스 스크롤 기능구현
 html.addEventListener('mousewheel', (e)=>{ 
-    
-    if(!e.ctrlKey){
-        clearInterval(isWheel_move);
-        wDelta = e.wheelDelta;
-        isWheel_move = setTimeout(() => isWheel(wDelta), 200);
-    }
+
+        if(!e.ctrlKey){
+            clearInterval(isWheel_move);
+            wDelta = e.wheelDelta;
+            isWheel_move = setTimeout(() => isWheel(wDelta), 200);
+        }
 });
 
 window.onload = ()=>{
@@ -236,13 +243,13 @@ nav_menu.forEach(nav_click =>{
 
 /* 방향키 기능구현 */
 html.addEventListener('keydown', (e)=>{
-    
-    if(e.keyCode === 38){ // ArrowUp
-        fn_moveUp();
-    }
-    else if(e.keyCode === 40){ // ArrowDown
-        fn_moveDown();
-    }
+
+        if(e.keyCode === 38){ // ArrowUp
+            fn_moveUp();
+        }
+        else if(e.keyCode === 40){ // ArrowDown
+            fn_moveDown();
+        }
 })
 
 /* 화면전환 버튼 */
@@ -254,7 +261,16 @@ down.addEventListener('click', ()=>{
     fn_moveDown();
 })
 
-close_btn.addEventListener('click', ()=>{
+
+modal_open.forEach(openBtn =>{
+    openBtn.addEventListener('click', ()=>{
+        open_modal = 1;
+    })
+})
+
+
+modal_close.addEventListener('click', ()=>{
+    open_modal = 0;
     const chk1 = document.querySelector("#item1");
     const chk2 = document.querySelector("#item2");
     const chk3 = document.querySelector("#item3");
