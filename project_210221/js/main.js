@@ -263,18 +263,62 @@ down.addEventListener('click', ()=>{
 
 
 modal_open.forEach(openBtn =>{
+    
+    open_modal = 1;
+
     openBtn.addEventListener('click', ()=>{
+
         open_modal = 1;
+        for(i= 0 ; i<modal_open.length ; i++){
+            if(modal_open[i] === openBtn){
+                
+                const modal = document.querySelector('.portfolio_modal');
+                modal.children[0].innerText = portfolio[i].title;
+                modal.children[1].src = 'img/portfolio_item/' + portfolio[i].img_url;
+                
+                modal.children[2].children[1].innerHTML = '';
+                modal.children[2].children[0].innerText = '';
+                modal.children[3].href = '';
+                modal.children[4].href = '';
+
+                portfolio[i].skills.forEach(skills=>{ 
+                    modal.children[2].children[1].innerHTML += '<li><strong>' + skills + '</strong></li>';
+                })
+                modal.children[2].children[0].innerText = portfolio[i].content;
+                
+                modal.children[3].href = portfolio[i].link[0];
+                modal.children[4].href = portfolio[i].link[1];
+
+                console.log(modal.children)
+                //portfolio[i].title
+
+            }  
+        }
+        
     })
 })
 
 
 modal_close.addEventListener('click', ()=>{
     open_modal = 0;
-    const chk1 = document.querySelector("#item1");
-    const chk2 = document.querySelector("#item2");
-    const chk3 = document.querySelector("#item3");
+    const chk1 = document.querySelector("#modal_chk");
     chk1.checked = false;
-    chk2.checked = false;
-    chk3.checked = false;
 })
+
+let portfolio = [
+    {
+        title : '테트리스 (PC WEBSITE)',
+        img_url : 'tetris_play.gif',
+        content : '바닐라 자바스크립트와 DOM 제어를 학습하며 제작한 테트리스 게임 웹사이트입니다.',
+        skills : ['HTML', 'CSS', 'Vanilla JavaScript'],
+        link : ['https://github.com/junheeleeme/tetris_v1.0', '']
+    },
+    {
+        title : '스타벅스 코리아 반응형 랜딩페이지',
+        img_url : 'abc.gif',
+        content : '반응형 웹사이트 제작을 위한 미디어쿼리(CSS Media Query)를 학습하며 제작한 클론 웹사이트입니다.',
+        skills : ['HTML', 'CSS', 'JavaScript', 'jQuery'],
+        link : ['https://github.com/junheeleeme/Starbucks_Coffee', '']
+    }
+]
+
