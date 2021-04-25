@@ -7,6 +7,7 @@ const my_info = document.querySelector('.my_info');
 const typing = document.querySelector('.typing');
 const modal_open = document.querySelectorAll('.more_btn');
 const modal_close = document.querySelector('.close_btn');
+const modal_bg = document.querySelector('.modal_bg');
 
 let chk_dev;
 let open_modal = 0;
@@ -264,8 +265,6 @@ down.addEventListener('click', ()=>{
 
 modal_open.forEach(openBtn =>{
     
-    open_modal = 1;
-
     openBtn.addEventListener('click', ()=>{
 
         open_modal = 1;
@@ -305,6 +304,12 @@ modal_close.addEventListener('click', ()=>{
     chk1.checked = false;
 })
 
+modal_bg.addEventListener('click', ()=>{
+    open_modal = 0;
+    const chk1 = document.querySelector("#modal_chk");
+    chk1.checked = false;
+})
+
 let portfolio = [
     {
         title : '테트리스 (PC WEBSITE)',
@@ -322,3 +327,4 @@ let portfolio = [
     }
 ]
 
+console.log(open_modal)
