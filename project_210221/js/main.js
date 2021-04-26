@@ -14,7 +14,6 @@ let open_modal = 0;
 let isWheel_move;
 let wDelta; //마우스 Delta값
 let nav_idx = 2; 
-let typ = typing.innerText.split('');
 let _typing1;
 let _typing2;
 let _typing3;
@@ -66,7 +65,7 @@ function fnMove(n_idx){  //직접 클릭한 nav메뉴 절대위치를 계산해 
     console.log(nav_idx);
 
     setTimeout(()=>{
-        my_info.style.bottom = '-500px';
+        my_info.style.bottom = '-100%';
         my_info.style.opacity = '0';
     }, 100)
 
@@ -93,7 +92,7 @@ function fnMove(n_idx){  //직접 클릭한 nav메뉴 절대위치를 계산해 
         }
         case 3 : {
             setTimeout(()=>{
-                my_info.style.bottom = '130px';
+                my_info.style.bottom = '100px';
                 my_info.style.opacity = '1';
             }, 100)
             allClear();
@@ -150,7 +149,7 @@ function nav_focus(n_idx){
 let i = 0;
 
 function typing_Effect(num = 0){
-
+    const type_txt = '안녕하세요 :) 웹 개발자 개인 포트폴리오 사이트입니다.';
     if(num === 0){
 
         setTimeout(()=>{
@@ -163,8 +162,8 @@ function typing_Effect(num = 0){
     else if(num  === 1){ // 안녕하세요
         setTimeout(()=>{
         _typing1 = setInterval(()=>{
+            typing.innerText += type_txt[i];
             i++;
-            typing.innerText += typ[i];
             if(i === 8){
                 clearInterval(_typing1);
                 typing_Effect(2);
@@ -174,8 +173,8 @@ function typing_Effect(num = 0){
     }else if(num === 2){ // 웹 개발자
         setTimeout(()=>{
         _typing2 = setInterval(()=>{
+            typing.innerText += type_txt[i];
             i++;
-            typing.innerText += typ[i];
             if(i === 14){
                 clearInterval(_typing2);
                 typing_Effect(3);
@@ -185,8 +184,8 @@ function typing_Effect(num = 0){
     }else if(num === 3){ //개인 포트폴리오 사이트입니다.
     setTimeout(()=>{
         _typing3 = setInterval(()=>{
+            typing.innerText += type_txt[i];
             i++;
-            typing.innerText += typ[i];
             if(i === 31){
                 clearInterval(_typing3);
                 typing_Effect(4);
@@ -300,14 +299,11 @@ modal_open.forEach(openBtn =>{
 
 modal_close.addEventListener('click', ()=>{
     open_modal = 0;
-    const chk1 = document.querySelector("#modal_chk");
-    chk1.checked = false;
+
 })
 
 modal_bg.addEventListener('click', ()=>{
     open_modal = 0;
-    const chk1 = document.querySelector("#modal_chk");
-    chk1.checked = false;
 })
 
 let portfolio = [
@@ -324,7 +320,19 @@ let portfolio = [
         content : '반응형 웹사이트 제작을 위한 미디어쿼리(CSS Media Query)를 학습하며 제작한 클론 웹사이트입니다.',
         skills : ['HTML', 'CSS', 'JavaScript', 'jQuery'],
         link : ['https://github.com/junheeleeme/Starbucks_Coffee', '']
+    },
+    {
+        title : '스타벅스 코리아 반응형 랜딩페이지',
+        img_url : 'abc.gif',
+        content : '반응형 웹사이트 제작을 위한 미디어쿼리(CSS Media Query)를 학습하며 제작한 클론 웹사이트입니다.',
+        skills : ['HTML', 'CSS', 'JavaScript', 'jQuery'],
+        link : ['https://github.com/junheeleeme/Starbucks_Coffee', '']
+    },
+    {
+        title : '스타벅스 코리아 반응형 랜딩페이지',
+        img_url : 'abc.gif',
+        content : '반응형 웹사이트 제작을 위한 미디어쿼리(CSS Media Query)를 학습하며 제작한 클론 웹사이트입니다.',
+        skills : ['HTML', 'CSS', 'JavaScript', 'jQuery'],
+        link : ['https://github.com/junheeleeme/Starbucks_Coffee', '']
     }
 ]
-
-console.log(open_modal)
