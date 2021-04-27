@@ -633,8 +633,8 @@ section.intro{
 @media screen and (max-width: 1810px) {
 
     .portfolio_items>li{
-        width: 460px;
-        height: 345px;
+        width: 440px;
+        height: 330px;
         margin: 10px 10px;
     }
     .port_title{
