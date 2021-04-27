@@ -15,6 +15,21 @@ a{ font-weight: bold; text-decoration: none; color: #000;}
 ul{list-style: none;}
 #kkusaeng{ position: relative; width: 100%; height: 100vh;}
 
+#menu_chk{
+    position: absolute;
+    left: -40px;
+    opacity: 0;
+}
+#nav_chk{
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    opacity: 0;
+}
+.nav_toggle{
+    display: none;
+}
+
 .nav{
     position: fixed;
     top: 30px;
@@ -449,9 +464,9 @@ section.intro{
     transition: 0.2s ease-out;
 }
 
-.git_btn{ float: left }
+.git_btn{ float: left; font-size: 18px; }
 
-.view_btn{ float: right }
+.view_btn{ float: right; font-size: 18px; }
 
 .portfolio_modal a:hover{
     color: #fff;
@@ -638,7 +653,7 @@ section.intro{
         margin: 10px 10px;
     }
     .port_title{
-        font-size: 55px;
+        font-size: 50px;
     }
     .port_sub{ 
         font-size: 22px;
@@ -720,11 +735,24 @@ section.intro{
 /* 테블릿 CSS */
 @media screen and (min-width:768px) and (max-width: 1023px) {
     .nav {
+        width: 25%;
         padding: 40px 15px 0 0;
     }
+    .nav_intro_wrap {
+        position: absolute;
+        right: 15px;
+        bottom: 20px;
+    }
+    .main>section {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        padding-left: calc(25% + 30px);
+    }
 	.nav_main li>a{
-        font-size: 1.4em;
-        padding: 0px 15px 0px 0;
+        font-size: 1.2em;
+        padding: 0px 10px 0px 0;
     }
     .portfolio_items {
         align-content: center;
@@ -753,7 +781,7 @@ section.intro{
         font-size: 80px;
     }
     .typing {
-        font-size: 19px;
+        font-size: 1em;
     }
     .web_wrap {
         bottom: 40px;
@@ -761,11 +789,189 @@ section.intro{
     .web_wrap>h2{
         font-size: 12px;
     }
+    .portfolio>input[type=checkbox] ~ .portfolio_modal{
+        width: 450px;
+        padding: 15px;
+    }
+    #modal_chk:checked ~ .portfolio_modal{
+        padding-top: 80px;
+    }
+    .my_info {
+        position: absolute;
+        bottom: -100%;
+        left: 70px;
+        transition: 0.8s ease-in-out;
+    }
+    .my_info h3 {
+        font-family: 'Nanum Gothic', sans-serif;
+        font-size: 3.5em;
+        font-weight: 800;
+    }
+    .my_info>li {
+        font-size: 1.2em;
+        font-family: 'Nanum Gothic', sans-serif;
+        margin: 10px 0;
+    }
 }
 
 /* 모바일 CSS */
-@media screen and (min-width:480px) and (max-width:767px){
+@media screen and (min-width:375px) and (max-width:767px){
+    
+    .nav_toggle{
+        display: block;
+        position: fixed;
+        top: 8px;
+        left: 8px;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background-color: #f6f6f6;
+        z-index: 999;
+        cursor: pointer;
+    }
+    #nav_chk{
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        opacity: 0;
+    }
+    .nav_toggle>label{
+        position: relative;
+    }
+    .nav_toggle>label{
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+    }
+    .nav_toggle>label>span{
+        position: absolute;
+        left: 8px;
+        width: 28px;
+        height: 4px;
+        border-radius: 10px;
+        background-color: #5d5d5d;
+        transition: 0.5s ease-out;
+        transform: translate();
+      }
+      
+      .nav_toggle>label>span:nth-child(1){
+        top: 11px;
+      }
+      .nav_toggle>label>span:nth-child(2){
+        top: 20px;
+      }
+      .nav_toggle>label>span:nth-child(3){
+        top: 29px;
+      }
+      #nav_chk:checked ~ .nav_toggle>label>span:nth-child(1){
+        transform: translateY(9px) rotate(40deg);
+      }
+      #nav_chk:checked ~ .nav_toggle>label>span:nth-child(2){
+        transform: translateY(0px) rotate(220deg);
+      }
+      #nav_chk:checked ~ .nav_toggle>label>span:nth-child(3){
+        transform: translateY(-9px) rotate(-45deg);
+      }
 
-
+    .nav{
+        position: fixed;
+        top: 20px;
+        left: -100%;
+        width: 50%;
+        padding: 50px 15px 0 0;
+        height: calc(100vh - 60px);
+        background-color: #c9c7c7;
+        transition: 0.4s ease;
+        z-index: 995;
+    }
+    #nav_chk:checked ~ .nav{
+        left: 20px;
+    }
+    .nav_bg{
+        position: fixed;
+        top: 0;
+        left: 100%;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0, 0.3);
+        transition: 0.35s ease;
+        z-index: 992;
+    }
+    .nav_bg>label{
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+    }
+    #nav_chk:checked ~ .nav_bg{
+        left: 0;
+    }
+    .nav_main li>a {
+        font-size: 1.35em;
+        padding: 0px 10px 0px 0;
+    }
+    .nav_main li>a:after{
+        left: -15px;
+    }
+    .nav_intro_wrap {
+        right: 10px;
+        bottom: 15px;
+    }
+    .nav_intro_wrap>a {
+        margin: 0 2px;
+    }
+    .main>section {
+        padding-left: 0;
+    }
+    section>.inner {
+        padding: 90px 30px;
+    }
+    .intro_wrap>h1 {
+        font-size: 3.65em;
+    }
+    .typing {
+        position: relative;
+        display: inline;
+        padding-left: 5px;
+        font-size: 0.82em;
+        font-weight: 300;
+        user-select: none;
+    }
+    .cursor {
+        display: inline-block;
+        margin: 0 0 -4px 3px;
+        width: 2px;
+        height: 17px;
+        background: #000;
+        transition: 0;
+        animation: typing_effect 0.8s infinite;
+        opacity: 1;
+    }
+    .web_wrap {
+        position: absolute;
+        left: 0;
+        bottom: 15px;
+        width: 100%;
+    }
+    .web_wrap>h2 {
+        padding-left: 22px;
+        font-size: 0.4em;
+        font-weight: 100;
+    }
+    .my_info {
+        position: absolute;
+        bottom: -100%;
+        left: 50px;
+        transition: 0.8s ease-in-out;
+    }
+    .my_info h3 {
+        font-family: 'Nanum Gothic', sans-serif;
+        font-size: 3.5em;
+        font-weight: 800;
+    }
+    .my_info>li {
+        font-size: 1.0em;
+        font-family: 'Nanum Gothic', sans-serif;
+        margin: 10px 0;
+    }
 
 }

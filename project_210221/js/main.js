@@ -8,6 +8,8 @@ const typing = document.querySelector('.typing');
 const modal_open = document.querySelectorAll('.more_btn');
 const modal_close = document.querySelector('.close_btn');
 const modal_bg = document.querySelector('.modal_bg');
+const nav_toggle = document.querySelector('.nav_toggle');
+const nav = document.querySelector('.nav');
 
 let chk_dev;
 let open_modal = 0;
@@ -308,4 +310,15 @@ modal_bg.addEventListener('click', ()=>{
     open_modal = 0;
 })
 
-
+/*
+nav_toggle.addEventListener('click', ()=>{
+    console.log(nav.style.left)
+    if(nav.style.left === '-100%' || nav.style.left === '' ){
+        nav.style.left = '20px';
+    }
+    else{
+        nav.style.left = '-100%';
+    }
+    
+})
+*/
