@@ -1,5 +1,8 @@
+
 /* Variables */
+const kku = document.querySelector('#kkusaeng');
 const html = document.querySelector('html');
+const intro_bg = document.querySelector('.intro_bg');
 const nav_menu = document.querySelectorAll('.nav_main>li');
 const up = document.querySelector('.up');
 const down = document.querySelector('.down');
@@ -15,7 +18,7 @@ let chk_dev;
 let open_modal = 0;
 let isWheel_move;
 let wDelta; //마우스 Delta값
-let nav_idx = 2; 
+let nav_idx = 0; 
 let _typing1;
 let _typing2;
 let _typing3;
@@ -27,11 +30,51 @@ let _typing3;
 //3 : Contact me
 
 /* function */ 
-init();
 
-function init(){
-    nav_focus(nav_idx);
-    fnMove(nav_idx);
+
+
+window.addEventListener('load', function(){
+    init();
+})
+
+window.addEventListener("focus", function(event){
+    if(intro_bg.paused) {
+        intro_bg.play();
+    }
+})
+
+window.addEventListener("blur", function(event){
+    if(intro_bg.play) {
+        intro_bg.pause();
+    }
+})
+
+function init(){   
+
+    const load_bg = document.querySelector('.load_bg');
+    const load_eff = document.querySelector('.loader');
+    const web_ex = document.querySelector('.web_wrap');
+
+    setTimeout(() => {
+        load_bg.style.opacity = '0';
+        kku.style.opacity = '1';
+        load_eff.style.opacity = '0';
+        web_ex.style.opacity = '1'; 
+        
+        setTimeout(() => {
+            load_bg.style.display = 'none';
+            load_eff.style.display = 'none';
+        }, 500);
+
+        nav_focus(nav_idx);
+        fnMove(nav_idx);
+    
+        if(intro_bg.paused) {
+            intro_bg.play();
+          }
+    }, 2000);
+
+    
 }
 
 // 스크롤 효과를 위한 iOS 구분
@@ -64,7 +107,6 @@ function fnMove(n_idx){  //직접 클릭한 nav메뉴 절대위치를 계산해 
     }else{ //ios
         $('html').stop().animate({ scrollTop : targetTop }, 350, 'swing');
     }
-    console.log(nav_idx);
 
     setTimeout(()=>{
         my_info.style.bottom = '-100%';
@@ -129,13 +171,13 @@ function nav_focus(n_idx){
 
     nav_menu.forEach(nav=>{
         nav.classList.remove('on');
-        nav.children[0].style.color = "#000";
+        nav.children[0].style.color = "#fff";
         nav.children[1].style.right = "500px";
         nav.children[2].style.right = "500px";
     })
 
     nav_menu[n_idx].classList.add('on');
-    nav_menu[n_idx].children[0].style.color = "#fff";
+    nav_menu[n_idx].children[0].style.color = "#457ee0";
     nav_menu[n_idx].children[1].style.right = "-63px";
     nav_menu[n_idx].children[2].style.right = "-63px";
 }
@@ -212,14 +254,16 @@ html.addEventListener('mousewheel', (e)=>{
         }
 });
 
-window.onload = ()=>{
-    document.querySelector('.web_wrap').style.opacity = '1';
-}
-
 /* nav메뉴 클릭 이벤트 */
 nav_menu.forEach(nav_click =>{
     nav_click.addEventListener('click', ()=>{
         
+        //모바일 
+        if(window.innerWidth < 768 ){
+            const nav_chk_toggle = document.querySelector('#nav_chk');
+            nav_chk_toggle.checked = false;
+        }
+
         const click_classN = nav_click.className; 
 
         for(let i=0 ; i < nav_menu.length ; i++){
@@ -256,27 +300,16 @@ down.addEventListener('click', ()=>{
 })
 
 
-// Read JSON File
-function readJSON(file, callback){
-    const rawFile = new XMLHttpRequest();
-    rawFile.overrideMimeType('application/json');
-    rawFile.open("get", file, true);
-    rawFile.onreadystatechange = function(){
-        if(rawFile.readyState === 4 && rawFile.status == "200"){
-            callback(rawFile.responseText);
-        }
-    }
-    rawFile.send(null);
-}
-
 //포트폴리오 More 버튼 클릭
 modal_open.forEach(openBtn =>{  
     openBtn.addEventListener('click', ()=>{
       
-        open_modal = 1;
+    open_modal = 1;
+    // read json file   
+    fetch('../portfolio.json').then((res) => res.text())
+    .then((pofol) => {
 
-        readJSON("../portfolio.json", (text)=>{
-            const portfolio = JSON.parse(text);
+        const portfolio = JSON.parse(pofol);
 
             for(i= 0 ; i<modal_open.length ; i++){
                 if(modal_open[i] === openBtn){
@@ -289,7 +322,7 @@ modal_open.forEach(openBtn =>{
                     modal.children[2].children[0].innerText = '';
                     modal.children[3].href = '';
                     modal.children[4].href = '';
-    
+
                     portfolio[i].skills.forEach(skills=>{ 
                         modal.children[2].children[1].innerHTML += '<li><strong>' + skills + '</strong></li>';
                     })
@@ -299,7 +332,9 @@ modal_open.forEach(openBtn =>{
                     modal.children[4].href = portfolio[i].link[1];
                 }  
             }
-        })
+        }).catch((err) => {
+            alert("not found portfolio");
+    })
     })
 })
 
@@ -310,15 +345,5 @@ modal_bg.addEventListener('click', ()=>{
     open_modal = 0;
 })
 
-/*
-nav_toggle.addEventListener('click', ()=>{
-    console.log(nav.style.left)
-    if(nav.style.left === '-100%' || nav.style.left === '' ){
-        nav.style.left = '20px';
-    }
-    else{
-        nav.style.left = '-100%';
-    }
-    
-})
-*/
+
+
