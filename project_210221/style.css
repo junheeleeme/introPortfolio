@@ -12,70 +12,56 @@ html::-webkit-scrollbar{ display: none; }
 body{ scroll-behavior: smooth; }
 a{ font-weight: bold; text-decoration: none; color: #000;}
 ul{list-style: none;}
-#kkusaeng{ position: relative; width: 100%; height: 100vh; opacity: 0; transition: 0.5s;}
+#kkusaeng{position: relative; width: 100%; height: 100vh; opacity: 0; transition: 0.5s;}
+#menu_chk{position: absolute; left: -40px; opacity: 0;}
+#nav_chk{position: fixed; top: 0; left: 0; opacity: 0;}
 
-#menu_chk{
-    position: absolute;
-    left: -40px;
-    opacity: 0;
-}
-#nav_chk{
+.header{
     position: fixed;
-    top: 10px;
-    left: 10px;
-    opacity: 0;
-}
-
-.nav{
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    height: 100%;
+    top: 0;
+    left: 0;
     width: 20.5%;
-    float: left;
-    padding: 70px 25px 0 0;
-    background-color: #2d2f3d;
+    height: 100%;
+    background-color: #2d2f3d;;
     z-index: 900;
 }
 
-.aside .nav_main, .nav_sub{
-    list-style: none;
-    text-align: right;
+.front_area{
+    position: fixed;
+    width: 20.5%;
+    height: 300px;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
 }
-
-.nav_main li{
-    position: relative;
-    margin: 30px 0;
-    overflow: hidden;
-}
-
-.nav_main li>a{
-    position: relative;
-    font-size: 2.1em;
-    padding: 0px 15px 0px 0;
-    color: #457ee0;
-    font-family: 'Poppins', 'Nanum Gothic', sans-serif;
-    font-weight: 600;
-    transition: color 0.4s ease;
-}
-
-.nav_main li>a:after{
-    content: '';
+.icon{
     position: absolute;
-    top: 50%;
-    left: -20px;
-    transform: translate(0, -50%);
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
+    right: 30px;
+    bottom: 40px;
+}
+.icon>a{
+    position: relative;
     background-color: #fff;
-    transition: .4s ease-out;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 3px;
+    width: 35px;
+    height: 35px;
 }
-
-.nav_main li.on>a:after{
-    background-color: #457ee0;
+.git{
+    background-image: url('img/github_icon.png');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: 103% 103%;
+    border-radius: 50%;
 }
-
+.blog{
+    border-radius: 50%;
+    background-image: url('img/tistory_icon.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 120% 120%;
+}
 .scroll_eff{
     position: absolute;
     bottom: 150px;
@@ -86,7 +72,6 @@ ul{list-style: none;}
     border: 3px solid #fff;
 
 }
-
 .scroll_eff:after{
     content: '';
     position: absolute;
@@ -101,15 +86,121 @@ ul{list-style: none;}
     animation: mouse_scroll 1.8s ease infinite;
 }
 
-@keyframes mouse_scroll{
-    form{
-        top: 15%;
-        opacity: 1;
-    }
-    to{
-        top: 80%;
-        opacity: 0;
-    }
+.nav_toggle{
+    display: block;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    width: 45px;
+    height: 45px;
+    z-index: 9999;
+    cursor: pointer;
+}
+.nav_toggle>label{
+    position: relative;
+}
+.nav_toggle>label{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+.nav_toggle>label>span{
+    position: absolute;
+    left: 8px;
+    height: 4px;
+    background-color: #fff;
+    transition: 0.5s ease-out;
+    transform: translate();
+}
+.nav_toggle>label>span:nth-child(1){
+    top: 11px;
+    width: 21px;
+}
+.nav_toggle>label>span:nth-child(2){
+    display: block;
+    top: 20px;
+    width: 13px;
+}
+.nav_toggle>label>span:nth-child(3){
+    top: 29px;
+    width: 30px;
+}
+.nav_toggle>label:hover span:nth-child(1){
+    margin-left: 9px;
+}
+.nav_toggle>label:hover span:nth-child(2){
+    margin-left: 17px;
+}
+#nav_chk:checked ~ .nav_toggle>label:hover span:nth-child(1){
+    margin-left: 0px;
+}
+#nav_chk:checked ~ .nav_toggle>label:hover span:nth-child(2){
+    margin-left: 0px;
+}
+#nav_chk:checked ~ .nav_toggle>label>span:nth-child(1){
+    width: 30px;
+    transform: translateY(9px) rotate(40deg);
+}
+#nav_chk:checked ~ .nav_toggle>label>span:nth-child(1){
+    width: 30px;
+    transform: translateY(9px) rotate(40deg);
+}
+#nav_chk:checked ~ .nav_toggle>label>span:nth-child(2){
+    display: none;
+}
+#nav_chk:checked ~ .nav_toggle>label>span:nth-child(3){
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.nav{
+    position: fixed;
+    top: 0px;
+    left: -100%;
+    height: 100%;
+    width: 20.5%;
+    float: left;
+    padding: 70px 25px 0 0;
+    background-color:#457ee0;
+    z-index: 901;
+    transition: 0.4s ease;
+}
+#nav_chk:checked ~ .nav{
+    left: 0px;
+}
+
+.aside .nav_main, .nav_sub{
+    list-style: none;
+    text-align: right;
+}
+
+.nav_main li{
+    position: relative;
+    margin: 30px 0;
+    overflow: hidden;
+}
+.nav_main li>a{
+    position: relative;
+    font-size: 2.1em;
+    padding: 0px 15px 0px 0;
+    color: #2d2f3d;
+    font-family: 'Poppins', 'Nanum Gothic', sans-serif;
+    font-weight: 600;
+    transition: .4s ease-out;
+}
+.nav_main li>a:after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    transform: translate(0, -50%);
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #2d2f3d;
+    transition: .4s ease-out;
+}
+.nav_main li.on>a:after{
+    background-color: #fff;
 }
 
 .upBlock{
@@ -118,8 +209,8 @@ ul{list-style: none;}
     right: 500px;
     width: 70px;
     height: 50%;
-    background: #457ee0;
-    transition: 0.35s ease-out;
+    background: #fff;
+    transition: 0.23s ease-out;
 }
 
 .downBlock{
@@ -128,43 +219,8 @@ ul{list-style: none;}
     right: 500px;
     width: 70px;
     height: 50%;
-    background: #457ee0;
-    transition: 0.4s ease-out;
-}
-
-.nav_intro_wrap{
-    position: absolute;
-    right: 30px;
-    bottom: 25px;
-}
-
-.nav_intro_wrap>a{
-    background-color: #fff;
-    display: inline-block;
-    vertical-align: top;
-    margin: 0 3px;
-}
-
-.git{
-    width: 35px;
-    height: 35px;
-    position: relative;
-    background-image: url('img/github_icon.png');
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-size: 103% 103%;
-    border-radius: 50%;
-    padding: 0;
-}
-
-.blog{
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background-image: url('img/tistory_icon.png');
-    background-repeat: no-repeat;
-    background-size: 120% 120%;
-    background-position: center;
+    background: #fff;
+    transition: 0.25s ease-out;
 }
 
 .move_btn{
@@ -718,7 +774,9 @@ section.intro{
 }
 
 @media screen and (min-width: 1023px) and (max-width: 1280px) {
-
+    .header, .front_area{
+        width: 27%;
+    }
     .nav {
         padding: 50px 15px 0 0;
         width: 27%;
@@ -771,11 +829,14 @@ section.intro{
 
 /* 테블릿 CSS */
 @media screen and (min-width:768px) and (max-width: 1023px) {
+    .header, .front_area{
+        width: 25%;
+    }
     .nav {
         width: 25%;
         padding: 40px 15px 0 0;
     }
-    .nav_intro_wrap {
+    .header_icon {
         position: absolute;
         right: 15px;
         bottom: 20px;
@@ -854,7 +915,12 @@ section.intro{
 /* 모바일 CSS */
 @media screen and (min-width:320px) and (max-width:767px){
     
-
+    .header{
+        display: none;
+    }
+    .front_area{
+        display: none;
+    }
 
     .nav{
         position: fixed;
@@ -868,6 +934,7 @@ section.intro{
     #nav_chk:checked ~ .nav{
         left: 0;
     }
+    
     .nav_bg{
         position: fixed;
         top: 0;
@@ -893,11 +960,11 @@ section.intro{
     .nav_main li>a:after{
         left: -15px;
     }
-    .nav_intro_wrap {
+    .header_icon {
         right: 10px;
         bottom: 15px;
     }
-    .nav_intro_wrap>a {
+    .header_icon>a {
         margin: 0 2px;
     }
     .main>section {
@@ -1049,6 +1116,10 @@ section.intro{
     animation: spin 2s linear infinite;
 }
 
+@keyframes mouse_scroll{
+    form{ top: 15%; opacity: 1; }
+    to{ top: 80%; opacity: 0; }
+}
 
 @-webkit-keyframes spin {
     0% { -webkit-transform: rotate(0deg); }

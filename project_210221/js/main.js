@@ -72,7 +72,7 @@ function init(){
         if(intro_bg.paused) {
             intro_bg.play();
           }
-    }, 2000);
+    }, 0);
 
     
 }
@@ -171,13 +171,13 @@ function nav_focus(n_idx){
 
     nav_menu.forEach(nav=>{
         nav.classList.remove('on');
-        nav.children[0].style.color = "#fff";
+        nav.children[0].style.color = "#2d2f3d";
         nav.children[1].style.right = "500px";
         nav.children[2].style.right = "500px";
     })
 
     nav_menu[n_idx].classList.add('on');
-    nav_menu[n_idx].children[0].style.color = "#457ee0";
+    nav_menu[n_idx].children[0].style.color = "#fff";
     nav_menu[n_idx].children[1].style.right = "-63px";
     nav_menu[n_idx].children[2].style.right = "-63px";
 }
