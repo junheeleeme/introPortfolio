@@ -1,3 +1,25 @@
+function isBrowserCheck(){  // 스크롤 효과를 위한 브라우저 구분
+	const agt = navigator.userAgent.toLowerCase(); 
+	if (agt.indexOf("chrome") != -1) return 'Chrome'; 
+	if (agt.indexOf("opera") != -1) return 'Opera'; 
+	if (agt.indexOf("webtv") != -1) return 'WebTV'; 
+	if (agt.indexOf("firefox") != -1) return 'Firefox'; 
+	if (agt.indexOf("safari") != -1) return 'Safari'; 
+	if (agt.indexOf("mozilla/5.0") != -1) return 'Mozilla'; 
+	if (agt.indexOf("msie") != -1) { 
+    	let rv = -1; 
+		if (navigator.appName == 'Microsoft Internet Explorer') { 
+			let ua = navigator.userAgent; var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})"); 
+		if (re.exec(ua) != null) 
+			rv = parseFloat(RegExp.$1); 
+		} 
+		return 'Internet Explorer '+rv; 
+	} 
+}
+const browser = isBrowserCheck();
+
+let vh = window.innerHeight * 0.01;
+document.querySelector('.main>section').style.setProperty("--vh", `${vh}px`);
 
 /* Variables */
 const kku = document.querySelector('#kkusaeng');
@@ -6,7 +28,7 @@ const intro_bg = document.querySelector('.intro_bg');
 const nav_menu = document.querySelectorAll('.nav_main>li');
 const up = document.querySelector('.up');
 const down = document.querySelector('.down');
-const my_info = document.querySelector('.my_info');
+const cm_info = document.querySelector('.cm_info');
 const typing = document.querySelector('.typing');
 const modal_open = document.querySelectorAll('.more_btn');
 const modal_close = document.querySelector('.close_btn');
@@ -24,11 +46,11 @@ let _typing2;
 let _typing3;
 
 // nav_idx =>
-//0 : Intro
-//1 : My Skills
-//2 : Portflio
-//3 : Contact me
-
+//0 : Home
+//1 : intro
+//2 : my skills
+//3 : Portflio
+//4 : Contact me
 /* function */ 
 
 
@@ -46,6 +68,15 @@ window.addEventListener("focus", function(event){
 window.addEventListener("blur", function(event){
     if(intro_bg.play) {
         intro_bg.pause();
+    }
+})
+
+window.addEventListener("scroll", function(){ //모바일
+    if(window.innerHeight*3 === window.scrollY){
+        setTimeout(()=>{
+            cm_info.style.bottom = '100px';
+            cm_info.style.opacity = '1';
+        }, 100)
     }
 })
 
@@ -71,17 +102,10 @@ function init(){
     
         if(intro_bg.paused) {
             intro_bg.play();
-          }
+        }
     }, 0);
-
-    
 }
 
-// 스크롤 효과를 위한 iOS 구분
-function check_device(){
-    const usr_agent = navigator.userAgent.match(/iPhone|iPad|/) ? false : true;
-    return usr_agent; //ios = true
-}
 
 // 마우스 휠 방향 구분
 function isWheel(wDelta){ 
@@ -102,39 +126,35 @@ function fnMove(n_idx){  //직접 클릭한 nav메뉴 절대위치를 계산해 
     const m_section = document.querySelectorAll('.main>section');
     const targetTop = m_section[n_idx].offsetTop;
 
-    if(!check_device()){ // pc/android
+    if(browser !== 'Safari'){ 
         window.scroll({ top:  targetTop, left: 0, behavior: 'smooth'});
-    }else{ //ios
+    }else{
         $('html').stop().animate({ scrollTop : targetTop }, 350, 'swing');
     }
 
     setTimeout(()=>{
-        my_info.style.bottom = '-100%';
-        my_info.style.opacity = '0';
+        cm_info.style.bottom = '-100%';
+        cm_info.style.opacity = '0';
     }, 100)
 
     switch(nav_idx){
-        case 0 : {
+        case 0 : {  //home
             typing_Effect();
             break;
         }
-        case 1 : {
+        case 1 : {  //intro
             allClear();
             break;
         }
-        case 2 : {
+        case 2 : {  //portfolio
             allClear();
             break;
         }
-        case 3 : {
+        case 3 : {  //contact me
             setTimeout(()=>{
-                my_info.style.bottom = '100px';
-                my_info.style.opacity = '1';
+                cm_info.style.bottom = '100px';
+                cm_info.style.opacity = '1';
             }, 100)
-            allClear();
-            break;
-        }
-        case 4 : {
             allClear();
             break;
         }
@@ -344,6 +364,4 @@ modal_close.addEventListener('click', ()=>{
 modal_bg.addEventListener('click', ()=>{
     open_modal = 0;
 })
-
-
 
