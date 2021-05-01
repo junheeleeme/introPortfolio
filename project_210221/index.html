@@ -21,7 +21,7 @@
     <div class="load_bg"></div>
         <div class="loader"></div>
     </div>
-    
+    <input type="text" id="copy_txt">
     <div id="kkusaeng">
         <input type="checkbox" id="nav_chk">
         <div class="nav_toggle">
@@ -73,11 +73,10 @@
                     <li class="info_name">ROLE</li>
                     <li class="info_value">WEB DEVELOPER</li>
                     <li class="info_name">E-MAIL</li>
-                    <li class="info_value">macjjuni@gmail.com<span class="copy_btn"></span></li>
+                    <li class="info_value"><span class="email_txt">macjjuni@gmail.com</span><span class="copy_btn" id="email"></span><span class="tooltip">Copied</span></li>
                     <li class="info_name">PHONE</li>
-                    <li class="info_value">(+82)010-5183-1652<span class="copy_btn"></span></li>
+                    <li class="info_value">(+82)<span class="phone_txt"> 010-5183-1652</span><span class="copy_btn" id="phone"></span><span class="tooltip">Copied</span></li>
                 </ul>
-
             </aside>
         </header>
         
@@ -94,13 +93,14 @@
                         <p class="typing">안녕하세요 :) 웹 개발자 개인 포트폴리오 사이트입니다.</p><span class="cursor"></span>
                     </div>
                     <div class="web_wrap">
-                        <h2>현재 사이트는 HTML/CSS/JavaScript/Node.js/AWS를 사용하여 제작되었습니다.</h2>
+                        <h4>현재 사이트는 HTML/CSS/JavaScript/Node.js/AWS를 사용하여 제작되었습니다.</h4>
                     </div>
                 </div>
             </section>
             <section class="intro">
                 <div class="inner">
-                   
+                   <h2>Introduce</h2>
+
                 </div>
             </section>
             <section class="portfolio">
@@ -111,15 +111,20 @@
                     </div>
                 </label>
                     <div class="portfolio_modal">
-                        <h3 class="modal_title">테트리스(PC WEBSITE)</h3>
-                        <img src="#" alt="portfolio_img" class="visual_img">
-                        <div class="modal_content">
-                            <p></p>
-                            <ul>
-                            </ul>
+                        <div class="modal_title">
+                            <h3>테트리스(PC WEBSITE)</h3>
                         </div>
-                        <a href="#" target='_blank' class="git_btn">Github</a>
-                        <a href="#" target='_blank' class="view_btn">View</a>
+                        <div class="modal_content">
+                            <img src="#" alt="portfolio_img" class="visual_img">
+ 
+                                <p></p>
+                                
+                                <ul>
+                                </ul>
+
+                            <a href="#" target='_blank' class="git_btn">Github</a>
+                            <a href="#" target='_blank' class="view_btn">View</a>
+                        </div>
                     </div>
                
 
@@ -128,42 +133,34 @@
                     <ul class="portfolio_items">
 
                         <li>
-                                <img src="img/portfolio_item/item1_tetris_cover.png" alt="portfolio_tetris_img">
-                                <div class="port_show">
-                                    <div class="show_wrap">
-                                        <h3 class="port_title">테트리스</h3>
-                                        <h4 class="port_sub">PC WEBSITE</h4>
-                                        <label for="modal_chk">
-                                            <span class="more_btn">More</span>
-                                        </label>
-                                    </div>
-                                </div>
-                        </li>
-                        <li>
+                            <img src="img/portfolio_item/tetris_cover.png" alt="portfolio_tetris_img">
                             <div class="port_show">
-                                <div class="show_wrap">
-                                    <h3 class="port_title">스타벅스 커피</h3>
-                                    <h4 class="port_sub">RESPONSIVE WEBSITE</h4>
                                 <label for="modal_chk">
-                                        <span class="more_btn">More</span>
-                                </label>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="port_show">
-                                <div class="show_wrap">
                                     <h3 class="port_title">테트리스</h3>
-                                    <h4 class="port_sub">PC WEBSITE</h4>
-                                <label for="modal_chk">
-                                    <span class="more_btn">More</span>
+                                    <h4 class="port_sub">- DeskTop</h4>
                                 </label>
-                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="img/portfolio_item/starbucks_cover.png" alt="portfolio_starbucks_img">
+                            <div class="port_show">
+                                <label for="modal_chk">
+                                    <h3 class="port_title">스타벅스 커피</h3>
+                                    <h4 class="port_sub">- RESPONSIVE</h4>
+                                </label>
                             </div>
                         </li>
                         <li>
                             <div class="port_show">
-                                <div class="show_wrap">
+                                <label for="modal_chk">
+                                    <h3 class="port_title">테트리스</h3>
+                                    <h4 class="port_sub">- DeskTop</h4>
+                                </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="port_show">
+                                <div class="dot_effect">
                                     <span class="dot1"></span>
                                     <span class="dot2"></span>
                                     <span class="dot3"></span>
@@ -180,8 +177,8 @@
                     <ul class="cm_info">
                         <li><h3>Thank You!</h3></li>
                         <li><strong>NAME</strong> : LEE JUNHEE</li>
-                        <li><a href="mailto:hello8836@naver.com" title="이메일 보내기"><strong>E-MAIL</strong> : hello8836@naver.com</a></li>
-                        <li><a href="#" onclick="return false;" title="이메일 보내기"><strong>PHONE</strong> : (+82)010-5183-1652</a></li>
+                        <li><a href="mailto:macjjuni@naver.com" title="이메일 보내기"><strong>E-MAIL</strong> : macjjuni@gmail.com</a></li>
+                        <li><a href="#" onclick="return false;"><strong>PHONE</strong> : (+82) 010-5183-1652</a></li>
                         <li><a href="https://github.com/junheeleeme" target="_blank" title="새창으로 주소이동"><strong>GITHUB</strong> : https://github.com/junheeleeme</a></li>
                     </ul>
                 </div>

@@ -6,12 +6,7 @@
     font-style: normal;
 }
 
-:root{
-    --mobile-height: 93vh;
-    --pc-height: 100vh;
-}
-
-*{ box-sizing: border-box; margin: 0; padding: 0; font-family: 'Nanum Gothic', sans-serif; }
+*{ box-sizing: border-box; margin: 0; padding: 0; font-family: 'NEXON Lv2 Gothic', 'Nanum Gothic', sans-serif; }
 html{ -ms-overflow-style: none; overflow: hidden;}
 html::-webkit-scrollbar{ display: none; }
 body{ scroll-behavior: smooth; }
@@ -20,6 +15,7 @@ ul{list-style: none;}
 #kkusaeng{position: relative; width: 100%; opacity: 0; transition: 0.5s;}
 #menu_chk{position: absolute; left: -40px; opacity: 0;}
 #nav_chk{position: fixed; top: 0; left: 0; opacity: 0;}
+#copy_txt{position: absolute; top: 0; left: 0; z-index: -9999; width: 1; height: 1;}
 
 .header{
     position: fixed;
@@ -222,6 +218,7 @@ ul{list-style: none;}
     background-color: #fff;
 }
 
+
 .info_list>.info_value{
     position: relative;
     display: inline-block;
@@ -229,11 +226,50 @@ ul{list-style: none;}
 
 .copy_btn{
     position: absolute;
-    top: 2px; right: -27px;
+    top: 0; right: -27px;
     display: inline-block;
     width: 20px;
     height: 20px;
-    background: url('/img/copy.png') no-repeat center/100%;
+    background-image: url('/img/copy.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    cursor: pointer;
+}
+.copy_btn:hover{
+    background-image: url('/img/copy_hover.png');
+}
+
+.tooltip{
+    content: '';
+    position: absolute;
+    top: -45px;
+    right: -48px;
+    width: 60px;
+    height: 24px;
+    padding: 4px 3px;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #2d2f3d;
+    font-size: 15px;
+    text-align: center;
+    z-index: 9999;
+    opacity: 0;
+    transition: 0.4s ease;
+}
+
+.tooltip::after{
+    content: '';
+    position: absolute;
+    top: 23px;
+    right: 22px;
+    width: 0px;
+    height: 0px;
+    border-top: 10px solid #fff;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    z-index: 999;
 }
 
 .upBlock{
@@ -259,7 +295,7 @@ ul{list-style: none;}
 .move_btn{
     position: fixed;
     bottom: 10%;
-    right: 3%;
+    right: 30px;
     z-index: 900; 
 }
 
@@ -338,21 +374,24 @@ ul{list-style: none;}
 .main>section{
     position: relative;
     width: 100%;
-    height: 92vh;
+    height: 100vh;
     overflow: hidden;
     padding-left: 20%;
 }
 
 section>.inner{
     position: relative;
-    padding: 120px 120px;
+    padding: 100px 100px;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+}
+
+.inner>h2{
+    font-size: 2.2em;
 }
 
 section.intro{
-    top: 0;
-    left: 0;
+    background-color: #a393eb;
 }
 .home>.inner{
     background-color: rgba(0,0,0,0.3);
@@ -377,6 +416,7 @@ section.intro{
     position: relative;
     display: inline;
     padding-left: 5px;
+    font-family: 'Nanum Gothic', sans-serif;
     font-size: 25px;
     font-weight: 300;
     color: #fff;
@@ -408,10 +448,11 @@ section.intro{
     bottom: 30px;
     right: 30px;
     opacity: 0;
+    text-align: right;
     transition: opacity 2s ease-out;
 }
 
-.web_wrap>h2{ font-size: 18px; font-weight: 200; color: #fff;}
+.web_wrap>h4{ font-size: 18px; font-weight: 200; color: #fff;}
 
 .profileImg{
     position: absolute;
@@ -425,7 +466,7 @@ section.intro{
     z-index: 10;
 }
 
-.portfolio{ background-color: #fff; }
+.portfolio{ background-color: #ffcccc; }
 .portfolio>.inner{ padding: 30px;}
 
 .portfolio_items{
@@ -442,20 +483,75 @@ section.intro{
 }
 .portfolio_items>li{
     position: relative;
-    width: 400px;
-    height: 300px;
+    width: 420px;
+    height: 315px;
     margin: 15px;
-    vertical-align: top;
-    border: 1px solid #000;
     text-align: center;
-    box-shadow: 3px 3px 3px #000;
+    overflow: hidden;
+    background-color: #eeeeee;
+}
+.portfolio_items>li>img{width: 100%; height: 100%;}
+
+.port_show{
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    color :#fff;
+    transition: 0.2s ease;
+    background-color: #a393eb;
+}
+.port_show>label{
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    text-align: left;
+    cursor: pointer;    
 }
 
-.portfolio_items>li>img{ width: 100%; height: 100%;}
-.portfolio_items>li:hover .port_show{opacity: 1;}
+.portfolio_items>li:hover .port_show{
+    left: 0;
+}
+
+.port_title{
+    font-size: 3.0em;
+    margin-bottom: 3px;
+}
+.port_sub{ 
+    font-size: 1.4em;
+    margin-bottom: 35px;
+}
+
+.dot_effect{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.dot1, .dot2, .dot3{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: 0.2s ease-out;
+    opacity: 0;
+}
+.dot1{ animation: ing 1.5s 2.2s infinite; }
+.dot2{ animation: ing 1.5s 1.1s infinite; }
+.dot3{ animation: ing 1.5s 0s infinite; }
+
+@keyframes ing{
+    from{ opacity: 1;}
+    to{ opacity: 0; }
+}
 
 .modal_bg{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -466,78 +562,7 @@ section.intro{
     transition: 0.3s ease-out;
     transition-delay: 0.35s;
 }
-
-.portfolio_modal>.modal_title{
-    position:absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    font-size: 28px;
-    padding: 0 20px;
-    height: 65px;
-    line-height: 65px;
-    background-color: #75b1ff;
-    color: #fff;
-}
-
-.portfolio_modal>.visual_img{
-    width: 100%;
-}
-
-.modal_content{
-    padding: 30px 3px 0 3px;
-}
-
-.modal_content p{
-    font-size: 20px;
-    line-height: 1.6;
-}
-
-.modal_content>ul{
-    padding: 25px 0 30px 0;
-}
-
-.modal_content>ul>li{
-    position: relative;
-    padding-left: 20px;
-    font-size: 18px;
-    line-height: 1.5;
-}
-
-
-.modal_content>ul>li:after{
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translate(0, -50%);
-    width: 4px;
-    height: 4px;
-    background-color: #ffb037;
-    border-radius: 50%;
-}
-
-.portfolio_modal a{
-    display: inline-block;
-    width: 48%;
-    height: 44px;
-    line-height: 44px;
-    text-align: center;
-    color: #333333;
-    background-color: #e8e8e8;
-    transition: 0.2s ease-out;
-}
-
-.git_btn{ float: left; font-size: 18px; }
-
-.view_btn{ float: right; font-size: 18px; }
-
-.portfolio_modal a:hover{
-    color: #fff;
-    background-color: #c8d9eb;
-}
-
-.portfolio>input[type=checkbox] ~ .portfolio_modal{
+.portfolio_modal{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -551,19 +576,78 @@ section.intro{
     overflow: auto;
     z-index: 9999;
 }
-
 .portfolio_modal::-webkit-scrollbar{
     display: none; 
 }
+.modal_title{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 20px;
+    height: 65px;
+    background-color: #75b1ff;
+    color: #fff;
+}
+.modal_title>h3{
+    font-size: 28px;
+    line-height: 65px;
+}
+.modal_content{
+    width: 100%;
+    height: auto;
+    margin-top: 65px;
+}
+.modal_content>.visual_img{
+    width: 100%;
+}
+.modal_content p{
+    font-size: 1.3em;
+    margin: 20px 3px;
+    line-height: 1.6;
+}
+.modal_content>ul{
+    margin: 0 0 35px 10px;
+}
+.modal_content>ul>li{
+    position: relative;
+    padding-left: 20px;
+    font-size: 1.23em;
+    line-height: 1.5;
+}
+.modal_content>ul>li:after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    width: 4px;
+    height: 4px;
+    background-color: #ffb037;
+    border-radius: 50%;
+}
+.modal_content a{
+    display: inline-block;
+    width: 48%;
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+    font-size: 1.2em;
+    color: #000;
+    background-color: #e8e8e8;
+    transition: 0.2s ease-out;
+}
+.modal_content a:hover{
+    background-color: #c8d9eb;
+    color: #000;
+}
+.git_btn{ float: left; font-size: 18px; }
+.view_btn{ float: right; font-size: 18px; }
 
 .portfolio>input[type=checkbox]{
+    position: absolute;
+    top: 0; left: 0;
     opacity: 0;
-}
-
-.portfolio>input[type=checkbox]:checked ~ label>.modal_bg{
-    z-index: 9000;
-    opacity: 1;
-    transition-delay: 0s;
 }
 
 #modal_chk{
@@ -572,13 +656,16 @@ section.intro{
     left: 0;
     opacity: 0;
 }
-
+#modal_chk:checked ~ label>.modal_bg{
+    z-index: 9000;
+    opacity: 1;
+    transition-delay: 0s;
+}
 #modal_chk:checked ~ .portfolio_modal{
     transform: translate(-50%, -50%) scale(1);
     z-index: 9500;
     opacity: 1;
     transition-delay: 0.5s;
-    padding-top: 85px;
 }
 
 #modal_chk ~ label>.modal_bg>.close_btn{
@@ -592,91 +679,11 @@ section.intro{
     cursor: pointer;
     transition: 0.3s ease-in-out;
 }
-
 #modal_chk:checked ~ label>.modal_bg>.close_btn{
     top: 30px;
     right: 30px;
 }
 
-.port_show{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    color :#fff;
-    transition: 0.3s ease-out;
-    background: rgba(0,0,0, 0.6);
-}
-
-.show_wrap{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-}
-
-.dot1, .dot2, .dot3{
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin: 0 10px;
-    background-color: #fff;
-    border-radius: 50%;
-    transition: 0.2s ease-out;
-    opacity: 0;
-}
-
-.dot1{
-    animation: ing 1.5s 2.2s infinite;
-}
-.dot2{
-    animation: ing 1.5s 1.1s infinite;
-}
-.dot3{
-    animation: ing 1.5s 0s infinite;
-}
-
-
-@keyframes ing{
-    from{ opacity: 1;}
-    to{ opacity: 0; }
-}
-
-.port_title{
-    font-size: 45px;
-}
-.port_sub{ 
-    font-size: 20px;
-    margin-bottom: 35px;
-}
-
-.port_ex{
-    font-size: 15px;   
-    font-weight: 400;
-    margin-bottom: 20px;
-}
-
-.more_btn{
-    display: inline-block;
-    color: #fff;
-    border: 1px solid #fff;
-    font-size: 18px;
-    font-weight: 400;
-    text-align: center;
-    padding: 8px 0;
-    margin-top: 20px;
-    width: 80%;
-    transition: 0.3s ease;
-    cursor: pointer;
-}
-
-.more_btn:hover{
-    background-color: #fff;
-    color: #222;
-}
 
 .contactme{ background-color: #75b1ff; /* #457ee0 #91c788 */ }
 .contactme>.inner{
@@ -743,7 +750,7 @@ section.intro{
 @media screen and (max-width: 1810px) {
 
     .header{
-        padding: 140px 0 0 50px;
+        padding: 140px 0 0 45px;
     }
     .info_name{
         font-size: 1.0em;
@@ -778,7 +785,7 @@ section.intro{
 
 @media screen and (max-width: 1400px) {
     .header{
-        padding: 140px 0 0 45px;
+        padding: 140px 0 0 40px;
     }
     .info_name{
         font-size: 0.9em;
@@ -812,16 +819,16 @@ section.intro{
         width: 27%;
     }
     .header{
-        padding: 140px 0 0 40px;
+        padding: 140px 0 0 35px;
     }
     .info_name{
-        font-size: 1.1em;
+        font-size: 1.13em;
         font-weight: 600;
         color: #4ba2fa;
         letter-spacing: 3px;
     }
     .info_value{
-        font-size: 1.2em;
+        font-size: 1.22em;
         font-weight: 700;
         color: #fff;
         margin: 10px 0 60px;
@@ -847,19 +854,45 @@ section.intro{
         font-size: 21px;
     }
     .portfolio_items {
-        align-content: center;
-        justify-content: center;
-        padding: 0;
+        justify-content: space-around;
     }
-    .portfolio_items>li{
-        width: 400px;
-        height: 280px;
-        margin: 15px;
+    .portfolio_modal{
+        width: 50%;
+        padding: 10px;
     }
+    .modal_title{
+        padding: 0 15px;
+    }
+    .modal_title>h3{
+        font-size: 1.5em;
+        line-height: 60px;
+    }
+
+    .modal_content p{
+        font-size: 1.4em;
+        margin: 20px 5px;
+        line-height: 1.6;
+    }
+    .modal_content>ul{
+        margin: 0 0 30px 10px;
+    }
+    .modal_content>ul>li{
+        position: relative;
+        padding-left: 20px;
+        font-size: 1.3em;
+        line-height: 1.5;
+    }
+    .modal_content a{
+        height: 46px;
+        line-height: 46px;
+        font-size: 1.3em;
+    }
+
     .web_wrap{
         bottom: 40px;
+        right: 40px;
     }
-    .web_wrap>h2{
+    .web_wrap>h4{
         font-size: 15px;
         color: #fff;
     }
@@ -882,25 +915,25 @@ section.intro{
 /* 테블릿 CSS */
 @media screen and (min-width:768px) and (max-width: 1023px) {
     .header, .front_area{
-        width: 25%;
+        width: 27%;
     }
     .header{
         padding: 110px 0 0 25px;
     }
     .info_name{
-        font-size: 0.85em;
+        font-size: 0.8em;
         font-weight: 600;
         color: #4ba2fa;
         letter-spacing: 3px;
     }
     .info_value{
-        font-size: 0.95em;
+        font-size: 0.9em;
         font-weight: 700;
         color: #fff;
         margin: 10px 0 60px;
     }
     .nav {
-        width: 25%;
+        width: 27%;
         padding: 80px 15px 0 0;
     }
     .header_icon {
@@ -950,22 +983,54 @@ section.intro{
     }
     .web_wrap {
         bottom: 40px;
+        right: 40px;
     }
-    .web_wrap>h2{
+    .web_wrap>h4{
         font-size: 12px;
     }
-    .portfolio>input[type=checkbox] ~ .portfolio_modal{
-        width: 450px;
-        padding: 15px;
+
+    
+    .portfolio_modal{
+        width: 60%;
+        padding: 10px;
     }
-    #modal_chk:checked ~ .portfolio_modal{
-        padding-top: 80px;
+    .modal_title{
+        height: 55px;
+        padding: 0 15px;
     }
+    .modal_title>h3{
+        font-size: 1.5em;
+        line-height: 55px;
+    }
+    .modal_content p{
+        font-size: 1.3em;
+        margin: 15px 5px;
+        line-height: 1.6;
+    }
+    .modal_content{
+        margin-top: 55px;
+    }
+    .modal_content>ul{
+        margin: 0 0 25px 10px;
+    }
+    .modal_content>ul>li{
+        position: relative;
+        padding-left: 20px;
+        font-size: 1.2em;
+        line-height: 1.5;
+    }
+    .modal_content a{
+        height: 43px;
+        line-height: 43px;
+        font-size: 1.1em;
+    }
+
+
     .cm_info {
         position: absolute;
         bottom: -100%;
         left: 70px;
-        transition: 0.8s ease-in-out;
+        transition: 0.6s ease-in-out;
     }
     .cm_info h3 {
         font-family: 'Nanum Gothic', sans-serif;
@@ -1051,6 +1116,10 @@ section.intro{
     .header_icon>a {
         margin: 0 2px;
     }
+    .move_btn{
+        display: none; 
+    }
+
     .main>section {
         padding-left: 0;
     }
@@ -1100,54 +1169,74 @@ section.intro{
         font-size: 0.9em;
         padding: 4px 0 5px 0;
     }
-    .portfolio>input[type=checkbox] ~ .portfolio_modal{
-        width: 85%;
+
+    .portfolio_modal{
+        width: 90%;
         padding: 10px;
     }
-    .portfolio>input[type=checkbox] ~ .portfolio_modal>.modal_title{
-        font-size: 1.4em;
-        padding: 0 20px;
-        height: 50px;
-        line-height: 50px;
+    .modal_title{
+        width: 100%;
+        padding: 0 10px;
+        height: 55px;
+        background-color: #75b1ff;
+        color: #fff;
     }
-    #modal_chk:checked ~ .portfolio_modal{
-        padding-top: 60px;
+    .modal_title>h3{
+        font-size: 1.3em;
+        line-height: 55px;
     }
-    .modal_content {
-        padding: 10px 3px 0 3px;
+    .modal_content{
+        width: 100%;
+        height: auto;
+        margin-top: 55px;
+    }
+    .modal_content>.visual_img{
+        width: 100%;
     }
     .modal_content p{
-        font-size: 0.94em;
+        font-size: 1.15em;
+        margin: 12px 4px;
         line-height: 1.6;
     }
-    .modal_content>ul {
-        padding: 10px 0 15px 0;
+    .modal_content>ul{
+        margin: 0 0 25px 10px;
     }
-    .modal_content>ul>li {
+    .modal_content>ul>li{
         position: relative;
-        padding-left: 15px;
-        font-size: 0.9em;
+        padding-left: 20px;
+        font-size: 1.03em;
         line-height: 1.5;
     }
-    .portfolio_modal a {
+    .modal_content>ul>li:after{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+        width: 4px;
+        height: 4px;
+        background-color: #ffb037;
+        border-radius: 50%;
+    }
+    .modal_content a{
         display: inline-block;
         width: 48%;
-        height: 33px;
-        font-size: 0.9em;
-        line-height: 33px;
+        height: 40px;
+        line-height: 40px;
         text-align: center;
+        font-size: 1.1em;
         color: #333333;
         background-color: #e8e8e8;
         transition: 0.2s ease-out;
     }
+
     .web_wrap {
         position: absolute;
-        left: 0;
-        bottom: 70px;
+        right: 10px;
+        bottom: 10px;
         width: 100%;
     }
-    .web_wrap>h2 {
-        padding-left: 22px;
+    .web_wrap>h4 {
         font-size: 0.4em;
         font-weight: 100;
     }
