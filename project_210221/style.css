@@ -14,8 +14,9 @@ a{ font-weight: bold; text-decoration: none; color: #000;}
 ul{list-style: none;}
 #kkusaeng{position: relative; width: 100%; opacity: 0; transition: 0.5s;}
 #menu_chk{position: absolute; left: -40px; opacity: 0;}
-#nav_chk{position: fixed; top: 0; left: 0; opacity: 0;}
-#copy_txt{position: absolute; top: 0; left: 0; z-index: -9999; width: 1; height: 1;}
+#nav_chk{position: fixed; top: 30px; left: 30px; opacity: 0;}
+#copy_txt{position: absolute; top: 0; left: 0; z-index: -9999; width: 1; height: 1;
+border: none; outline: none;}
 
 .header{
     position: fixed;
@@ -391,7 +392,7 @@ section>.inner{
 }
 
 section.intro{
-    background-color: #a393eb;
+    background-color: #eeeeee;
 }
 .home>.inner{
     background-color: rgba(0,0,0,0.3);
@@ -466,7 +467,7 @@ section.intro{
     z-index: 10;
 }
 
-.portfolio{ background-color: #ffcccc; }
+.portfolio{ background-color: #fff; }
 .portfolio>.inner{ padding: 30px;}
 
 .portfolio_items{
@@ -489,41 +490,65 @@ section.intro{
     text-align: center;
     overflow: hidden;
     background-color: #eeeeee;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, 
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    overflow: hidden;
 }
-.portfolio_items>li>img{width: 100%; height: 100%;}
+.portfolio_items>li:hover img{
+    transform: scale(1.12);
+}
+.portfolio_items>li>img{width: 100%; height: 100%; transition: 0.45s ease;
+    transition-delay: 0.05s;
+}
 
 .port_show{
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: 100%;
     color :#fff;
-    transition: 0.2s ease;
-    background-color: #a393eb;
+    transition: 0.1s ease-out;
+    background-color: rgba(0,0,0, 0.75);
+    opacity: 0;
 }
+
 .port_show>label{
     position: absolute;
     top: 0; left: 0;
     width: 100%;
     height: 100%;
-    padding: 30px;
+    padding: 40px;
     text-align: left;
     cursor: pointer;    
 }
 
-.portfolio_items>li:hover .port_show{
-    left: 0;
-}
-
 .port_title{
+    position: absolute;
+    top: 40px;
+    left: -80%;
     font-size: 3.0em;
-    margin-bottom: 3px;
+    transition: 0.43s ease;
 }
 .port_sub{ 
-    font-size: 1.4em;
-    margin-bottom: 35px;
+    position: absolute;
+    top: 110px;
+    left: -80%;
+    font-size: 1.5em;
+    transition: 0.5s ease;
 }
+
+.portfolio_items>li:hover .port_show{
+    left: 0;
+    opacity: 1;
+}
+
+.portfolio_items>li:hover .port_title,
+.portfolio_items>li:hover .port_sub{
+    left: 40px;
+}
+
+
 
 .dot_effect{
     position: absolute;
@@ -535,8 +560,8 @@ section.intro{
     display: inline-block;
     width: 20px;
     height: 20px;
-    margin: 0 10px;
-    background-color: #fff;
+    margin: 0 7px;
+    background-color: rgba(0, 0, 0, 0.3);
     border-radius: 50%;
     transition: 0.2s ease-out;
     opacity: 0;
@@ -551,14 +576,14 @@ section.intro{
 }
 
 .modal_bg{
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    z-index: -999;
     opacity: 0;
+    z-index: -1;
     transition: 0.3s ease-out;
     transition-delay: 0.35s;
 }
@@ -607,7 +632,7 @@ section.intro{
     line-height: 1.6;
 }
 .modal_content>ul{
-    margin: 0 0 35px 10px;
+    margin: 0 0 30px 10px;
 }
 .modal_content>ul>li{
     position: relative;
@@ -656,16 +681,18 @@ section.intro{
     left: 0;
     opacity: 0;
 }
+
 #modal_chk:checked ~ label>.modal_bg{
     z-index: 9000;
     opacity: 1;
     transition-delay: 0s;
+    
 }
 #modal_chk:checked ~ .portfolio_modal{
     transform: translate(-50%, -50%) scale(1);
     z-index: 9500;
     opacity: 1;
-    transition-delay: 0.5s;
+    transition-delay: 0.2s;
 }
 
 #modal_chk ~ label>.modal_bg>.close_btn{
@@ -962,16 +989,33 @@ section.intro{
         height: 220px;
         margin-bottom: 5px;
     }
+    
     .port_title{
-        font-size: 38px;
+        position: absolute;
+        top: 30px;
+        left: -80%;
+        font-size: 2.2em;
+        transition: 0.43s ease;
     }
     .port_sub{ 
-        font-size: 19px;
-        margin-bottom: 20px;
+        position: absolute;
+        top: 82px;
+        left: -80%;
+        font-size: 1.1em;
+        transition: 0.5s ease;
     }
-    .more_btn{
-        padding: 8px 0;   
+    
+    .portfolio_items>li:hover .port_show{
+        left: 0;
+        opacity: 1;
     }
+    
+    .portfolio_items>li:hover .port_title,
+    .portfolio_items>li:hover .port_sub{
+        left: 30px;
+    }
+
+
     section>.inner {
         padding: 80px 60px;
     }
@@ -988,7 +1032,6 @@ section.intro{
     .web_wrap>h4{
         font-size: 12px;
     }
-
     
     .portfolio_modal{
         width: 60%;
@@ -1159,15 +1202,28 @@ section.intro{
         margin-bottom: 8px;
     }
     .port_title{
-        font-size: 1.7em;
+        position: absolute;
+        top: 20px;
+        left: -80%;
+        font-size: 1.55em;
+        transition: 0.43s ease;
     }
     .port_sub{ 
-        font-size: 0.85em;
-        margin-bottom: 10px;
+        position: absolute;
+        top: 55px;
+        left: -80%;
+        font-size: 0.7em;
+        transition: 0.5s ease;
     }
-    .more_btn{
-        font-size: 0.9em;
-        padding: 4px 0 5px 0;
+    
+    .portfolio_items>li:hover .port_show{
+        left: 0;
+        opacity: 1;
+    }
+    
+    .portfolio_items>li:hover .port_title,
+    .portfolio_items>li:hover .port_sub{
+        left: 20px;
     }
 
     .portfolio_modal{
@@ -1194,9 +1250,9 @@ section.intro{
         width: 100%;
     }
     .modal_content p{
-        font-size: 1.15em;
+        font-size: 1.05em;
         margin: 12px 4px;
-        line-height: 1.6;
+        line-height: 1.5;
     }
     .modal_content>ul{
         margin: 0 0 25px 10px;

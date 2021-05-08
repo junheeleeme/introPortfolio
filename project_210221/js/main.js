@@ -59,11 +59,7 @@ let i = 0;
 
 /* Event Handling */
 window.addEventListener('load', ()=>{
-    if(window.innerWidth < 768){
-        html.style.overflow = 'auto';
-        console.log('hello');
-        move_trigger = 1;
-    }
+    re_sizing();
     init();
 })
 
@@ -79,15 +75,17 @@ window.addEventListener("blur", ()=>{
     }
 })
 
+//모달 오픈시
+window.addEventListener('touchmove', function(e){
+   if(modal_exc === 1){
+        e.preventDefault ();
+   }
+}, {passive: false})
+
+
 //브라우저 리사이징
 window.addEventListener("resize", ()=>{ 
-    if(window.innerWidth < 768 ){
-        move_trigger = 1;
-        html.style.overflow = 'auto';
-    }else{
-        move_trigger = 0;
-        html.style.overflow = 'hidden';
-    }
+    re_sizing();
 })
 
 window.addEventListener("scroll", ()=>{ //모바일
@@ -144,11 +142,11 @@ html.addEventListener('keydown', (e)=>{
 
 /* 화면전환 버튼 */
 up.addEventListener('click', ()=>{
-fn_moveUp();
+    fn_moveUp();
 })
 
 down.addEventListener('click', ()=>{
-fn_moveDown();
+    fn_moveDown();
 })
 
 //복사기능
@@ -182,46 +180,65 @@ copy.forEach(copy_btn =>{
 })
 
 
-//포트폴리오 More 버튼 클릭
+
+//포트폴리오 모달
 modal_btn.forEach(openBtn =>{  
 openBtn.addEventListener('click', ()=>{
-  
+
+    
+
+    const _height = document.querySelector('.portfolio').offsetTop;
+    //변경할 부분 정의
+    const _title = document.querySelector('.modal_title').children[0];
+    const _img = document.querySelector('.modal_content').children[0];
+    const  _content = document.querySelector('.modal_content').children[1];
+    const  _skills = document.querySelector('.modal_content').children[2];
+    const  _git = document.querySelector('.modal_content').children[3];
+    const  _view = document.querySelector('.modal_content').children[4];
+
+    //스크롤 이동방지
     modal_exc = 1;
-// read json file   
-fetch('../portfolio.json').then((res) => res.text())
-.then((pofol) => {
+    
+    //화면 위치 재조정
+    setTimeout(() => {
+        html.scroll({ top:  _height, left: 0, behavior: 'smooth'});
+    }, 0);
+
+    fetch('../portfolio.json').then((res) => res.text())
+    .then((pofol) => {
 
     const portfolio = JSON.parse(pofol);
-        console.log(portfolio);
-        for(i= 0 ; i<modal_btn.length ; i++){
+    
+    for(i= 0 ; i<modal_btn.length ; i++){
+            
+        if(modal_btn[i] === openBtn){
 
-            if(modal_btn[i] === openBtn){
+            _title.innerText.innerText = '';
+            _img.src.innerHTML = '';
+            _skills.innerHTML = '';
+            _git.href = '';
+            _view.href = '';
 
-                const modal = document.querySelector('.portfolio_modal');
-                                
-                modal.children[0].children.innerText = portfolio[i].title;
-                modal.children[1].children[0].src = 'img/portfolio_item/' + portfolio[i].img_url;
-                
-                modal.children[1].children[1].innerText = '';
-                modal.children[1].children[2].innerHTML = '';
-               
-                modal.children[1].children[3].href = '';
-                modal.children[1].children[4].href = '';
+            //데이터 삽입
+            _title.innerText = portfolio[i].title;
+            _img.src = 'img/portfolio_item/' + portfolio[i].img_url;
+            _content.innerText = portfolio[i].content;
 
-                //데이터 삽입
-                modal.children[1].children[1].innerText = portfolio[i].content;
+            portfolio[i].skills.forEach( sk=>{ 
+                _skills.innerHTML += '<li><strong>' + sk + '</strong></li>';
+            })               
+            _git.href = portfolio[i].link[0];
+            _view.href = portfolio[i].link[1];
+        }  
+    }
 
-                portfolio[i].skills.forEach(skills=>{ 
-                    modal.children[1].children[2].innerHTML += '<li><strong>' + skills + '</strong></li>';
-                })               
-                modal.children[1].children[3].href = portfolio[i].link[0];
-                modal.children[1].children[4].href = portfolio[i].link[1];
-            }  
-        }
     }).catch((err) => {
-      
 })
-})
+    
+
+    
+
+    })
 })
 
 //모달이 열려있는 경우 화면이동 중단
@@ -258,6 +275,16 @@ function init(){
             intro_bg.play();
         }
     }, 0);
+}
+
+function re_sizing(){
+    if(window.innerWidth < 768 ){
+        move_trigger = 1;
+        html.style.overflow = 'auto';
+    }else{
+        move_trigger = 0;
+        html.style.overflow = 'hidden';
+    }
 }
 
 
@@ -416,4 +443,10 @@ function copied(){
     copy_txt.setSelectionRange(0, 99999);
     document.execCommand("copy");
     copy_txt.value ='';
+}
+
+// read json file   
+function read_json(){
+    
+
 }
