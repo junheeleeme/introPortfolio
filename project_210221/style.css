@@ -26,7 +26,7 @@ border: none; outline: none;}
     height: 100%;
     padding: 140px 0 0 70px;
     background-color: #2d2f3d;;
-    z-index: 900;
+    z-index: 45;
 }
 
 .info_name{
@@ -54,8 +54,8 @@ border: none; outline: none;}
 .icon{
     position: absolute;
     width: 80px;
-    right: 30px;
-    bottom: 40px;
+    right: 20px;
+    bottom: 30px;
 }
 .icon>a{
     position: relative;
@@ -109,7 +109,7 @@ border: none; outline: none;}
     left: 15px;
     width: 45px;
     height: 45px;
-    z-index: 3000;
+    z-index: 50;
     cursor: pointer;
 }
 .nav_toggle>label{
@@ -177,7 +177,7 @@ border: none; outline: none;}
     float: left;
     padding: 110px 30px 0 0;
     background-color:#457ee0;
-    z-index: 901;
+    z-index: 40;
     transition: 0.4s ease;
 }
 #nav_chk:checked ~ .nav{
@@ -379,7 +379,6 @@ border: none; outline: none;}
     overflow: hidden;
     padding-left: 20%;
 }
-
 section>.inner{
     position: relative;
     padding: 100px 100px;
@@ -387,15 +386,18 @@ section>.inner{
     height: 100vh;
 }
 
+.portfolio>.inner{ padding: 0px;}
+.home>.inner{
+    background-color: rgba(0,0,0,0.3);
+}
+
 .inner>h2{
+    text-align: left;
     font-size: 2.2em;
 }
 
 section.intro{
     background-color: #eeeeee;
-}
-.home>.inner{
-    background-color: rgba(0,0,0,0.3);
 }
 
 .intro_bg{
@@ -468,7 +470,10 @@ section.intro{
 }
 
 .portfolio{ background-color: #fff; }
-.portfolio>.inner{ padding: 30px;}
+
+.portfolio>.inner>h2{
+    display: none;
+}
 
 .portfolio_items{
     padding-left: 0;
@@ -494,9 +499,7 @@ section.intro{
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     overflow: hidden;
 }
-.portfolio_items>li:hover img{
-    transform: scale(1.12);
-}
+
 .portfolio_items>li>img{width: 100%; height: 100%; transition: 0.45s ease;
     transition-delay: 0.05s;
 }
@@ -504,12 +507,12 @@ section.intro{
 .port_show{
     position: absolute;
     top: 0;
-    left: 0;
+    left: -100%;
     width: 100%;
     height: 100%;
     color :#fff;
     transition: 0.1s ease-out;
-    background-color: rgba(0,0,0, 0.75);
+    background-color: rgba(0,0,0, 0.65);
     opacity: 0;
 }
 
@@ -576,30 +579,31 @@ section.intro{
 }
 
 .modal_bg{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    z-index: -1;
-    transition: 0.3s ease-out;
+    z-index: -100;
+    opacity: 1;
+    transition: 0.3s ease;
     transition-delay: 0.35s;
 }
+
 .portfolio_modal{
     position: absolute;
-    top: 50%;
+    top: -100%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.3);
+    transform: translate(-50%, -50%);
     width: 530px;
     padding: 20px;
     background-color: #fff;
-    opacity: 0;
-    transition: 0.3s ease;
+    opacity: 1;
+    transition: top 0.8s ease;
     transition-delay: 0.3s;
+    z-index: 100;
     overflow: auto;
-    z-index: 9999;
 }
 .portfolio_modal::-webkit-scrollbar{
     display: none; 
@@ -683,16 +687,14 @@ section.intro{
 }
 
 #modal_chk:checked ~ label>.modal_bg{
-    z-index: 9000;
     opacity: 1;
     transition-delay: 0s;
-    
+    z-index: 90;
 }
+
 #modal_chk:checked ~ .portfolio_modal{
-    transform: translate(-50%, -50%) scale(1);
-    z-index: 9500;
-    opacity: 1;
-    transition-delay: 0.2s;
+    top: 50%;
+    transition-delay: .4s;
 }
 
 #modal_chk ~ label>.modal_bg>.close_btn{
@@ -738,7 +740,7 @@ section.intro{
 }
 .cm_info>li>a{
     font-family: 'Nanum Gothic', sans-serif;
-    font-weight: 100;
+    font-weight: 500;
     color: #2d2f3d;
 }
 
@@ -985,9 +987,9 @@ section.intro{
         padding: 0;
     }
     .portfolio_items>li{
-        width: 330px;
-        height: 220px;
-        margin-bottom: 5px;
+        width: 310px;
+        height: 200px;
+        margin: 10px;
     }
     
     .port_title{
@@ -1067,8 +1069,6 @@ section.intro{
         line-height: 43px;
         font-size: 1.1em;
     }
-
-
     .cm_info {
         position: absolute;
         bottom: -100%;
@@ -1088,7 +1088,7 @@ section.intro{
 }
 
 /* 모바일 CSS */
-@media screen and (min-width:320px) and (max-width:767px){
+@media screen and (min-width:321px) and (max-width:767px){
     
     .header{
         display: none;
@@ -1109,7 +1109,7 @@ section.intro{
         width: 50%;
         padding: 50px 15px 0 0;
         transition: 0.4s ease;
-        z-index: 995;
+        z-index: 40;
     }
     #nav_chk:checked ~ .nav{
         left: 0;
@@ -1122,8 +1122,8 @@ section.intro{
     }
 
     .nav_toggle {
-        top: 10px;
-        left: 10px;
+        top: 7px;
+        left: 7px;
         width: 45px;
         height: 45px;
     }
@@ -1135,7 +1135,7 @@ section.intro{
         height: 100%;
         background-color: rgba(0,0,0, 0.7);
         transition: 0.35s ease;
-        z-index: 992;
+        z-index: 30;
     }
     .nav_bg>label{
         display: inline-block;
@@ -1162,21 +1162,32 @@ section.intro{
     .move_btn{
         display: none; 
     }
-
     .main>section {
         padding-left: 0;
     }
+    .home>.inner{
+    padding: 90px 15px; 
+    }
+
     section>.inner {
-        padding: 90px 30px;
+        padding: 50px 30px;
+    }
+
+    .portfolio>.inner {
+        padding: 50px 30px;
+    }
+    .inner>h2 {
+        text-align: right;
+        font-size: 2.2em;
     }
     .intro_wrap>h1 {
-        font-size: 3.7em;
+        font-size: 52px;
     }
     .typing {
         position: relative;
         display: inline;
         padding-left: 3px;
-        font-size: 0.82em;
+        font-size: 13.3px;
         font-weight: 300;
         user-select: none;
     }
@@ -1199,7 +1210,7 @@ section.intro{
     .portfolio_items>li{
         width: 220px;
         height: 140px;
-        margin-bottom: 8px;
+        margin: 10px;
     }
     .port_title{
         position: absolute;
@@ -1315,7 +1326,241 @@ section.intro{
         font-family: 'Nanum Gothic', sans-serif;
         margin: 10px 0;
     }
+}
 
+@media screen and (max-width:320px){
+    .header{
+        display: none;
+    }
+    .front_area{
+        opacity: 0;
+        transition: 0.4s ease;
+        height: 100px;
+        width: 50%;
+        left: -100%;
+    }
+    .front_area>.scroll_eff{
+        display: none;
+    }
+    .nav{
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        padding: 50px 7px 0 0;
+        transition: 0.4s ease;
+        z-index: 40;
+    }
+    #nav_chk:checked ~ .nav{
+        left: 0;
+    }
+    #nav_chk:checked ~ .front_area{
+        display: block;
+        opacity: 1;
+        width: 50%;
+        left: 0;
+    }
+
+    .nav_toggle {
+        top: 7px;
+        left: 7px;
+        width: 45px;
+        height: 45px;
+    }
+    .nav_bg{
+        position: fixed;
+        top: 0;
+        left: 100%;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0, 0.7);
+        transition: 0.35s ease;
+        z-index: 30;
+    }
+    .nav_bg>label{
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+    }
+    #nav_chk:checked ~ .nav_bg{
+        left: 0;
+    }
+    .nav_main li>a {
+        font-size: 1.2em;
+        padding: 0px 10px 0px 0;
+    }
+    .nav_main li>a:after{
+        left: -15px;
+    }
+    .header_icon {
+        right: 10px;
+        bottom: 15px;
+    }
+    .header_icon>a {
+        margin: 0 2px;
+    }
+    .move_btn{
+        display: none; 
+    }
+    .main>section {
+        padding-left: 0;
+    }
+    section>.inner {
+        padding: 90px 30px;
+    }
+    .intro>.inner{
+        padding: 60px 20px;
+    }
+    .home>.inner{
+        padding: 70px 15px;
+    }
+    .intro_wrap>h1 {
+        font-size: 48px;
+    }
+    .typing {
+        position: relative;
+        display: inline;
+        padding-left: 3px;
+        font-size: 11px;
+        font-weight: 300;
+        user-select: none;
+    }
+    .cursor {
+        display: inline-block;
+        margin: 0 0 -4px 3px;
+        width: 2px;
+        height: 17px;
+        background: #fff;
+        transition: 0;
+        animation: typing_effect 0.8s infinite;
+        opacity: 1;
+    }
+    .portfolio_items {
+        align-content: center;
+        justify-content: center;
+        padding: 0;
+        flex-direction: column
+    }
+    .portfolio_items>li{
+        width: 200px;
+        height: 120px;
+        margin: 10px;
+    }
+    .port_title{
+        position: absolute;
+        top: 20px;
+        left: -80%;
+        font-size: 1.55em;
+        transition: 0.43s ease;
+    }
+    .port_sub{ 
+        position: absolute;
+        top: 55px;
+        left: -80%;
+        font-size: 0.7em;
+        transition: 0.5s ease;
+    }
+    
+    .portfolio_items>li:hover .port_show{
+        left: 0;
+        opacity: 1;
+    }
+    
+    .portfolio_items>li:hover .port_title,
+    .portfolio_items>li:hover .port_sub{
+        left: 20px;
+    }
+
+    .portfolio_modal{
+        width: 90%;
+        padding: 10px;
+    }
+    .modal_title{
+        width: 100%;
+        padding: 0 10px;
+        height: 55px;
+        background-color: #75b1ff;
+        color: #fff;
+    }
+    .modal_title>h3{
+        font-size: 1.3em;
+        line-height: 55px;
+    }
+    .modal_content{
+        width: 100%;
+        height: auto;
+        margin-top: 55px;
+    }
+    .modal_content>.visual_img{
+        width: 100%;
+    }
+    .modal_content p{
+        font-size: 1.05em;
+        margin: 12px 4px;
+        line-height: 1.5;
+    }
+    .modal_content>ul{
+        margin: 0 0 25px 10px;
+    }
+    .modal_content>ul>li{
+        position: relative;
+        padding-left: 20px;
+        font-size: 1.03em;
+        line-height: 1.5;
+    }
+    .modal_content>ul>li:after{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+        width: 4px;
+        height: 4px;
+        background-color: #ffb037;
+        border-radius: 50%;
+    }
+    .modal_content a{
+        display: inline-block;
+        width: 48%;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        font-size: 1.1em;
+        color: #333333;
+        background-color: #e8e8e8;
+        transition: 0.2s ease-out;
+    }
+
+    .web_wrap {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        width: 100%;
+        text-align: left;
+    }
+    .web_wrap>h4 {
+        font-size: 0.05em;
+        font-weight: 100;
+    }
+    .cm_info {
+        position: absolute;
+        bottom: -100%;
+        left: 30px;
+        transition: 0.8s ease-in-out;
+    }
+    .cm_info>li:last-child{
+        margin-bottom: -35px;
+    }
+    .cm_info h3 {
+        font-family: 'Nanum Gothic', sans-serif;
+        font-size: 5.0em;
+        font-weight: 800;
+    }
+    .cm_info>li {
+        font-size: 1.0em;
+        font-family: 'Nanum Gothic', sans-serif;
+        margin: 10px 0;
+    }
 }
 
 

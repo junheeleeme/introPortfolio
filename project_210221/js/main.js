@@ -88,11 +88,21 @@ window.addEventListener("resize", ()=>{
     re_sizing();
 })
 
-window.addEventListener("scroll", ()=>{ //모바일
-    if((window.innerHeight*3)-50 < window.scrollY){
+window.addEventListener("scroll", ()=>{ //모바일 contact me 이동시 텍스트 에니메이션 효과
+    if((window.innerHeight - 40)< window.scrollY && window.innerWidth < 768){
+        for(let i=0 ; i<3 ; i++){
+            nav_toggle.children[0].children[i].style.background = '#2d2f3d';
+        }
+    }else{
+        for(let i=0 ; i<3 ; i++){
+            nav_toggle.children[0].children[i].style.background = '#fff';
+        }
+    }
+    
+    if((window.innerHeight*3)-50 < window.scrollY && window.innerWidth < 768){ 
             cm_info.style.bottom = '100px';
             cm_info.style.opacity = '1';
-    }
+    }  
 })
 
 // 마우스 스크롤 기능구현
