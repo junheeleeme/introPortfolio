@@ -616,13 +616,13 @@ section.intro{
     left: 0;
     width: 100%;
     padding: 0 20px;
-    height: 65px;
-    background-color: #75b1ff;
+    height: 60px;
+    background-color: #4ba2fa;
     color: #fff;
 }
 .modal_title>h3{
     font-size: 28px;
-    line-height: 65px;
+    line-height: 60px;
 }
 .modal_content{
     width: 100%;
@@ -631,10 +631,11 @@ section.intro{
 }
 .modal_content>.visual_img{
     width: 100%;
+    max-height: 300px;
 }
 .modal_content p{
-    font-size: 1.3em;
-    margin: 20px 3px;
+    font-size: 18px;
+    margin: 15px 3px;
     line-height: 1.6;
 }
 .modal_content>ul{
@@ -643,7 +644,7 @@ section.intro{
 .modal_content>ul>li{
     position: relative;
     padding-left: 20px;
-    font-size: 1.23em;
+    font-size: 17px;
     line-height: 1.5;
 }
 .modal_content>ul>li:after{
@@ -664,14 +665,11 @@ section.intro{
     line-height: 46px;
     text-align: center;
     font-size: 1.2em;
-    color: #5c5c5c;
-    background-color: #fff;
-    border: 1px solid #adadad;
-    transition: 0.2s ease-out;
+    color: #2d2f3d;
+    background-color: #e6e6e6;
+    transition: 0.15s ease;
 }
 .modal_content a:hover{
-    background-color: #b4aee8;
-    border: 1px solid #b4aee8;
     color: #fff;
 }
 .git_btn{ float: left; font-size: 18px; }
@@ -799,7 +797,8 @@ section.intro{
         margin-top: 55px;
     }
     .modal_content p{
-        font-size: 18px;
+        font-size: 16.5px;
+        line-height: 1.55;
         margin: 10px 3px;
         font-weight: 100;
     }
@@ -809,7 +808,7 @@ section.intro{
     .modal_content>ul>li{
         position: relative;
         padding-left: 20px;
-        font-size: 17.3px;
+        font-size: 17px;
     }
     .modal_content a{
         height: 45px;
@@ -903,23 +902,24 @@ section.intro{
     }
     .modal_title{
         padding: 0 15px;
+        height: 55px;
     }
     .modal_title>h3{
         font-size: 23px;
-        line-height: 60px;
+        line-height: 55px;
     }
 
     .modal_content p{
-        font-size: 18px;
+        font-size: 17.5px;
         margin: 15px 5px;
     }
     .modal_content>ul{
-        margin: 0 0 20px 10px;
+        margin: 0 0 23px 10px;
     }
     .modal_content>ul>li{
         position: relative;
         padding-left: 20px;
-        font-size: 18.5px;
+        font-size: 17.5px;
         line-height: 1.5;
     }
     .modal_content a{
@@ -971,13 +971,13 @@ section.intro{
         padding: 110px 0 0 25px;
     }
     .info_name{
-        font-size: 0.8em;
+        font-size: 13px;
         font-weight: 600;
         color: #4ba2fa;
         letter-spacing: 3px;
     }
     .info_value{
-        font-size: 0.9em;
+        font-size: 14px;
         font-weight: 700;
         color: #fff;
         margin: 10px 0 60px;
@@ -1017,14 +1017,14 @@ section.intro{
         position: absolute;
         top: 30px;
         left: -80%;
-        font-size: 2.2em;
+        font-size: 35px;
         transition: 0.43s ease;
     }
     .port_sub{ 
         position: absolute;
         top: 82px;
         left: -80%;
-        font-size: 1.1em;
+        font-size: 18px;
         transition: 0.5s ease;
     }
     
@@ -1065,30 +1065,30 @@ section.intro{
         padding: 0 15px;
     }
     .modal_title>h3{
-        font-size: 1.5em;
+        font-size: 25px;
         line-height: 55px;
     }
     .modal_content p{
-        font-size: 1.3em;
-        margin: 15px 5px;
-        line-height: 1.6;
+        font-size: 17px;
+        margin: 10px 5px;
+        
     }
     .modal_content{
         margin-top: 55px;
     }
     .modal_content>ul{
-        margin: 0 0 25px 10px;
+        margin: 0 0 20px 10px;
     }
     .modal_content>ul>li{
         position: relative;
         padding-left: 20px;
-        font-size: 1.2em;
-        line-height: 1.5;
+        font-size: 17px;
+
     }
     .modal_content a{
         height: 43px;
         line-height: 43px;
-        font-size: 1.1em;
+        font-size: 17px;
     }
     .cm_info {
         position: absolute;
@@ -1195,7 +1195,7 @@ section.intro{
     }
 
     .portfolio>.inner {
-        padding: 50px 30px;
+        padding: 0 30px;
     }
     .inner>h2 {
         text-align: right;
@@ -1229,8 +1229,8 @@ section.intro{
         flex-direction: column
     }
     .portfolio_items>li{
-        width: 220px;
-        height: 140px;
+        width: 200px;
+        height: 135px;
         margin: 10px;
     }
     .port_title{

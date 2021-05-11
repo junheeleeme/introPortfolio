@@ -46,7 +46,7 @@ let wDelta; //마우스 Delta값
 let nav_idx = 0;
 let _typing; //typing_Effect()
 let itrv_time = 100; //typing_Effect()
-let sto_time = 1200;
+let sto_time = 1100;
 let i = 0; //typing_Effect()
 let isPause = true;
 
@@ -89,6 +89,9 @@ window.addEventListener('touchmove', function(e){
 //브라우저 리사이징
 window.addEventListener("resize", ()=>{ 
     re_sizing();
+    if(window.innerWidth > 768){
+        fnMove(nav_idx)
+    }
 })
 
 window.addEventListener("scroll", ()=>{ //모바일 contact me 이동시 텍스트 에니메이션 효과
@@ -405,12 +408,12 @@ function typing_Effect(){
                     setTimeout(() => {
                         typing_Effect();
                     }, 0);
-                    itrv_time = 150;
+                    itrv_time = 130;
 
                 }else if(i === 13){
                     
-                    itrv_time = 120;
-                    sto_time = 550;
+                    itrv_time = 110;
+                    sto_time = 450;
                     clearInterval(_typing);
                     setTimeout(() => {
                         typing_Effect();

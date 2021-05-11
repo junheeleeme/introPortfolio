@@ -2,22 +2,22 @@
     {
         "title" : "테트리스 (PC WEBSITE)",
         "img_url" : "tetris_play.gif",
-        "content" : "바닐라 자바스크립트를 사용해 DOM 제어를 학습하며, 제작한 테트리스 데스크톱 웹사이트입니다.",
+        "content" : "바닐라 자바스크립트를 사용해 DOM 제어를 학습하며 제작한 테트리스 데스크톱 웹사이트입니다.",
         "skills" : ["HTML", "CSS", "Vanilla JavaScript"],
-        "link" : ["https://github.com/junheeleeme/tetris_v1.0", ""]
+        "link" : ["https://github.com/junheeleeme/tetris_v1.0", "./tetris"]
     },
     {
         "title" : "스타벅스 코리아 반응형 랜딩페이지",
         "img_url": "starbucks_play.png",
-        "content" : "반응형 웹사이트 제작을 위한 미디어쿼리(CSS Media Query)를 학습하며 제작한 클론 웹사이트입니다.",
+        "content" : "반응형 웹사이트 제작을 위해 미디어쿼리(CSS Media Query)와 이미지 슬라이드 구현을 위한 JQuery 에니메이션을 학습하며 제작한 클론 웹사이트입니다.",
         "skills" : ["HTML", "CSS", "Vanilla JavaScript", "jQuery"],
         "link" : ["https://github.com/junheeleeme/Starbucks_Coffee", ""]
     },
     {
         "title" : "Todo App",
         "img_url": "todo_play.gif",
-        "content" : " 학습하며 제작한 클론 웹사이트입니다.",
+        "content" : "React.JS와 미디어쿼리(CSS Media Query)를 학습하며 제작한 Todo 웹 어플리케이션입니다.",
         "skills" : ["HTML", "CSS", "React", "Vanilla JavaScript"],
-        "link" : ["https://github.com/junheeleeme/React_todoApp", ""]
+        "link" : ["https://github.com/junheeleeme/React_todoApp", "./todo"]
     }
 ]

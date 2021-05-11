@@ -1,22 +1,31 @@
-const http = require('http');
-const fs = require('fs');
-const url = require('url');
+const express = require('express');
+const path = require('path');
+const web = express();
+
+const http = require('http').createServer(web);
 const port = 8080;
 
-const web = http.createServer(function(req, res){
-    let url = req.url;
-    console.log(url);
-    if(url === '/'){
-        url = '/index.html';
-    }
-    if(url === '/favicon.ico'){
-        return res.writeHead(404);
-    }
-    res.writeHead(200);
-    res.end(fs.readFileSync(__dirname + url));
+web.use('/', express.static(path.join(__dirname)));
+web.use('/tetris', express.static(path.join(__dirname, '/pofol/tetris')));
+web.use('/todo', express.static(path.join(__dirname, '/pofol/todo')));
+
+
+web.get('/', function(req, res){
+    res.sendFile(path.join(__dirname, 'index.html'))
+    console.log(__dirname)
+})
+
+web.get('/tetris', function(req, res){
+    res.sendFile(path.join(__dirname, 'pofol/tetris/tetris.html'))
+})
+
+web.get('/todo', function(req, res){
+    res.sendFile(path.join(__dirname, 'pofol/todo/index.html'))
+})
+
+
+
+web.listen(port, () => {
+    console.log('Express App on port ' + port + '!');
 });
-
-web.listen(port);
-
-
 
