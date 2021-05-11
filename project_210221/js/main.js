@@ -35,6 +35,7 @@ const nav_toggle = document.querySelector('.nav_toggle');
 const nav = document.querySelector('.nav');
 const copy = document.querySelectorAll('.copy_btn');
 const copy_txt = document.querySelector("#copy_txt");
+const type_txt = '안녕하세요 :) 웹 개발자 개인 포트폴리오 사이트입니다.';
 
 
 let chk_dev;
@@ -42,11 +43,13 @@ let move_trigger = 0; // 0 : 화면 이동가능, 1 : 화면 이동불가
 let modal_exc = 0; // 0 : 화면 이동가능, 1 : 화면 이동불가
 let isWheel_move;
 let wDelta; //마우스 Delta값
-let nav_idx = 0; 
-let _typing1;
-let _typing2;
-let _typing3;
-let i = 0;
+let nav_idx = 0;
+let _typing; //typing_Effect()
+let itrv_time = 100; //typing_Effect()
+let sto_time = 1200;
+let i = 0; //typing_Effect()
+let isPause = true;
+
 
 // nav_idx =>
 //0 : Home
@@ -195,7 +198,6 @@ copy.forEach(copy_btn =>{
 modal_btn.forEach(openBtn =>{  
 openBtn.addEventListener('click', ()=>{
 
-    
 
     const _height = document.querySelector('.portfolio').offsetTop;
     //변경할 부분 정의
@@ -244,9 +246,6 @@ openBtn.addEventListener('click', ()=>{
 
     }).catch((err) => {
 })
-    
-
-    
 
     })
 })
@@ -285,6 +284,8 @@ function init(){
             intro_bg.play();
         }
     }, 0);
+
+    typing_Effect();
 }
 
 function re_sizing(){
@@ -313,7 +314,7 @@ function isWheel(wDelta){
 
 // 화면 스크롤 이동 기능구현
 function fnMove(n_idx){  //직접 클릭한 nav메뉴 절대위치를 계산해 이동
-    allClear();
+
     const m_section = document.querySelectorAll('.main>section');
     const targetTop = m_section[n_idx].offsetTop;
 
@@ -323,22 +324,20 @@ function fnMove(n_idx){  //직접 클릭한 nav메뉴 절대위치를 계산해 
         $('html').stop().animate({ scrollTop : targetTop }, 350, 'swing');
     }
 
-    setTimeout(()=>{
-        cm_info.style.bottom = '-100%';
-        cm_info.style.opacity = '0';
-    }, 100)
+    cm_info.style.bottom = '-100%';
+    cm_info.style.opacity = '0';
 
     switch(nav_idx){
         case 0 : {  //home
-            typing_Effect();
+
             break;
         }
         case 1 : {  //intro
-            allClear();
+
             break;
         }
         case 2 : {  //portfolio
-            allClear();
+
             break;
         }
         case 3 : {  //contact me
@@ -392,60 +391,49 @@ function nav_focus(n_idx){
 }
 
 // Home 타이핑 효과
-function typing_Effect(num = 0){
-    const type_txt = '안녕하세요 :) 웹 개발자 개인 포트폴리오 사이트입니다.';
-    if(num === 0){
+function typing_Effect(){
+    
+    setTimeout(() => {
+        
+        _typing = setInterval(() => {
 
-        setTimeout(()=>{
-            typing.innerText = '';
-            i= 0;
-        }, 0)
-        typing_Effect(1);
+            if(isPause === true && i < type_txt.length){
+                
+                if(i === 8){
 
-    }
-    else if(num  === 1){ // 안녕하세요
-        setTimeout(()=>{
-        _typing1 = setInterval(()=>{
-            typing.innerText += type_txt[i];
-            i++;
-            if(i === 8){
-                clearInterval(_typing1);
-                typing_Effect(2);
+                    clearInterval(_typing);
+                    setTimeout(() => {
+                        typing_Effect();
+                    }, 0);
+                    itrv_time = 150;
+
+                }else if(i === 13){
+                    
+                    itrv_time = 120;
+                    sto_time = 550;
+                    clearInterval(_typing);
+                    setTimeout(() => {
+                        typing_Effect();
+                    }, 0);
+
+                }else if(i > type_txt.length){
+                    clearInterval(_typing);
+                    isPause = false;    
+                }
+                typing.innerText += type_txt[i++];
             }
-        }, 80)
-        }, 1000)
-    }else if(num === 2){ // 웹 개발자
-        setTimeout(()=>{
-        _typing2 = setInterval(()=>{
-            typing.innerText += type_txt[i];
-            i++;
-            if(i === 14){
-                clearInterval(_typing2);
-                typing_Effect(3);
-            }
-        }, 80)
-    }, 700)
-    }else if(num === 3){ //개인 포트폴리오 사이트입니다.
-    setTimeout(()=>{
-        _typing3 = setInterval(()=>{
-            typing.innerText += type_txt[i];
-            i++;
-            if(i === 31){
-                clearInterval(_typing3);
-                typing_Effect(4);
-            }
-        }, 80)
-    }, 250)
-    }else if(num === 4){
-    clearInterval(_typing3);
-    }
+        }, itrv_time);
+
+    }, sto_time);  
+
 }
+
 
 //Home 타이핑 효과 초기화
 function allClear(){
-    clearInterval(_typing1);
-    clearInterval(_typing2);
-    clearInterval(_typing3);
+ //   clearInterval(_typing1);
+  //  clearInterval(_typing2);
+  // clearInterval(_typing3);
 }
 
 function copied(){
@@ -455,8 +443,3 @@ function copied(){
     copy_txt.value ='';
 }
 
-// read json file   
-function read_json(){
-    
-
-}
