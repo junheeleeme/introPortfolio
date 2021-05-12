@@ -5,6 +5,12 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;    
+}
 
 *{ box-sizing: border-box; margin: 0; padding: 0; font-family: 'NEXON Lv2 Gothic', 'Nanum Gothic', sans-serif; }
 html{ -ms-overflow-style: none; overflow: hidden;}
@@ -393,7 +399,9 @@ section>.inner{
 
 .inner>h2{
     text-align: left;
-    font-size: 2.2em;
+    font-size: 50px;
+    font-family: 'NEXON Lv1 Gothic OTF Bold', 'Nanum Gothic', sans-serif;
+    margin-bottom: 50px;
 }
 
 section.intro{
@@ -451,22 +459,36 @@ section.intro{
     bottom: 30px;
     right: 30px;
     opacity: 0;
-    text-align: right;
+    text-align: left;
     transition: opacity 2s ease-out;
 }
 
 .web_wrap>h4{ font-size: 18px; font-weight: 200; color: #fff;}
 
-.profileImg{
-    position: absolute;
-    top: 150px;
-    left: 150px;
+
+.profile{
+    width: 100%;
+    height: 300px;
+    border: 1px solid #000;
+    padding: 25px 10px;
+    font-family: serif;
+}
+
+.profile_img{
+    display: inline-block;
     width: 250px;
     height: 250px;
+    margin-right: 30px;
     border-radius: 50%;
-    background: url('img/profileImg.png') no-repeat;
-    background-size: 250px;
-    z-index: 10;
+    background: url('./img/profileImg.jpg') no-repeat center / 83%;
+    background-color: #fff;   
+}
+
+.profile>h3{
+    display: inline-block;
+    font-size: 30px;
+    font-family: 'Nanum Gothic', sans-serif;
+    vertical-align: top;
 }
 
 .portfolio{ background-color: #fff; }
@@ -1326,7 +1348,8 @@ section.intro{
         width: 100%;
     }
     .web_wrap>h4 {
-        font-size: 0.4em;
+        text-align: right;
+        font-size: 10px;
         font-weight: 100;
     }
     .cm_info {
@@ -1457,6 +1480,7 @@ section.intro{
         animation: typing_effect 0.8s infinite;
         opacity: 1;
     }
+
     .portfolio_items {
         align-content: center;
         justify-content: center;

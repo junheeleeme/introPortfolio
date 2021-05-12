@@ -43,7 +43,7 @@ let move_trigger = 0; // 0 : 화면 이동가능, 1 : 화면 이동불가
 let modal_exc = 0; // 0 : 화면 이동가능, 1 : 화면 이동불가
 let isWheel_move;
 let wDelta; //마우스 Delta값
-let nav_idx = 0;
+let nav_idx = 1;
 let _typing; //typing_Effect()
 let itrv_time = 100; //typing_Effect()
 let sto_time = 1100;
@@ -420,12 +420,12 @@ function typing_Effect(){
                     setTimeout(() => {
                         typing_Effect();
                     }, 0);
-                    itrv_time = 130;
+                    itrv_time = 120;
 
                 }else if(i === 13){
                     
-                    itrv_time = 110;
-                    sto_time = 450;
+                    itrv_time = 100;
+                    sto_time = 300;
                     clearInterval(_typing);
                     setTimeout(() => {
                         typing_Effect();
