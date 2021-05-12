@@ -34,9 +34,9 @@ const modal_bg = document.querySelector('.modal_bg');
 const nav_toggle = document.querySelector('.nav_toggle');
 const nav = document.querySelector('.nav');
 const copy = document.querySelectorAll('.copy_btn');
-const copy_txt = document.querySelector("#copy_txt");
+const copy_txt = document.querySelector('#copy_txt');
 const type_txt = '안녕하세요 :) 웹 개발자 개인 포트폴리오 사이트입니다.';
-
+const visual_img = document.querySelectorAll('.visual_img');
 
 let chk_dev;
 let move_trigger = 0; // 0 : 화면 이동가능, 1 : 화면 이동불가
@@ -196,18 +196,16 @@ copy.forEach(copy_btn =>{
 })
 
 
-
 //포트폴리오 모달
 modal_btn.forEach(openBtn =>{  
 openBtn.addEventListener('click', ()=>{
-
 
     const _height = document.querySelector('.portfolio').offsetTop;
     //변경할 부분 정의
     const _title = document.querySelector('.modal_title').children[0];
     const _img = document.querySelector('.modal_content').children[0];
-    const  _content = document.querySelector('.modal_content').children[1];
-    const  _skills = document.querySelector('.modal_content').children[2];
+    const  _content = document.querySelector('.content_ex');
+    const  _skills = document.querySelector('.content_skills');
     const  _git = document.querySelector('.modal_content').children[3];
     const  _view = document.querySelector('.modal_content').children[4];
 
@@ -235,8 +233,9 @@ openBtn.addEventListener('click', ()=>{
             _view.href = '';
 
             //데이터 삽입
-            _title.innerText = portfolio[i].title;
-            _img.src = 'img/portfolio_item/' + portfolio[i].img_url;
+            _title.innerText = portfolio[i].title;  
+            visual_img[i].style.display = 'block';         
+
             _content.innerText = portfolio[i].content;
 
             portfolio[i].skills.forEach( sk=>{ 
@@ -244,7 +243,7 @@ openBtn.addEventListener('click', ()=>{
             })               
             _git.href = portfolio[i].link[0];
             _view.href = portfolio[i].link[1];
-        }  
+        }
     }
 
     }).catch((err) => {
@@ -255,10 +254,23 @@ openBtn.addEventListener('click', ()=>{
 
 //모달이 열려있는 경우 화면이동 중단
 modal_bg.addEventListener('click', ()=>{
+    setTimeout(() => {
+        visual_img.forEach(img =>{
+            img.style.display = 'none';
+        })
+    }, 400);
     modal_exc = 0;
+
 })
+
 modal_close.addEventListener('click', ()=>{
+    setTimeout(() => {
+        visual_img.forEach(img =>{
+            img.style.display = 'none';
+        })
+    }, 400);
     modal_exc = 0;
+
 })
 
 

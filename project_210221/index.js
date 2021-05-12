@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const web = express();
 
-const http = require('http').createServer(web);
+const http = require('https').createServer(web);
 const port = 8080;
 
 web.use('/', express.static(path.join(__dirname)));
