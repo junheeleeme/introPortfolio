@@ -43,7 +43,7 @@ let move_trigger = 0; // 0 : 화면 이동가능, 1 : 화면 이동불가
 let modal_exc = 0; // 0 : 화면 이동가능, 1 : 화면 이동불가
 let isWheel_move;
 let wDelta; //마우스 Delta값
-let nav_idx = 1;
+let nav_idx = 0;
 let _typing; //typing_Effect()
 let itrv_time = 100; //typing_Effect()
 let sto_time = 1100;
@@ -78,7 +78,6 @@ window.addEventListener("blur", ()=>{
     }
 })
 
-//모달 오픈시
 window.addEventListener('touchmove', function(e){
    if(modal_exc === 1){
         e.preventDefault ();
@@ -199,53 +198,52 @@ copy.forEach(copy_btn =>{
 //포트폴리오 모달
 modal_btn.forEach(openBtn =>{  
 openBtn.addEventListener('click', ()=>{
-
+    
     const _height = document.querySelector('.portfolio').offsetTop;
     //변경할 부분 정의
     const _title = document.querySelector('.modal_title').children[0];
     const _img = document.querySelector('.modal_content').children[0];
     const  _content = document.querySelector('.content_ex');
     const  _skills = document.querySelector('.content_skills');
-    const  _git = document.querySelector('.modal_content').children[3];
-    const  _view = document.querySelector('.modal_content').children[4];
+    const  _git = document.querySelector('.git_btn');
+    const  _view = document.querySelector('.view_btn');
 
     //스크롤 이동방지
     modal_exc = 1;
     
     //화면 위치 재조정
-    setTimeout(() => {
+    const set_top = setTimeout(() => {
         html.scroll({ top:  _height, left: 0, behavior: 'smooth'});
     }, 0);
 
     fetch('../portfolio.json').then((res) => res.text())
     .then((pofol) => {
 
-    const portfolio = JSON.parse(pofol);
-    
-    for(i= 0 ; i<modal_btn.length ; i++){
-            
-        if(modal_btn[i] === openBtn){
+        const portfolio = JSON.parse(pofol);
+        
+        for(i= 0 ; i<modal_btn.length ; i++){
+                
+            if(modal_btn[i] === openBtn){
 
-            _title.innerText.innerText = '';
-            _img.src.innerHTML = '';
-            _skills.innerHTML = '';
-            _git.href = '';
-            _view.href = '';
+                _title.innerText.innerText = '';
+                _img.src.innerHTML = '';
+                _skills.innerHTML = '';
+                _git.href = '';
+                _view.href = '';
 
-            //데이터 삽입
-            _title.innerText = portfolio[i].title;  
-            visual_img[i].style.display = 'block';         
+                //데이터 삽입
+                _title.innerText = portfolio[i].title;  
+                visual_img[i].style.display = 'block';         
 
-            _content.innerText = portfolio[i].content;
+                _content.innerText = portfolio[i].content;
 
-            portfolio[i].skills.forEach( sk=>{ 
-                _skills.innerHTML += '<li><strong>' + sk + '</strong></li>';
-            })               
-            _git.href = portfolio[i].link[0];
-            _view.href = portfolio[i].link[1];
+                portfolio[i].skills.forEach( sks=>{ 
+                    _skills.innerHTML += '<li><strong>' + sks + '</strong></li>';
+                })               
+                _git.href = portfolio[i].link[0];
+                _view.href = portfolio[i].link[1];
+            }
         }
-    }
-
     }).catch((err) => {
 })
 
@@ -360,7 +358,6 @@ function fnMove(n_idx){  //직접 클릭한 nav메뉴 절대위치를 계산해 
                 cm_info.style.bottom = '100px';
                 cm_info.style.opacity = '1';
             }, 100)
-            allClear();
             break;
         }
     }
@@ -407,35 +404,46 @@ function nav_focus(n_idx){
 
 // Home 타이핑 효과
 function typing_Effect(){
-    
-    setTimeout(() => {
+        
+    const effect1 = setTimeout(() => {
         
         _typing = setInterval(() => {
 
             if(isPause === true && i < type_txt.length){
                 
-                if(i === 8){
-
-                    clearInterval(_typing);
-                    setTimeout(() => {
-                        typing_Effect();
-                    }, 0);
-                    itrv_time = 120;
-
-                }else if(i === 13){
-                    
-                    itrv_time = 100;
-                    sto_time = 300;
-                    clearInterval(_typing);
-                    setTimeout(() => {
-                        typing_Effect();
-                    }, 0);
-
-                }else if(i > type_txt.length){
-                    clearInterval(_typing);
-                    isPause = false;    
-                }
                 typing.innerText += type_txt[i++];
+                
+                switch(i){
+                    case 8 :{
+
+                        clearInterval(_typing);
+                        
+                        setTimeout(() => {
+                            typing_Effect();
+                        }, 0);
+
+                    itrv_time = 120;
+                        
+                        break;
+                    }
+                    case 13 :{
+
+                        itrv_time = 100;
+                        sto_time = 300;
+                        clearInterval(_typing);
+
+                        setTimeout(() => {
+                            typing_Effect();
+                    }, 0);
+
+                        break;
+                    }
+                    case type_txt.length :{
+                        clearInterval(_typing);
+                    isPause = false;    
+                        break;
+                    }
+                }                
             }
         }, itrv_time);
 
@@ -443,13 +451,6 @@ function typing_Effect(){
 
 }
 
-
-//Home 타이핑 효과 초기화
-function allClear(){
- //   clearInterval(_typing1);
-  //  clearInterval(_typing2);
-  // clearInterval(_typing3);
-}
 
 function copied(){
     copy_txt.select();
