@@ -8,7 +8,7 @@ const port = 8080;
 web.use('/', express.static(path.join(__dirname)));
 web.use('/tetris', express.static(path.join(__dirname, '/pofol/tetris')));
 web.use('/todo', express.static(path.join(__dirname, '/pofol/todo')));
-
+web.use('/starbucks', express.static(path.join(__dirname, '/pofol/starbucks')));
 
 web.get('/', function(req, res){
     res.sendFile(path.join(__dirname, 'index.html'))
@@ -21,6 +21,10 @@ web.get('/tetris', function(req, res){
 
 web.get('/todo', function(req, res){
     res.sendFile(path.join(__dirname, 'pofol/todo/index.html'))
+})
+
+web.get('/starbucks', function(req, res){
+    res.sendFile(path.join(__dirname, 'pofol/starbucks/index.html'))
 })
 
 

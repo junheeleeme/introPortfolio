@@ -9,7 +9,7 @@
         "title" : "스타벅스 코리아 반응형 랜딩페이지",
         "content" : "반응형 웹사이트 제작을 위해 미디어쿼리(CSS Media Query)와 이미지 슬라이드 구현을 위한 JQuery 에니메이션을 학습하며 제작한 클론 웹사이트입니다.",
         "skills" : ["HTML", "CSS", "Vanilla JavaScript", "jQuery"],
-        "link" : ["https://github.com/junheeleeme/Starbucks_Coffee", ""]
+        "link" : ["https://github.com/junheeleeme/Starbucks_Coffee", "/starbucks"]
     },
     {
         "title" : "Todo App",
