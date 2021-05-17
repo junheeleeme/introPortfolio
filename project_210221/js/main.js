@@ -49,7 +49,7 @@ let wDelta; //마우스 Delta값
 let nav_idx = 0;
 let _typing; //typing_Effect()
 let itrv_time = 100; //typing_Effect()
-let sto_time = 900;
+let sto_time = 1500;
 let i = 0; //typing_Effect()
 let isPause = true;
 
@@ -417,7 +417,7 @@ function nav_focus(n_idx){
 // Home 타이핑 효과
 function typing_Effect(){
         
-    const effect1 = setTimeout(() => {
+    const effect = setTimeout(() => {
         
         _typing = setInterval(() => {
 
@@ -429,7 +429,7 @@ function typing_Effect(){
                     case 8 :{
 
                         clearInterval(_typing);
-                        
+                        sto_time = 600;
                         setTimeout(() => {
                             typing_Effect();
                         }, 0);

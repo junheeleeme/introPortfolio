@@ -392,6 +392,10 @@ section>.inner{
     height: 100vh;
 }
 
+.intro>.inner{
+    padding: 50px 70px !important;
+}
+
 .portfolio>.inner{ padding: 0px;}
 .home>.inner{
     background-color: rgba(0,0,0,0.3);
@@ -473,17 +477,16 @@ section.intro{
 
 .profile{
     width: 100%;
-    height: 300px;
-    margin-top: 0px;
+    height: 250px;
     font-family: serif;
 }
 
 .profile_img{
     display: inline-block;
-    width: 270px;
-    height: 270px;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
-    margin-right: 50px;
+    margin-right: 70px;
     background: url('./img/profile.jpeg') no-repeat center / 100%;
     background-color: #fff;   
 }
@@ -491,13 +494,15 @@ section.intro{
 .profile_txt{
     display: inline-block;
     vertical-align: top;
+    height: 100%;
+    padding: 10px 0;
+    
 }
 
 .profile_txt>h3{
-    display: inline-block;
-    font-size: 30px;
+    font-size: 31px;
     font-family: 'Nanum Gothic', sans-serif;
-    margin-bottom: 50px;
+    margin: 5px 0 40px 0;
 }
 
 .profile_txt>ul{
@@ -507,7 +512,7 @@ section.intro{
 .profile_txt>ul>li{
         font-family: 'Nanum Gothic', sans-serif;
     font-size: 19px;
-    line-height: 1.75;
+    line-height: 1.85;
     position: relative;
 }
 
@@ -881,7 +886,18 @@ section.intro{
         width: 220px;
         height: 220px;
     }
-    
+
+
+    .profile_txt>h3{
+        display: inline-block;
+        font-size: 25px;
+        font-family: 'Nanum Gothic', sans-serif;
+        margin-bottom: 35px;
+    }
+    .profile_txt>ul>li{
+        font-size: 18px;
+        line-height: 1.9;
+    }
 
 }
 
@@ -911,10 +927,11 @@ section.intro{
         padding: 0px 20px 0px 0;
     }
     .portfolio_items>li{
-        width: 400px;
-        height: 300px;
+        width: 350px;
+        height: 262px;
         margin: 10px 10px;
     }
+    
 }
 
 @media screen and (min-width: 1023px) and (max-width: 1374px) {
