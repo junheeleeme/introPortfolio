@@ -30,23 +30,23 @@ border: none; outline: none;}
     left: 0;
     width: 20%;
     height: 100%;
-    padding: 140px 0 0 70px;
+    padding: 140px 0 0 50px;
     background-color: #2d2f3d;;
     z-index: 45;
 }
 
 .info_name{
-    font-size: 1.05em;
+    font-size: 19px;
     font-weight: 600;
     color: #4ba2fa;
     letter-spacing: 3px;
 }
 
 .info_value{
-    font-size: 1.2em;
+    font-size: 22px;
     font-weight: 700;
     color: #fff;
-    margin: 10px 0 60px;
+    margin: 10px 0 70px;
 }
 
 .front_area{
@@ -59,16 +59,17 @@ border: none; outline: none;}
 }
 .icon{
     position: absolute;
-    width: 80px;
+    width: 100px;
     right: 25px;
     bottom: 35px;
+    text-align: right;
 }
 .icon>a{
     position: relative;
     background-color: #fff;
     display: inline-block;
     vertical-align: top;
-    margin: 0 0 0 2px;
+    margin-left: 5px;
     width: 35px;
     height: 35px;
 }
@@ -387,25 +388,18 @@ border: none; outline: none;}
 }
 section>.inner{
     position: relative;
-    padding: 70px 70px;
+    padding: 80px 100px;
     width: 100%;
     height: 100vh;
 }
 
 .intro>.inner{
-    padding: 50px 70px !important;
+    padding: 50px 70px;
 }
 
 .portfolio>.inner{ padding: 0px;}
 .home>.inner{
     background-color: rgba(0,0,0,0.3);
-}
-
-.inner>h2{
-    text-align: left;
-    font-size: 45px;
-    font-family: 'NEXON Lv1 Gothic OTF Bold', 'Nanum Gothic', sans-serif;
-    margin-bottom: 50px;
 }
 
 section.intro{
@@ -475,16 +469,22 @@ section.intro{
 .web_wrap>h4{ font-size: 18px; font-weight: 200; color: #fff;}
 
 
+.inner>h2{
+    text-align: left;
+    font-size: 45px;
+    font-family: 'NEXON Lv1 Gothic OTF Bold', 'Nanum Gothic', sans-serif;
+    margin-bottom: 60px;
+}
+
 .profile{
     width: 100%;
-    height: 250px;
-    font-family: serif;
+    padding-left: 30px;
 }
 
 .profile_img{
     display: inline-block;
-    width: 250px;
-    height: 250px;
+    width: 260px;
+    height: 260px;
     border-radius: 50%;
     margin-right: 70px;
     background: url('./img/profile.jpeg') no-repeat center / 100%;
@@ -495,14 +495,14 @@ section.intro{
     display: inline-block;
     vertical-align: top;
     height: 100%;
-    padding: 10px 0;
+    padding: 10px 0 0 0;
     
 }
 
 .profile_txt>h3{
-    font-size: 31px;
+    font-size: 28px;
     font-family: 'Nanum Gothic', sans-serif;
-    margin: 5px 0 40px 0;
+    margin-bottom: 40px;
 }
 
 .profile_txt>ul{
@@ -511,8 +511,8 @@ section.intro{
 
 .profile_txt>ul>li{
         font-family: 'Nanum Gothic', sans-serif;
-    font-size: 19px;
-    line-height: 1.85;
+    font-size: 20px;
+    line-height: 2;
     position: relative;
 }
 
@@ -840,7 +840,19 @@ section.intro{
 @media screen and (max-width: 1800px) {
 
     .header{
-        padding: 140px 0 0 45px;
+        padding: 120px 0 0 30px;
+    }
+    .info_name {
+        font-size: 16px;
+        font-weight: 600;
+        color: rgb(75, 162, 250);
+        letter-spacing: 3px;
+    }
+    .info_value {
+        font-size: 19px;
+        font-weight: 700;
+        color: rgb(255, 255, 255);
+        margin: 10px 0px 50px;
     }
     .portfolio_modal{
         padding: 15px;
@@ -878,15 +890,17 @@ section.intro{
 
 @media screen and (max-width: 1600px) {
 
-    .portfolio_items{
-        padding: 40px 130px;
-    }
-
     .profile_img{
         width: 220px;
         height: 220px;
     }
+    .profile{
+        height: 220px;
+    }
 
+    .profile_txt{
+        padding: 10;
+    }
 
     .profile_txt>h3{
         display: inline-block;
@@ -898,7 +912,9 @@ section.intro{
         font-size: 18px;
         line-height: 1.9;
     }
-
+    .portfolio_items{
+        padding: 40px 130px;
+    }
 }
 
 
@@ -918,10 +934,15 @@ section.intro{
         color: #fff;
         margin: 10px 0 60px;
     }
-
     .nav {
         padding: 70px 20px 0 0;
     }
+    
+    .profile_txt>ul>li{
+        font-size: 18px;
+        line-height: 1.9;
+    }
+
    .nav_main li>a{
         font-size: 1.9em;
         padding: 0px 20px 0px 0;
@@ -931,6 +952,7 @@ section.intro{
         height: 262px;
         margin: 10px 10px;
     }
+    
     
 }
 
@@ -972,6 +994,33 @@ section.intro{
     }
     .typing {
         font-size: 21px;
+    }
+    .intro>.inner{
+        padding: 25px; 
+    }
+    .profile_img{
+        width: 180px;
+        height: 180px;
+        margin-right: 20px;
+    }
+    .profile{
+        height: auto;
+    }
+    .profile_txt{
+        padding: 10px 0;
+    }
+    .profile_txt>h3{
+        display: inline-block;
+        font-size: 20px;
+        font-family: 'Nanum Gothic', sans-serif;
+        margin-bottom: 35px;
+    }
+    .profile_txt>ul{
+        padding-left: 15px;
+    }
+    .profile_txt>ul>li{
+        font-size: 13px;
+        line-height: 1.75;
     }
 
     .portfolio_modal{
@@ -1074,12 +1123,45 @@ section.intro{
         width: 100%;
         height: 100%;
         overflow: hidden;
-        padding-left: 25%;
+        padding-left: 27%;
     }
    .nav_main li>a{
         font-size: 1.2em;
         padding: 0px 10px 0px 0;
     }
+
+    .intro>.inner{
+        padding: 25px 15px; 
+    }
+    .inner>h2 {
+        font-size: 40px;
+        margin-bottom: 80px;
+    }
+    .profile_img{
+        width: 150px;
+        height: 150px;
+        margin-right: 0px;
+    }
+    .profile{
+        height: auto;
+    }
+    .profile_txt{
+        padding: 10px 0;
+    }
+    .profile_txt>h3{
+        display: inline-block;
+        font-size: 17px;
+        font-family: 'Nanum Gothic', sans-serif;
+        margin-bottom: 35px;
+    }
+    .profile_txt>ul{
+        padding-left: 13px;
+    }
+    .profile_txt>ul>li{
+        font-size: 11px;
+        line-height: 1.75;
+    }
+
     .portfolio_items {
         align-content: center;
         justify-content: center;
@@ -1116,9 +1198,8 @@ section.intro{
         left: 30px;
     }
 
-
     section>.inner {
-        padding: 80px 60px;
+        padding: 50px 40px;
     }
     .intro_wrap>h1 {
         font-size: 80px;
