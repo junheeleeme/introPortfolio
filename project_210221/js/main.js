@@ -467,3 +467,4 @@ function copied(){
     document.execCommand("copy");
     copy_txt.value ='';
 }
+
