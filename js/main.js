@@ -97,7 +97,7 @@ window.addEventListener("resize", ()=>{
     if(window.innerWidth > 768){
         fnMove(nav_idx)
     }
-})
+}, { passive: true })
 
 window.addEventListener("scroll", ()=>{ //모바일 contact me 이동시 텍스트 에니메이션 효과
     
@@ -115,7 +115,7 @@ window.addEventListener("scroll", ()=>{ //모바일 contact me 이동시 텍스�
             cm_info.style.bottom = '100px';
             cm_info.style.opacity = '1';
     }  
-})
+},{ passive: true })
 
 // 마우스 스크롤 기능구현
 html.addEventListener('mousewheel', (e)=>{ 
@@ -460,11 +460,9 @@ function typing_Effect(){
 
 }
 
-
 function copied(){
     copy_txt.select();
     copy_txt.setSelectionRange(0, 99999);
     document.execCommand("copy");
     copy_txt.value ='';
 }
-
