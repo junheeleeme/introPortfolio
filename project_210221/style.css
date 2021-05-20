@@ -487,7 +487,7 @@ section.intro{
     height: 240px;
     border-radius: 50%;
     margin-right: 70px;
-    background: url('./img/profile.jpeg') no-repeat center / 100%;
+    background: url('./img/profile.jpeg') no-repeat center / 102%;
     background-color: #fff;   
 }
 
@@ -581,7 +581,7 @@ section.intro{
     top: 0; left: 0;
     width: 100%;
     height: 100%;
-    padding: 40px;
+    padding: 25px;
     text-align: left;
     cursor: pointer;    
 }
@@ -590,14 +590,14 @@ section.intro{
     position: absolute;
     top: 40px;
     left: -80%;
-    font-size: 3.0em;
+    font-size: 42px;
     transition: 0.43s ease;
 }
 .port_sub{ 
     position: absolute;
     top: 110px;
     left: -80%;
-    font-size: 1.5em;
+    font-size: 22px;
     transition: 0.5s ease;
 }
 
@@ -1493,7 +1493,10 @@ section.intro{
         padding-left: 0;
     }
     .home>.inner{
-    padding: 90px 15px; 
+        padding: 90px 15px; 
+    }
+    .intro>.inner{
+        padding: 5vw 2.5vw;
     }
 
     section>.inner {
@@ -1503,9 +1506,39 @@ section.intro{
     .portfolio>.inner {
         padding: 0 30px;
     }
+
     .inner>h2 {
         text-align: right;
-        font-size: 2.2em;
+        font-size: 36px;
+        margin-bottom: 50px;
+    }
+    .profile_img{
+        display: none;
+    }
+    .profile{
+        position: relative;
+        width: 100%;
+        padding: 3px;
+    }
+    .profile_txt{
+        height: auto;
+        padding: 5px 0;
+    }
+    .profile_txt>h3{
+        display: inline-block;
+        font-size: 17px;
+        font-family: 'Nanum Gothic', sans-serif;
+        margin-bottom: 20px;
+    }
+    .profile_txt>ul{
+        padding-left: 5px;
+    }
+    .profile_txt>ul>li{
+        font-size: 10px;
+        line-height: 2;
+    }
+    .profile_txt>ul>li:after{
+        left: -10px;
     }
     .intro_wrap>h1 {
         font-size: 52px;
@@ -1514,7 +1547,7 @@ section.intro{
         position: relative;
         display: inline;
         padding-left: 3px;
-        font-size: 13.3px;
+        font-size: 13.5px;
         font-weight: 300;
         user-select: none;
     }
@@ -1763,7 +1796,9 @@ section.intro{
         animation: typing_effect 0.8s infinite;
         opacity: 1;
     }
-
+    .profile_img{
+        display: none;
+    }
     .portfolio_items {
         align-content: center;
         justify-content: center;
