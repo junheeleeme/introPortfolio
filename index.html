@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js" integrity="sha512-VMsZqo0ar06BMtg0tPsdgRADvl0kDHpTbugCBBrL55KmucH6hP9zWdLIWY//OTfMnzz6xWQRxQqsUFefwHuHyg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<title>꾸생</title>
+<link rel="stylesheet" href="style.css"> 
+
+</head>
+<body>
+    <div class="load_bg">
+        <div class="loader"></div>
+    </div>
+    <input type="text" id="copy_txt">
+
+    <div id="kkusaeng">
+        <input type="checkbox" id="nav_chk">
+        <div class="nav_toggle">
+            <label for="nav_chk">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </label>
+        </div>
+
+        <div class="nav_bg"><label for="nav_chk"></label></div>
+        <nav class="nav">
+            <aside class="aside">
+                <ul class="nav_main">
+                    <li class="nav_home">
+                        <a href="#" onclick="return false">Home</a>
+                        <span class="upBlock"></span>
+                        <span class="downBlock"></span>
+                    </li>
+                    <li class="nav_intro">
+                        <a href="#" onclick="return false">Intro</a>
+                        <span class="upBlock"></span>
+                        <span class="downBlock"></span>
+                    </li>
+                    <li class="nav_portfolio">
+                        <a  href="#" onclick="return false;">Portfolio</a>
+                        <span class="upBlock"></span>
+                        <span class="downBlock"></span>
+                    </li>
+                    <li class="nav_contactme" >
+                        <a href="#" onclick="return false;">Contact me</a>
+                        <span class="upBlock"></span>
+                        <span class="downBlock"></span>
+                    </li>
+                </ul>
+            </aside>  
+        </nav>
+        <div class="front_area">
+            <div class="scroll_eff"></div>
+            <div class="icon">
+                <a class="blog" target="_blank" href="https://juni-official.tistory.com"></a>
+                <a class="git" target="_blank" href="https://github.com/junheeleeme"></a>
+            </div>
+        </div>
+        <header class="header">
+            <aside class="my_info">
+                <ul class="info_list">
+                    <li class="info_name">NAME</li>
+                    <li class="info_value">LEE JUNHEE</li>
+                    <li class="info_name">ROLE</li>
+                    <li class="info_value">WEB DEVELOPER</li>
+                    <li class="info_name">E-MAIL</li>
+                    <li class="info_value"><span class="email_txt">macjjuni@gmail.com</span><span class="copy_btn" id="email"></span><span class="tooltip">Copied</span></li>
+                    <li class="info_name">PHONE</li>
+                    <li class="info_value">(+82)<span class="phone_txt"> 010-5183-1652</span><span class="copy_btn" id="phone"></span><span class="tooltip">Copied</span></li>
+                </ul>
+            </aside>
+        </header>
+        
+
+        <main class="main">
+            <section class="home">
+                <video class="intro_bg" loop muted playsinline>
+                <source src="/img/intro_bg.mp4" type="video/mp4"></source>
+                    your browser does not support the video tag!
+                </video>
+                <div class="inner">
+                    <div class="intro_wrap">
+                        <h1>PORTFOLIO</h1>
+                        <p class="typing"></p><span class="cursor"></span>
+                    </div>
+                    <div class="web_wrap">
+                        <h4>현재 사이트는 HTML/CSS/JS/Node.js/AWS를 사용하여 제작되었습니다.</h4>
+                    </div>
+                </div>
+            </section>
+            <section class="intro">
+                <div class="inner">
+                    <h2>Introduce</h2>
+                    <div class="profile">
+                        <div class="profile_img"></div>
+                        <div class="profile_txt">
+                        <h3>🧑🏻‍💻 풀스택 개발자를 꿈꾸는 이준희입니다.</h3>
+                        <ul>
+                            <li>HTML과 CSS로 주어진 디자인 레이아웃에 따라 웹을 디자인할 수 있습니다.</li>
+                            <li>CSS Media Query를 사용하여 반응형 웹을 만들 수 있습니다.</li>
+                            <li>Vanila JS를 사용하여 DOM 객체를 제어할 수 있습니다.</li>
+                            <li>자바스크립트와 제이쿼리를 사용해 패럴랙스 스크롤링 웹을 구현할 수 있습니다.</li>
+                            
+                        </ul>
+                    </div>
+                    </div>
+
+                </div>
+            </section>
+            <section class="portfolio">
+
+                <input type="checkbox" id="modal_chk">
+                <label for="modal_chk">
+                    <div class="modal_bg">
+                        <div class="close_btn"></div>
+                    </div>
+                </label>
+                    <div class="portfolio_modal">
+                        <div class="modal_title">
+                            <h3>테트리스(PC WEBSITE)</h3>
+                        </div>
+                        <div class="modal_content">
+                            <img src="./img/portfolio_item/tetris_play.gif" alt="portfolio_img" class="visual_img" id="tetris">
+                            <img src="./img/portfolio_item/tetris_play.gif" alt="portfolio_img" class="visual_img" id="star">  
+                            <img src="./img/portfolio_item/todo_play.gif" alt="portfolio_img" class="visual_img" id="todo">                                                     
+                                <p class="content_ex"></p>
+                                <ul class="content_skills">
+                                </ul>
+                            <a href="#" target='_blank' class="git_btn">Github</a>
+                            <a href="#" target='_blank' class="view_btn">View</a>
+                        </div>
+                    </div>
+
+                <div class="inner">
+                    <h2>Portfolio</h2>
+
+                    <ul class="portfolio_items">
+ 
+                        <li>
+                            <img src="img/portfolio_item/tetris_cover.png" alt="portfolio_tetris_img">
+                            <div class="port_show">
+                                <label for="modal_chk">
+                                    <h3 class="port_title">테트리스</h3>
+                                    <h4 class="port_sub">- DeskTop</h4>
+                                </label>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="img/portfolio_item/starbucks_cover.png" alt="portfolio_starbucks_img">
+                            <div class="port_show">
+                                <label for="modal_chk">
+                                    <h3 class="port_title">스타벅스 커피</h3>
+                                    <h4 class="port_sub">- DeskTop</h4>
+                                </label>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="img/portfolio_item/todo_cover.png" alt="todo_app_img">
+                            <div class="port_show">
+                                <label for="modal_chk">
+                                    <h3 class="port_title">Todo App</h3>
+                                    <h4 class="port_sub">- RESPONSIVE WEBAPP</h4>
+                                </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ing">
+                                <div class="dot_effect">
+                                    <span class="dot1"></span>
+                                    <span class="dot2"></span>
+                                    <span class="dot3"></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                
+                </div>
+            </section>
+            <section class="contactme">
+                <div class="inner">
+                    
+                    <ul class="cm_info">
+                        <li><h3>Thank You!</h3></li>
+                        <li><strong>NAME</strong> : LEE JUNHEE</li>
+                        <li><a href="mailto:macjjuni@naver.com" title="이메일 보내기"><strong>E-MAIL</strong> : macjjuni@gmail.com</a></li>
+                        <li><a href="#" onclick="return false;"><strong>PHONE</strong> : (+82) 010-5183-1652</a></li>
+                        <li><a href="https://github.com/junheeleeme" target="_blank" title="새창으로 주소이동"><strong>GITHUB</strong> : https://github.com/junheeleeme</a></li>
+                    </ul>
+                </div>
+            </section>
+    
+        </main>
+        <div class="move_btn">
+            <div class="up">
+                <span class="up_left"></span>
+                <span class="up_right"></span>
+            </div>
+            <div class="down">
+                <span class="down_left"></span>
+                <span class="down_right"></span>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+    </footer>   
+
+    <script async src="js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</body>
+</html>
