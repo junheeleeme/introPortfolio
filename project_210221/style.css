@@ -1000,10 +1000,11 @@ section.intro{
     .profile_img{
         width: 170px;
         height: 170px;
-        margin-right: 20px;
+        margin-right: 4%;
     }
     .profile{
         height: auto;
+        padding-left: 30px;
     }
     .profile_txt{
         padding: 10px 0;
@@ -1089,7 +1090,7 @@ section.intro{
     }
 }
 
-@media screen and (max-width: 1022px) { 
+@media screen and (max-width: 1022px) { /*intro*/
     .profile_img{
         width: 160px;
         height: 160px;
@@ -1280,6 +1281,33 @@ section.intro{
         margin-bottom: 60px;
     }
 
+    .profile_img{
+        width: 25vw;
+        height: 25vw;
+        margin-left: 10px;
+    }
+    .profile{
+        position: relative;
+    }
+    .profile_txt{
+        position: absolute;
+        top: 95%;
+        right: 1.5%;
+        padding: 5px 0;
+    }
+    .profile_txt>h3{
+        display: inline-block;
+        font-size: 19px;
+        font-family: 'Nanum Gothic', sans-serif;
+        margin-bottom: 25px;
+    }
+    .profile_txt>ul{
+        padding-left: 5px;
+    }
+    .profile_txt>ul>li{
+        font-size: 10.5px;
+        line-height: 1.85;
+    }
 
     .portfolio_items {
         align-content: center;
