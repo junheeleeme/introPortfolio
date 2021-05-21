@@ -1,5 +1,12 @@
 @charset "utf-8";
 
+@font-face{
+    font-family: 'Noto Sans KR';
+    src:url(./font/NotoSansKR-Bold.otf) format('otf');
+    src:url(./font/NotoSansKR-Regular.otf) format('otf');
+    src:url(./font/NotoSansKR-Thin.otf) format('otf');    
+}
+
 *{ box-sizing: border-box; margin: 0; padding: 0; font-family: 'Noto Sans KR', sans-serif; }
 html{ -ms-overflow-style: none; overflow: hidden;}
 html::-webkit-scrollbar{ display: none; }
@@ -24,17 +31,17 @@ border: none; outline: none;}
 }
 
 .info_name{
-    font-size: 19px;
+    font-size: 20px;
     font-weight: 600;
     color: #4ba2fa;
     letter-spacing: 3px;
 }
 
 .info_value{
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 23px;
+    font-weight: 400;
     color: #fff;
-    margin: 10px 0 70px;
+    margin: 5px 0 60px;
 }
 
 .front_area{
@@ -194,7 +201,6 @@ border: none; outline: none;}
     font-size: 2.1em;
     padding: 0px 15px 0px 0;
     color: #2d2f3d;
-    font-family: 'Noto Sans KR', sans-serif;
     font-weight: 600;
     transition: .4s ease-out;
 }
@@ -222,7 +228,7 @@ border: none; outline: none;}
 
 .copy_btn{
     position: absolute;
-    top: 0; right: -27px;
+    top: 3px; right: -27px;
     display: inline-block;
     width: 20px;
     height: 20px;
@@ -248,6 +254,8 @@ border: none; outline: none;}
     background-color: #fff;
     color: #2d2f3d;
     font-size: 15px;
+    line-height: 15px;
+    font-weight: bold;
     text-align: center;
     z-index: 9999;
     opacity: 0;
@@ -418,7 +426,6 @@ section.intro{
     position: relative;
     display: inline;
     padding-left: 5px;
-    font-family: 'Nanum Gothic', sans-serif;
     font-size: 25px;
     font-weight: 300;
     color: #fff;
@@ -460,13 +467,12 @@ section.intro{
 .inner>h2{
     text-align: left;
     font-size: 45px;
-    font-family: 'Noto Sans KR', sans-serif;
     margin-bottom: 60px;
 }
 
 .profile{
     width: 100%;
-    padding-left: 50px;
+    padding-left: 100px;
 }
 
 .profile_img{
@@ -475,7 +481,7 @@ section.intro{
     height: 240px;
     border-radius: 50%;
     margin-right: 70px;
-    background: url('./img/profile.jpeg') no-repeat center / 102%;
+    background: url('./img/profile.jpg') no-repeat center / 102%;
     background-color: #fff;   
 }
 
@@ -489,7 +495,6 @@ section.intro{
 
 .profile_txt>h3{
     font-size: 25px;
-    font-family: 'Nanum Gothic', sans-serif;
     margin-bottom: 35px;
 }
 
@@ -498,7 +503,6 @@ section.intro{
 }
 
 .profile_txt>ul>li{
-        font-family: 'Nanum Gothic', sans-serif;
     font-size: 18px;
     line-height: 2.2;
     position: relative;
@@ -516,8 +520,63 @@ section.intro{
     background: #000;
 }
 
-.portfolio{ background-color: #fff; }
+.stack{
+    position: relative;
+    top: 100px;
+    display: block;
+    margin: 0 -71px;
+    width: calc(100% + 140px);
+    height: 300px;
+    background-color: #eeeeee;
+    border: 1px solid #000;
+}
 
+.stack>div{
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+}
+
+.HTML{
+    width: 200px;
+    height: 200px;
+    background-image: url(./img/HTML.png);
+}
+.CSS{
+    width: 150px;
+    height: 200px;
+    background-image: url(./img/CSS.png);
+}
+.JS{
+    width: 150px;
+    height: 150px;
+    background-image: url(./img/JS.png);
+}
+.JQ{
+    width: 280px;
+    height: 100px;
+    margin: 30px 0;
+    background-image: url(./img/JQ.png);
+}
+.REACT{
+    width: 180px;
+    height: 180px;
+    background-image: url(./img/REACT.png);
+    background-size: 130% 100% !important;
+}
+.NODE{
+    width: 240px;
+    height: 150px;
+    background-image: url(./img/NODE.png);
+}
+.AWS{
+    width: 200px;
+    height: 100px;
+    background-image: url(./img/AWS.png);
+}
+
+.portfolio{ background-color: #fff; }
 .portfolio>.inner>h2{
     display: none;
 }
@@ -576,16 +635,16 @@ section.intro{
 
 .port_title{
     position: absolute;
-    top: 40px;
+    top: 35px;
     left: -80%;
     font-size: 42px;
     transition: 0.43s ease;
 }
 .port_sub{ 
     position: absolute;
-    top: 110px;
+    top: 90px;
     left: -80%;
-    font-size: 22px;
+    font-size: 20px;
     transition: 0.5s ease;
 }
 
@@ -596,7 +655,7 @@ section.intro{
 
 .portfolio_items>li:hover .port_title,
 .portfolio_items>li:hover .port_sub{
-    left: 40px;
+    left: 35px;
 }
 
 .dot_effect{
@@ -643,11 +702,11 @@ section.intro{
     left: 50%;
     transform: translate(-50%, -50%);
     width: 530px;
-    padding: 20px;
+    padding: 10px;
     background-color: #fff;
     opacity: 1;
     transition: top 0.8s ease;
-    transition-delay: 0.1s;
+    transition-delay: 0.25s;
     z-index: 100;
     overflow: auto;
 }
@@ -672,7 +731,7 @@ section.intro{
 .modal_content{
     width: 100%;
     height: auto;
-    margin-top: 65px;
+    margin-top: 60px;
 }
 .modal_content>.visual_img{
     display: none;
@@ -680,18 +739,35 @@ section.intro{
     max-height: 300px;
 }
 .modal_content p{
-    font-size: 18px;
-    margin: 15px 3px;
+    font-size: 17px;
+    font-weight: 400;
+    margin: 20px 3px;
     line-height: 1.6;
 }
+.skills{
+    position: relative;
+    font-size: 20px;
+    color: #222831;
+    margin: 25px 0 13px 10px;
+}
+.skills::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(0, -50%);
+    width: calc(100% - 140px);
+    height: 2px;        
+    background-color: #cdd0cb;
+}
 .modal_content>ul{
-    margin: 0 0 30px 10px;
+    margin: 0 0 20px 7px;
 }
 .modal_content>ul>li{
     position: relative;
     padding-left: 20px;
-    font-size: 17px;
-    line-height: 1.5;
+    font-size: 18px;
+    line-height: 1.3;
 }
 .modal_content>ul>li:after{
     content: '';
@@ -710,13 +786,15 @@ section.intro{
     height: 46px;
     line-height: 46px;
     text-align: center;
-    font-size: 1.2em;
+    font-size: 20px;
+    font-weight: 400;
     color: #2d2f3d;
+    outline: 0;
     background-color: #e6e6e6;
     transition: 0.15s ease;
 }
 .modal_content a:hover{
-    color: #fff;
+    color: #3f72af;
 }
 .git_btn{ float: left; font-size: 18px; }
 .view_btn{ float: right; font-size: 18px; }
@@ -773,21 +851,18 @@ section.intro{
     transition: 0.8s ease-in-out;
 }
 .cm_info h3{
-    font-family: 'Nanum Gothic', sans-serif;
     font-size: 120px;
     font-weight: 800;
     color: #2d2f3d;
 }
 .cm_info>li:first-child{ margin: 20px 0; }
 .cm_info>li{
-    font-size: 1.55em;
-    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 22px;
     color: #2d2f3d;
     margin: 10px 0;
 }
 .cm_info>li>a{
-    font-family: 'Nanum Gothic', sans-serif;
-    font-weight: 500;
+    font-weight: 400;
     color: #2d2f3d;
 }
 
@@ -840,8 +915,18 @@ section.intro{
         color: rgb(255, 255, 255);
         margin: 10px 0px 50px;
     }
+    .copy_btn{
+        top: 1px;
+    }
+    .port_title{
+        font-size: 40px;
+    }
+    .port_sub{ 
+        top: 95px;
+        font-size: 22px;
+    }
     .portfolio_modal{
-        padding: 15px;
+        padding: 10px;
     }
     .modal_title{
         height: 55px;
@@ -857,7 +942,6 @@ section.intro{
         font-size: 16.5px;
         line-height: 1.55;
         margin: 10px 3px;
-        font-weight: 100;
     }
     .modal_content>ul{
         margin: 0 0 20px 10px;
@@ -875,7 +959,7 @@ section.intro{
 }
 
 @media screen and (max-width: 1600px) {
-
+    
     .profile_img{
         width: 220px;
         height: 220px;
@@ -892,7 +976,6 @@ section.intro{
     .profile_txt>h3{
         display: inline-block;
         font-size: 25px;
-        font-family: 'Nanum Gothic', sans-serif;
         margin-bottom: 35px;
     }
     .profile_txt>ul>li{
@@ -907,16 +990,16 @@ section.intro{
 
 @media screen and (max-width: 1400px) {
     .header{
-        padding: 140px 0 0 40px;
+        padding: 140px 0 0 20px;
     }
     .info_name{
-        font-size: 0.9em;
+        font-size: 17px;
         font-weight: 600;
         color: #4ba2fa;
         letter-spacing: 3px;
     }
     .info_value{
-        font-size: 1.0em;
+        font-size: 19px;
         font-weight: 700;
         color: #fff;
         margin: 10px 0 60px;
@@ -931,7 +1014,7 @@ section.intro{
     }
 
    .nav_main li>a{
-        font-size: 1.9em;
+        font-size: 30px;
         padding: 0px 20px 0px 0;
     }
     .portfolio_items>li{
@@ -948,27 +1031,35 @@ section.intro{
         width: 27%;
     }
     .header{
-        padding: 140px 0 0 35px;
+        padding: 140px 0 0 2.7vw;
     }
     .info_name{
-        font-size: 1.13em;
+        font-size: 18px;
         font-weight: 600;
         color: #4ba2fa;
         letter-spacing: 3px;
     }
     .info_value{
-        font-size: 1.22em;
+        font-size: 20px;
         font-weight: 700;
         color: #fff;
         margin: 10px 0 60px;
     }
     .nav {
-        padding: 110px 15px 0 0;
+        padding: 110px 2.5vw 0 0;
         width: 27%;
     }
    .nav_main li>a{
-        font-size: 1.9em;
+        font-size: 35px;
         padding: 0px 20px 0px 0;
+    }
+    .copy_btn{
+        top: 1px;
+    }
+
+    .tooltip{
+        padding: 0;
+        line-height: 24px;
     }
     section>.inner {
         padding: 50px 50px;
@@ -1000,7 +1091,6 @@ section.intro{
     .profile_txt>h3{
         display: inline-block;
         font-size: 22px;
-        font-family: 'Nanum Gothic', sans-serif;
         margin-bottom: 35px;
     }
     .profile_txt>ul{
@@ -1023,7 +1113,6 @@ section.intro{
         font-size: 23px;
         line-height: 55px;
     }
-
     .modal_content p{
         font-size: 17.5px;
         margin: 15px 5px;
@@ -1062,20 +1151,24 @@ section.intro{
     }
 
     .port_title{
-        display: inline-block;
-        font-size: 45px;
+        top: 30px;
+        font-size: 40px;
     }
     .port_sub{ 
-        display: inline-block;
-        font-size: 22px;
-        margin-bottom: 30px;
+        top: 80px;
+        font-size: 20px;
     }
+    .portfolio_items>li:hover .port_title, .portfolio_items>li:hover .port_sub{
+        left: 30px;
+    }
+
     .more_btn{
         padding: 10px 0;   
     }
     .cm_info {
         left: 65px;
     }
+
 }
 
 @media screen and (max-width: 1022px) { /*intro*/
@@ -1094,7 +1187,6 @@ section.intro{
     .profile_txt>h3{
         display: inline-block;
         font-size: 20px;
-        font-family: 'Nanum Gothic', sans-serif;
         margin-bottom: 25px;
     }
     .profile_txt>ul{
@@ -1122,7 +1214,6 @@ section.intro{
     .profile_txt>h3{
         display: inline-block;
         font-size: 18px;
-        font-family: 'Nanum Gothic', sans-serif;
         margin-bottom: 20px;
     }
     .profile_txt>ul{
@@ -1150,7 +1241,6 @@ section.intro{
     .profile_txt>h3{
         display: inline-block;
         font-size: 18px;
-        font-family: 'Nanum Gothic', sans-serif;
         margin-bottom: 20px;
     }
     .profile_txt>ul{
@@ -1178,7 +1268,6 @@ section.intro{
     .profile_txt>h3{
         display: inline-block;
         font-size: 18px;
-        font-family: 'Nanum Gothic', sans-serif;
         margin-bottom: 20px;
     }
     .profile_txt>ul{
@@ -1206,7 +1295,6 @@ section.intro{
     .profile_txt>h3{
         display: inline-block;
         font-size: 18px;
-        font-family: 'Nanum Gothic', sans-serif;
         margin-bottom: 20px;
     }
     .profile_txt>ul{
@@ -1249,6 +1337,9 @@ section.intro{
         right: 15px;
         bottom: 20px;
     }
+    .copy_btn{
+        top: -1px;
+    }
     .main>section {
         position: relative;
         width: 100%;
@@ -1257,7 +1348,7 @@ section.intro{
         padding-left: 27%;
     }
    .nav_main li>a{
-        font-size: 20px;
+        font-size: 25px;
         padding: 0px 10px 0px 0;
     }
 
@@ -1286,7 +1377,6 @@ section.intro{
     .profile_txt>h3{
         display: inline-block;
         font-size: 19px;
-        font-family: 'Nanum Gothic', sans-serif;
         margin-bottom: 25px;
     }
     .profile_txt>ul{
@@ -1340,7 +1430,7 @@ section.intro{
         font-size: 80px;
     }
     .typing {
-        font-size: 1em;
+        font-size: 20px;
     }
     .web_wrap {
         bottom: 40px;
@@ -1365,11 +1455,11 @@ section.intro{
     .modal_content p{
         font-size: 17px;
         margin: 10px 5px;
-        
     }
     .modal_content{
         margin-top: 55px;
     }
+
     .modal_content>ul{
         margin: 0 0 20px 10px;
     }
@@ -1391,13 +1481,11 @@ section.intro{
         transition: 0.6s ease-in-out;
     }
     .cm_info h3 {
-        font-family: 'Nanum Gothic', sans-serif;
-        font-size: 3.5em;
+        font-size: 80px;
         font-weight: 800;
     }
     .cm_info>li {
-        font-size: 1.2em;
-        font-family: 'Nanum Gothic', sans-serif;
+        font-size: 20px;
         margin: 10px 0;
     }
 }
@@ -1422,7 +1510,7 @@ section.intro{
         top: 0;
         left: -100%;
         width: 50%;
-        padding: 50px 15px 0 0;
+        padding: 50px 10px 0 0;
         transition: 0.4s ease;
         z-index: 40;
     }
@@ -1461,7 +1549,7 @@ section.intro{
         left: 0;
     }
     .nav_main li>a {
-        font-size: 1.35em;
+        font-size: 22px;
         padding: 0px 10px 0px 0;
     }
     .nav_main li>a:after{
@@ -1515,7 +1603,6 @@ section.intro{
     .profile_txt>h3{
         display: inline-block;
         font-size: 17px;
-        font-family: 'Nanum Gothic', sans-serif;
         margin-bottom: 20px;
     }
     .profile_txt>ul{
@@ -1587,7 +1674,7 @@ section.intro{
 
     .portfolio_modal{
         width: 90%;
-        padding: 10px;
+        padding: 5px;
     }
     .modal_title{
         width: 100%;
@@ -1609,9 +1696,15 @@ section.intro{
         width: 100%;
     }
     .modal_content p{
-        font-size: 1.05em;
+        font-size: 16px;
         margin: 12px 4px;
         line-height: 1.5;
+    }
+    .skills{
+        margin: 18px 0 10px 10px;
+    }
+    .skills::after{
+        height: 1.5px;
     }
     .modal_content>ul{
         margin: 0 0 25px 10px;
@@ -1666,13 +1759,11 @@ section.intro{
         margin-bottom: -35px;
     }
     .cm_info h3 {
-        font-family: 'Nanum Gothic', sans-serif;
         font-size: 5.0em;
         font-weight: 800;
     }
     .cm_info>li {
         font-size: 1.0em;
-        font-family: 'Nanum Gothic', sans-serif;
         margin: 10px 0;
     }
 }
@@ -1904,13 +1995,11 @@ section.intro{
         margin-bottom: -35px;
     }
     .cm_info h3 {
-        font-family: 'Nanum Gothic', sans-serif;
         font-size: 5.0em;
         font-weight: 800;
     }
     .cm_info>li {
         font-size: 1.0em;
-        font-family: 'Nanum Gothic', sans-serif;
         margin: 10px 0;
     }
 }

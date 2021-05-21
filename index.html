@@ -4,14 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./style.css"> 
 
 <title>Portfolio</title>
@@ -85,8 +77,8 @@
 
         <main class="main">
             <section class="home">
-                <video class="intro_bg" loop muted playsinline>
-                <source src="/img/intro_bg.mp4" type="video/mp4"></source>
+                <video class="intro_bg" loop muted playsinline preload>
+                <source src="./img/intro_bg.mp4" type="video/mp4"></source>
                     your browser does not support the video tag!
                 </video>
                 <div class="inner">
@@ -105,17 +97,24 @@
                     <div class="profile">
                         <div class="profile_img"></div>
                         <div class="profile_txt">
-                        <h3>🧑🏻‍💻 풀스택 개발자를 꿈꾸는 이준희입니다.</h3>
-                        <ul>
-                            <li>HTML과 CSS로 주어진 디자인 레이아웃에 따라 웹을 디자인할 수 있습니다.</li>
-                            <li>CSS Media Query를 사용하여 반응형 웹을 만들 수 있습니다.</li>
-                            <li>Vanila JS를 사용하여 DOM 객체를 제어할 수 있습니다.</li>
-                            <li>자바스크립트와 제이쿼리를 사용해 패럴랙스 스크롤링 웹을 구현할 수 있습니다.</li>
-                            
-                        </ul>
+                            <h3>🧑🏻‍💻 풀스택 개발자를 꿈꾸는 이준희입니다.</h3>
+                            <ul>
+                                <li>HTML과 CSS로 주어진 디자인 레이아웃에 따라 웹을 디자인할 수 있습니다.</li>
+                                <li>CSS Media Query를 사용하여 반응형 웹을 만들 수 있습니다.</li>
+                                <li>Vanila JS를 사용하여 DOM 객체를 제어할 수 있습니다.</li>
+                                <li>자바스크립트와 제이쿼리를 사용해 패럴랙스 스크롤링 웹을 구현할 수 있습니다.</li>
+                            </ul>
+                        </div>
                     </div>
+                    <div class="stack">
+                        <div class="HTML"></div>
+                        <div class="CSS"></div>
+                        <div class="JS"></div>
+                        <div class="JQ"></div>
+                        <div class="REACT"></div>
+                        <div class="NODE"></div>
+                        <div class="AWS"></div>
                     </div>
-
                 </div>
             </section>
             <section class="portfolio">
@@ -131,10 +130,11 @@
                             <h3>테트리스(PC WEBSITE)</h3>
                         </div>
                         <div class="modal_content">
-                            <img src="./img/portfolio_item/tetris_play.gif" alt="portfolio_img" class="visual_img" id="tetris">
-                            <img src="./img/portfolio_item/tetris_play.gif" alt="portfolio_img" class="visual_img" id="star">  
-                            <img src="./img/portfolio_item/todo_play.gif" alt="portfolio_img" class="visual_img" id="todo">                                                     
+                            <img loading="lazy" src="./img/portfolio_item/tetris_play.gif" alt="portfolio_img" class="visual_img" id="tetris">
+                            <img loading="lazy" src="./img/portfolio_item/tetris_play.gif" alt="portfolio_img" class="visual_img" id="star">  
+                            <img loading="lazy" src="./img/portfolio_item/todo_play.gif" alt="portfolio_img" class="visual_img" id="todo">                                                     
                                 <p class="content_ex"></p>
+                                <h4 class="skills">활용스킬 Skills</h4>
                                 <ul class="content_skills">
                                 </ul>
                             <a href="#" target='_blank' class="git_btn">Github</a>

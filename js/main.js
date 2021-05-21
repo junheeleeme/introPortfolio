@@ -48,8 +48,8 @@ let isWheel_move;
 let wDelta; //마우스 Delta값
 let nav_idx = 0;
 let _typing; //typing_Effect()
-let itrv_time = 100; //typing_Effect()
-let sto_time = 1500;
+let itrv_time = 85; //typing_Effect()
+let sto_time = 1100;
 let i = 0; //typing_Effect()
 let isPause = true;
 
@@ -245,7 +245,7 @@ openBtn.addEventListener('click', ()=>{
                 _content.innerText = portfolio[i].content;
 
                 portfolio[i].skills.forEach( sks=>{ 
-                    _skills.innerHTML += '<li><strong>' + sks + '</strong></li>';
+                    _skills.innerHTML += '<li>' + sks + '</li>';
                 })               
                 _git.href = portfolio[i].link[0];
                 _view.href = portfolio[i].link[1];
@@ -267,7 +267,6 @@ modal_bg.addEventListener('click', ()=>{
     modal_exc = 0;
 
 })
-
 modal_close.addEventListener('click', ()=>{
     setTimeout(() => {
         visual_img.forEach(img =>{
