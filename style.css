@@ -399,7 +399,7 @@ section>.inner{
 }
 
 section.intro{
-    background-color: #eeeeee;
+    background-color: #fff;
 }
 
 .intro_bg{
@@ -417,7 +417,7 @@ section.intro{
 }
 
 .intro_wrap>h1{
-    font-size: 95px;
+    font-size: 110px;
     user-select: none;
     color: #fff;
 }
@@ -426,7 +426,7 @@ section.intro{
     position: relative;
     display: inline;
     padding-left: 5px;
-    font-size: 25px;
+    font-size: 27px;
     font-weight: 300;
     color: #fff;
     user-select: none;
@@ -527,9 +527,9 @@ section.intro{
     margin: 0 -71px;
     width: calc(100% + 140px);
     height: 400px;
-    background: #C9D6FF;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to bottom, #E2E2E2, #C9D6FF);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to bottom, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #FFEEEE;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #DDEFBB, #FFEEEE);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #DDEFBB, #FFEEEE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 
@@ -544,7 +544,7 @@ background: linear-gradient(to bottom, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, 
     background-size: 100% 100%;
 }
 .stack>div:hover{
-    transform: scale(1.03) rotate(5deg);
+    transform: scale(1.02) rotate(5deg);
 }
 .HTML{
     top: 30px;
@@ -570,7 +570,7 @@ background: linear-gradient(to bottom, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, 
 }
 .JQ{
     top: 70px;
-    width: 240px;
+    width: 250px;
     height: 85px;
     background-image: url(./img/JQ.png);
     animation: stack_eff 20s 8.51s linear infinite;
