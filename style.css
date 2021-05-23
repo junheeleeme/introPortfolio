@@ -399,7 +399,7 @@ section>.inner{
 }
 
 section.intro{
-    background-color: #fff;
+    background-color: #eeeeee;
 }
 
 .intro_bg{
@@ -417,7 +417,7 @@ section.intro{
 }
 
 .intro_wrap>h1{
-    font-size: 110px;
+    font-size: 95px;
     user-select: none;
     color: #fff;
 }
@@ -426,7 +426,7 @@ section.intro{
     position: relative;
     display: inline;
     padding-left: 5px;
-    font-size: 27px;
+    font-size: 25px;
     font-weight: 300;
     color: #fff;
     user-select: none;
@@ -527,9 +527,9 @@ section.intro{
     margin: 0 -71px;
     width: calc(100% + 140px);
     height: 400px;
-    background: #FFEEEE;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #DDEFBB, #FFEEEE);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #DDEFBB, #FFEEEE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #C9D6FF;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #E2E2E2, #C9D6FF);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 
@@ -538,13 +538,13 @@ background: linear-gradient(to left, #DDEFBB, #FFEEEE); /* W3C, IE 10+/ Edge, Fi
     left: 120%;
     display: inline-block;
     transform: rotate(0deg);
-    transition: 0.3s ease;
+    transition: 0.5s ease;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;
 }
 .stack>div:hover{
-    transform: scale(1.02) rotate(5deg);
+    transform: scale(1.03) rotate(5deg);
 }
 .HTML{
     top: 30px;
@@ -570,7 +570,7 @@ background: linear-gradient(to left, #DDEFBB, #FFEEEE); /* W3C, IE 10+/ Edge, Fi
 }
 .JQ{
     top: 70px;
-    width: 250px;
+    width: 240px;
     height: 85px;
     background-image: url(./img/JQ.png);
     animation: stack_eff 20s 8.51s linear infinite;
@@ -648,16 +648,7 @@ background: linear-gradient(to left, #DDEFBB, #FFEEEE); /* W3C, IE 10+/ Edge, Fi
     transition: 0.1s ease-out;
     background-color: rgba(0,0,0, 0.65);
     opacity: 0;
-}
-
-.port_show>label{
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 25px;
-    text-align: left;
-    cursor: pointer;    
+    cursor: pointer;
 }
 
 .port_title{
@@ -839,7 +830,7 @@ background: linear-gradient(to left, #DDEFBB, #FFEEEE); /* W3C, IE 10+/ Edge, Fi
     opacity: 0;
 }
 
-#modal_chk:checked ~ label>.modal_bg{
+#modal_chk:checked ~ .modal_bg{
     opacity: 1;
     z-index: 90;
 }
@@ -849,7 +840,7 @@ background: linear-gradient(to left, #DDEFBB, #FFEEEE); /* W3C, IE 10+/ Edge, Fi
     transition-delay: .1s;
 }
 
-#modal_chk ~ label>.modal_bg>.close_btn{
+#modal_chk ~ .modal_bg>.close_btn{
     position: absolute;
     top: -100px;
     right: 30px;
@@ -860,7 +851,7 @@ background: linear-gradient(to left, #DDEFBB, #FFEEEE); /* W3C, IE 10+/ Edge, Fi
     cursor: pointer;
     transition: 0.15s ease;
 }
-#modal_chk:checked ~ label>.modal_bg>.close_btn{
+#modal_chk:checked ~ .modal_bg>.close_btn{
     top: 30px;
     transition: 0s ease;
 }

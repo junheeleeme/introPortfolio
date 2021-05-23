@@ -31,12 +31,14 @@ const typing = document.querySelector('.typing');
 const modal_btn = document.querySelectorAll('.port_show');
 const modal_close = document.querySelector('.close_btn');
 const modal_bg = document.querySelector('.modal_bg');
+const modal_ck = document.querySelector('#modal_chk');
 const nav_toggle = document.querySelector('.nav_toggle');
 const nav = document.querySelector('.nav');
 const copy = document.querySelectorAll('.copy_btn');
 const copy_txt = document.querySelector('#copy_txt');
 const type_txt = '안녕하세요 :) 웹 개발자 개인 포트폴리오 사이트입니다.';
 const visual_img = document.querySelectorAll('.visual_img');
+
 
 let screen_h = window.innerHeight; 
 let screen_w = window.innerWidth;
@@ -205,6 +207,8 @@ copy.forEach(copy_btn =>{
 //포트폴리오 모달
 modal_btn.forEach(openBtn =>{  
 openBtn.addEventListener('click', ()=>{
+
+    modal_ck.checked = true;
     
     const _height = document.querySelector('.portfolio').offsetTop;
     //변경할 부분 정의
@@ -258,16 +262,8 @@ openBtn.addEventListener('click', ()=>{
 })
 
 //모달이 열려있는 경우 화면이동 중단
-modal_bg.addEventListener('click', ()=>{
-    setTimeout(() => {
-        visual_img.forEach(img =>{
-            img.style.display = 'none';
-        })
-    }, 400);
-    modal_exc = 0;
-
-})
 modal_close.addEventListener('click', ()=>{
+    modal_ck.checked = false;
     setTimeout(() => {
         visual_img.forEach(img =>{
             img.style.display = 'none';
