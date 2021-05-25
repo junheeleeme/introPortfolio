@@ -399,7 +399,7 @@ section>.inner{
 }
 
 section.intro{
-    background-color: #eeeeee;
+    background-color: #fff;
 }
 
 .intro_bg{
@@ -494,7 +494,7 @@ section.intro{
 }
 
 .profile_txt>h3{
-    font-size: 25px;
+    font-size: 27px;
     margin-bottom: 35px;
 }
 
@@ -936,6 +936,63 @@ background: linear-gradient(to bottom, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, 
     .copy_btn{
         top: 1px;
     }
+    .inner > h2{
+        margin-bottom: 50px;
+    }
+    .profile_img{
+        width: 220px;
+        height: 220px;
+    }
+    .profile_txt>h3{
+        font-size: 24px;
+    }
+    .profile_txt>ul>li {
+        font-size: 17px;
+        line-height: 2;
+        position: relative;
+    }
+
+    .stack {
+        height: 350px;
+        display: block;
+    }
+    .HTML{
+        top: 30px;
+        width: 140px;
+        height: 140px;
+    }
+    
+    .CSS{
+        top: 170px;
+        width: 105px;
+        height: 140px;
+    }
+    .JS{
+        top: 100px;
+        width: 110px;
+        height:110px;
+    }
+    .JQ{
+        top: 50px;
+        width: 180px;
+        height: 70px;
+    }
+    .REACT{
+        top: 150px;
+        width: 140px;
+        height: 140px;
+    }
+    .NODE{
+        top: 85px;
+        width: 165px;
+        height: 100px;        
+    }
+    .AWS{
+        top: 200px;
+        width: 130px;
+        height: 80px;
+    }
+
     .port_title{
         font-size: 40px;
     }
@@ -985,12 +1042,10 @@ background: linear-gradient(to bottom, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, 
     }
     .profile{
         height: 220px;
-    }
-
+    }    
     .profile_txt{
         padding: 10;
     }
-
     .profile_txt>h3{
         display: inline-block;
         font-size: 25px;
@@ -1112,6 +1167,10 @@ background: linear-gradient(to bottom, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, 
     .intro>.inner{
         padding: 25px; 
     }
+    .intro>.inner>h2 {
+        font-size: 40px;
+        margin-bottom: 70px;
+    }
     .profile_img{
         width: 170px;
         height: 170px;
@@ -1135,6 +1194,14 @@ background: linear-gradient(to bottom, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, 
     .profile_txt>ul>li{
         font-size: 13px;
         line-height: 1.75;
+    }
+
+    .stack {
+        top: 200px;
+        display: block;
+        margin: 0 -26px;
+        width: calc(100% + 50px);
+        height: 400px;
     }
 
     .portfolio_modal{
@@ -1406,21 +1473,31 @@ background: linear-gradient(to bottom, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, 
     }
     .profile_txt{
         position: absolute;
-        top: 95%;
-        right: 1.5%;
+        top: 100%;
+        right: 4%;
         padding: 5px 0;
     }
     .profile_txt>h3{
         display: inline-block;
-        font-size: 19px;
+        font-size: 21px;
         margin-bottom: 25px;
     }
     .profile_txt>ul{
         padding-left: 5px;
     }
     .profile_txt>ul>li{
-        font-size: 10.5px;
-        line-height: 1.85;
+        font-size: 12px;
+        line-height: 1.95;
+    }
+    .stack {
+        top: 300px;
+        display: block;
+        margin: 0 -16px;
+        width: calc(100% + 30px);
+        height: 400px;
+        background: #C9D6FF;
+        background: -webkit-linear-gradient(to bottom, #E2E2E2, #C9D6FF);
+        background: linear-gradient(to bottom, #E2E2E2, #C9D6FF);
     }
 
     .portfolio_items {
@@ -1638,19 +1715,64 @@ background: linear-gradient(to bottom, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, 
     }
     .profile_txt>h3{
         display: inline-block;
-        font-size: 17px;
-        margin-bottom: 20px;
+        font-size: 19px;
+        margin-bottom: 30px;
     }
     .profile_txt>ul{
         padding-left: 5px;
     }
     .profile_txt>ul>li{
-        font-size: 10px;
-        line-height: 2;
+        font-size: 16px;
+        line-height: 1.25;
+        margin-bottom: 12px;
     }
     .profile_txt>ul>li:after{
+        top: 8px;
         left: -10px;
     }
+
+    .stack{
+        top: 45px;
+        height: 330px; 
+    }
+
+    .HTML{
+        top: 25px;
+        width: 100px;
+        height: 100px;
+    }
+    
+    .CSS{
+        top: 190px;
+        width: 70px;
+        height: 100px;
+    }
+    .JS{
+        top: 100px;
+        width: 75px;
+        height:75px;
+    }
+    .JQ{
+        top: 35px;
+        width: 120px;
+        height: 42px;
+    }
+    .REACT{
+        top: 190px;
+        width: 110px;
+        height: 110px;
+    }
+    .NODE{
+        top: 85px;
+        width: 110px;
+        height: 68px;        
+    }
+    .AWS{
+        top: 200px;
+        width: 100px;
+        height: 55px;
+    }
+
     .intro_wrap>h1 {
         font-size: 52px;
     }
@@ -1697,6 +1819,7 @@ background: linear-gradient(to bottom, #E2E2E2, #C9D6FF); /* W3C, IE 10+/ Edge, 
         font-size: 0.7em;
         transition: 0.5s ease;
     }
+
     
     .portfolio_items>li:hover .port_show{
         left: 0;
